@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HotelReach - Book hotels across India with best prices. Trusted hotel booking & digital marketing partner for travelers and hotel owners.">
+    <meta name="keywords" content="hotel booking, hotels in India, budget hotels, luxury hotels, hotel reservation, hotel deals">
+    <meta name="author" content="HotelReach">
+    <meta property="og:title" content="HotelReach - Book Hotels Across India">
+    <meta property="og:description" content="Your trusted hotel booking & digital marketing partner. Book from budget to luxury hotels at competitive prices.">
+    <meta property="og:type" content="website">
+    <title>HotelReach | Premium Hotel Booking Platform in India</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0d6efd;
+            --dark-blue: #004aad;
+            --light-blue: #e7f3ff;
+            --gold: #d4af37;
+            --dark-gold: #b8860b;
+            --white: #ffffff;
+            --light-gray: #f5f7fa;
+            --dark-gray: #333333;
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease-in-out;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-gray);
+            background: var(--light-gray);
+            line-height: 1.6;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(13, 110, 253, 0.95);
+            backdrop-filter: blur(10px);
+            color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 999;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            background: rgba(0, 74, 173, 0.98);
+            padding: 0.8rem 5%;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        nav .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><rect x="10" y="10" width="30" height="30" fill="rgba(255,255,255,0.05)" rx="5"/></pattern></defs><rect width="1200" height="600" fill="url(%23pattern)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 100px 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 74, 173, 0.5);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            animation: slideInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            animation: slideInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            color: var(--light-blue);
+            animation: slideInUp 0.8s ease-out 0.6s both;
+        }
+
+        /* ===== SEARCH BAR ===== */
+        .search-container {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+            margin: 3rem auto 0;
+            max-width: 1000px;
+            animation: slideInUp 0.8s ease-out 0.8s both;
+            position: relative;
+            z-index: 2;
+        }
+
+        .search-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            align-items: end;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 0.85rem;
+            border: 2px solid var(--light-blue);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--dark-blue);
+            box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+        }
+
+        .search-btn {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: var(--white);
+            border: none;
+            padding: 0.85rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+        }
+
+        .search-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(13, 110, 253, 0.4);
+        }
+
+        .search-btn:active {
+            transform: translateY(0);
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-block;
+            padding: 0.95rem 2rem;
+            margin: 0.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(13, 110, 253, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--dark-blue);
+            border: 2px solid var(--dark-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-blue);
+            transform: translateY(-3px);
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-gold:hover {
+            background: var(--dark-gold);
+            transform: translateY(-3px);
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== FEATURED HOTELS ===== */
+        .featured-hotels {
+            background: var(--light-gray);
+        }
+
+        .hotels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .hotel-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            animation: scaleIn 0.6s ease-out;
+        }
+
+        .hotel-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hotel-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--light-blue), var(--primary-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hotel-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gold);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .hotel-content {
+            padding: 2rem;
+        }
+
+        .hotel-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .hotel-rating {
+            color: var(--gold);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hotel-location {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hotel-features {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+
+        .feature-tag {
+            background: var(--light-blue);
+            color: var(--dark-blue);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .hotel-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--light-blue);
+            padding-top: 1.5rem;
+        }
+
+        .price-tag {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark-blue);
+        }
+
+        .price-tag small {
+            font-size: 0.8rem;
+            color: #666;
+            display: block;
+            margin-top: 0.25rem;
+        }
+
+        /* ===== SERVICES ===== */
+        .services {
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            text-align: center;
+            padding: 2.5rem;
+            background: var(--light-gray);
+            border-radius: 15px;
+            transition: var(--transition);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .service-card:hover {
+            background: var(--light-blue);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* ===== WHY CHOOSE US ===== */
+        .why-us {
+            background: linear-gradient(135deg, var(--light-blue), var(--white));
+        }
+
+        .why-us-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .why-us-list {
+            list-style: none;
+        }
+
+        .why-us-list li {
+            margin-bottom: 1.5rem;
+            padding-left: 3.5rem;
+            position: relative;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .why-us-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--gold);
+            color: var(--white);
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .why-us-image {
+            font-size: 6rem;
+            text-align: center;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            background: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 5px solid var(--gold);
+            transition: var(--transition);
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .stars {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--dark-blue);
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: #999;
+            margin-top: 0.25rem;
+        }
+
+        /* ===== FAQ ===== */
+        .faq {
+            background: linear-gradient(135deg, var(--light-blue), var(--white));
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border: 2px solid var(--light-blue);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--white);
+            border: none;
+            width: 100%;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--dark-blue);
+            transition: var(--transition);
+            font-family: inherit;
+        }
+
+        .faq-question:hover {
+            background: var(--light-blue);
+        }
+
+        .faq-question.active {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .faq-question.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: var(--light-gray);
+        }
+
+        .faq-answer.active {
+            max-height: 500px;
+            padding: 1.5rem;
+        }
+
+        .faq-answer p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* ===== PARTNERS SECTION ===== */
+        .partner-section {
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            color: var(--white);
+            text-align: center;
+        }
+
+        .partner-content {
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .partner-section p {
+            font-size: 1.1rem;
+            line-height: 2;
+            margin: 1.5rem 0;
+        }
+
+        .partner-highlight {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--gold);
+        }
+
+        .partner-highlight b {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        /* ===== STATS ===== */
+        .stats {
+            background: var(--white);
+            padding: 40px 5%;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .footer-divider {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        /* ===== FLOATING WHATSAPP BUTTON ===== */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            text-decoration: none;
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: var(--transition);
+            z-index: 998;
+            animation: slideInRight 0.6s ease-out;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-btn.hide {
+            display: none;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0.8rem 3%;
+            }
+
+            nav .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: rgba(0, 74, 173, 0.98);
+                padding: 1rem;
+                gap: 0;
+                z-index: 998;
+            }
+
+            nav .nav-links.active {
+                display: flex;
+            }
+
+            nav .nav-links a {
+                padding: 0.8rem 1rem;
+                border-radius: 5px;
+            }
+
+            nav .nav-links a:hover {
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .search-form {
+                grid-template-columns: 1fr;
+            }
+
+            .search-btn {
+                width: 100%;
+            }
+
+            .why-us-content {
+                grid-template-columns: 1fr;
+            }
+
+            .why-us-image {
+                font-size: 4rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+
+            .whatsapp-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .hotels-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 0.95rem;
+            }
+
+            nav .logo {
+                font-size: 1.3rem;
+            }
+
+            .hero {
+                padding: 60px 3%;
+                margin-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 50px 3%;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .search-container {
+                padding: 1.5rem;
+            }
+
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .hotel-name {
+                font-size: 1.1rem;
+            }
+
+            .stat-number {
+                font-size: 1.8rem;
+            }
+
+            footer {
+                padding: 2rem 3%;
+            }
+
+            .footer-bottom {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ===== NAVIGATION ===== -->
+    <nav>
+        <a href="#home" class="logo">🏨 HotelReach</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#featured">Hotels</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#partner">Partner</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>🏨 Discover Premium Hotels Across India</h1>
+            <p>Your Trusted Hotel Booking & Digital Marketing Partner</p>
+            <p class="subtitle">Find, compare, and book from 10,000+ hotels at unbeatable prices</p>
+
+            <!-- SEARCH BAR -->
+            <div class="search-container">
+                <form class="search-form" id="searchForm">
+                    <div class="form-group">
+                        <label for="city">🏙️ City or Location</label>
+                        <input type="text" id="city" placeholder="Enter city name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkin">📅 Check-in Date</label>
+                        <input type="date" id="checkin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkout">📅 Check-out Date</label>
+                        <input type="date" id="checkout" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">👥 Guests</label>
+                        <select id="guests" required>
+                            <option value="">Select guests</option>
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5">5+ Guests</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="search-btn">🔍 Search Hotels</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURED HOTELS ===== -->
+    <section class="featured-hotels" id="featured">
+        <h2 class="section-title">✨ Featured Hotels</h2>
+        <p class="section-subtitle">Handpicked premium hotels offering the best experience in their category</p>
+
+        <div class="hotels-grid">
+            <!-- Hotel Card 1 -->
+            <div class="hotel-card">
+                <div class="hotel-image">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; font-size: 5rem;">🏨</div>
+                    <div class="hotel-badge">⭐ LUXURY</div>
+                </div>
+                <div class="hotel-content">
+                    <div class="hotel-name">Grand Palace Hotel</div>
+                    <div class="hotel-rating">★★★★★ (4.8)</div>
+                    <div class="hotel-location">📍 Mumbai, Maharashtra</div>
+                    <div class="hotel-features">
+                        <span class="feature-tag">🏊 Pool</span>
+                        <span class="feature-tag">🍽️ Restaurant</span>
+                        <span class="feature-tag">🛏️ Suite</span>
+                    </div>
+                    <div class="hotel-price">
+                        <div class="price-tag">₹5,999<small>per night</small></div>
+                        <a href="https://wa.me/918877239945" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hotel Card 2 -->
+            <div class="hotel-card">
+                <div class="hotel-image">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; font-size: 5rem;">🏨</div>
+                    <div class="hotel-badge">🏆 PREMIUM</div>
+                </div>
+                <div class="hotel-content">
+                    <div class="hotel-name">Taj Retreat Inn</div>
+                    <div class="hotel-rating">★★★★☆ (4.6)</div>
+                    <div class="hotel-location">📍 Delhi, India</div>
+                    <div class="hotel-features">
+                        <span class="feature-tag">🏋️ Gym</span>
+                        <span class="feature-tag">🎵 Spa</span>
+                        <span class="feature-tag">📶 WiFi</span>
+                    </div>
+                    <div class="hotel-price">
+                        <div class="price-tag">₹3,499<small>per night</small></div>
+                        <a href="https://wa.me/918877239945" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hotel Card 3 -->
+            <div class="hotel-card">
+                <div class="hotel-image">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: flex; align-items: center; justify-content: center; font-size: 5rem;">🏨</div>
+                    <div class="hotel-badge">💎 BEST VALUE</div>
+                </div>
+                <div class="hotel-content">
+                    <div class="hotel-name">Coastal Paradise Resort</div>
+                    <div class="hotel-rating">★★★★☆ (4.5)</div>
+                    <div class="hotel-location">📍 Goa, India</div>
+                    <div class="hotel-features">
+                        <span class="feature-tag">🏖️ Beach</span>
+                        <span class="feature-tag">🌴 Garden</span>
+                        <span class="feature-tag">🍹 Bar</span>
+                    </div>
+                    <div class="hotel-price">
+                        <div class="price-tag">₹2,299<small>per night</small></div>
+                        <a href="https://wa.me/918877239945" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="https://wa.me/918877239945" class="btn btn-secondary">View All Hotels 🔍</a>
+        </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="stats">
+        <h2 class="section-title">Our Success Metrics</h2>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-number">10K+</div>
+                <div class="stat-label">Hotels Listed</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Happy Guests</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Partner Hotels</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Support Available</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="services" id="services">
+        <h2 class="section-title">🎯 Our Services</h2>
+        <p class="section-subtitle">Comprehensive hotel booking and marketing solutions tailored for you</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏨</div>
+                <h3>Hotel Booking</h3>
+                <p>Access thousands of verified hotels across India with instant confirmation and best price guarantee.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Digital Marketing</h3>
+                <p>Boost your hotel's visibility through targeted campaigns on Google, Meta, and social media platforms.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Booking Growth</h3>
+                <p>Strategic solutions to increase direct bookings and maximize occupancy rates for your property.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🤝</div>
+                <h3>Hotel Partnership</h3>
+                <p>Join our network of premium hotels with zero upfront costs. Pay only for confirmed bookings.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💬</div>
+                <h3>WhatsApp Support</h3>
+                <p>24/7 dedicated WhatsApp assistance for booking queries, modifications, and customer support.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎁</div>
+                <h3>Exclusive Deals</h3>
+                <p>Get access to special discounts, seasonal offers, and loyalty rewards on every booking.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY CHOOSE US ===== -->
+    <section class="why-us" id="why-us">
+        <h2 class="section-title">Why Choose HotelReach?</h2>
+        <div class="why-us-content">
+            <div>
+                <ul class="why-us-list">
+                    <li>✓ <strong>Budget to Luxury Hotels</strong> - Hotels for every budget and preference</li>
+                    <li>✓ <strong>Verified Partnerships</strong> - All hotels are verified and trusted</li>
+                    <li>✓ <strong>Best Price Guarantee</strong> - Competitive rates across the board</li>
+                    <li>✓ <strong>Instant Confirmation</strong> - Real-time booking confirmation</li>
+                    <li>✓ <strong>No Hidden Charges</strong> - Transparent pricing with all-inclusive rates</li>
+                    <li>✓ <strong>24/7 WhatsApp Support</strong> - Always available when you need help</li>
+                </ul>
+            </div>
+            <div class="why-us-image">🎯</div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="testimonials" id="testimonials">
+        <h2 class="section-title">⭐ Guest Testimonials</h2>
+        <p class="section-subtitle">Real experiences from our satisfied customers</p>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"HotelReach made booking my Mumbai trip incredibly easy. Great selection of hotels and amazing prices. The WhatsApp support was super helpful!"</p>
+                <div class="testimonial-author">Priya Sharma</div>
+                <div class="testimonial-role">Business Traveler</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"As a hotel owner, partnering with HotelReach has significantly increased our bookings. No charges upfront - we only pay for confirmed reservations!"</p>
+                <div class="testimonial-author">Rajesh Kumar</div>
+                <div class="testimonial-role">Hotel Manager</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">★★★★☆</div>
+                <p class="testimonial-text">"Perfect platform for family vacation planning. Found amazing deals, great customer service, and the booking process was seamless."</p>
+                <div class="testimonial-author">Anjali Verma</div>
+                <div class="testimonial-role">Leisure Traveler</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq" id="faq">
+        <h2 class="section-title">❓ Frequently Asked Questions</h2>
+        <p class="section-subtitle">Find answers to common questions about HotelReach</p>
+
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How do I book a hotel on HotelReach?</span>
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Simply use our search bar to enter your city, check-in/check-out dates, and number of guests. Browse the available hotels, compare prices and amenities, and click "Book Now" to proceed with your reservation. You can also contact us on WhatsApp for personalized assistance.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What are the payment methods accepted?</span>
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We accept all major payment methods including credit cards, debit cards, UPI, net banking, and mobile wallets. Some hotels may also offer the option to pay at the property. For specific payment details, please contact our WhatsApp support.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Can I modify or cancel my booking?</span>
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Modifications and cancellations depend on the hotel's cancellation policy. Contact our WhatsApp support team with your booking details, and we'll assist you with the process. Most hotels allow free cancellation up to 24-48 hours before check-in.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How can hotels partner with HotelReach?</span>
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We offer flexible partnership programs for hotels of all sizes. There are no monthly charges - hotels only pay for confirmed bookings. Reach out to us via WhatsApp at 8877239945 with your hotel details, and our team will guide you through the registration process.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Is HotelReach available 24/7?</span>
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! Our platform is available 24/7 for bookings. Our customer support team is also available round-the-clock on WhatsApp to assist with any queries or urgent issues related to your booking.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Do you offer group booking discounts?</span>
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes, we offer special discounts for group bookings. For group reservations or bulk bookings, please contact our WhatsApp team at 8877239945, and we'll provide you with customized quotes and special rates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PARTNER SECTION ===== -->
+    <section class="partner-section" id="partner">
+        <div class="partner-content">
+            <h2 class="section-title" style="color: var(--white);">🤝 Partner With HotelReach</h2>
+            <p><strong>Are you a hotel owner?</strong></p>
+            <p>Join thousands of hotels already growing their business with HotelReach.</p>
+
+            <div class="partner-highlight">
+                <p><b>✓ Zero Monthly Charges</b><br>
+                No upfront investment or monthly fees.<br><br>
+                <b>✓ Pay Per Booking</b><br>
+                Only pay commission on confirmed reservations.<br><br>
+                <b>✓ Digital Marketing Support</b><br>
+                We promote your hotel across multiple channels.<br><br>
+                <b>✓ Dedicated Account Manager</b><br>
+                Personal support to help you succeed.</p>
+            </div>
+
+            <p>Let's grow your hotel business together!</p>
+            <a href="https://wa.me/918877239945" class="btn btn-gold">Become a Partner Today 🚀</a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer id="contact">
+        <div class="footer-content">
+            <!-- About Section -->
+            <div class="footer-section">
+                <h3>🏨 HotelReach</h3>
+                <p>Your trusted hotel booking and digital marketing partner connecting travelers with premium hotels across India.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com" title="Facebook">f</a>
+                    <a href="https://twitter.com" title="Twitter">𝕏</a>
+                    <a href="https://instagram.com" title="Instagram">📷</a>
+                    <a href="https://linkedin.com" title="LinkedIn">in</a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#featured">Featured Hotels</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#partner">Partner With Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Support -->
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#faq">Help Center</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cancellation Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <span class="contact-icon">📞</span>
+                    <div>
+                        <p><strong>Phone:</strong><br>+91 8877239945</p>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-icon">📧</span>
+                    <div>
+                        <p><strong>Email:</strong><br>hotelreach.in@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-icon">💬</span>
+                    <div>
+                        <p><strong>WhatsApp:</strong><br>+91 8877239945</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-divider">
+            <div class="footer-bottom">
+                <p>&copy; 2026 HotelReach. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== FLOATING WHATSAPP BUTTON ===== -->
+    <a href="https://wa.me/918877239945" class="whatsapp-btn" title="Chat with us on WhatsApp">💬</a>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        // ===== STICKY NAVIGATION =====
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // ===== MOBILE MENU =====
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // ===== SEARCH FORM =====
+        document.getElementById('searchForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const city = document.getElementById('city').value;
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            const guests = document.getElementById('guests').value;
+
+            // Redirect to WhatsApp with booking details
+            const message = `I want to book a hotel in ${city} for ${guests} guest(s). Check-in: ${checkin}, Check-out: ${checkout}. Please help me find available hotels.`;
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/918877239945?text=${encodedMessage}`, '_blank');
+        });
+
+        // ===== FAQ TOGGLE =====
+        function toggleFAQ(element) {
+            element.classList.toggle('active');
+            const answer = element.nextElementSibling;
+            answer.classList.toggle('active');
+        }
+
+        // ===== SMOOTH SCROLL OFFSET FOR FIXED NAV =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const offsetTop = target.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // ===== SET MINIMUM DATE =====
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('checkin').min = today;
+        document.getElementById('checkout').min = today;
+
+        // Auto-set checkout date to 1 day after check-in
+        document.getElementById('checkin').addEventListener('change', function() {
+            const checkinDate = new Date(this.value);
+            checkinDate.setDate(checkinDate.getDate() + 1);
+            const checkoutDate = checkinDate.toISOString().split('T')[0];
+            document.getElementById('checkout').value = checkoutDate;
+            document.getElementById('checkout').min = this.value;
+        });
+
+        // ===== ANIMATION ON SCROLL =====
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards and testimonial cards
+        document.querySelectorAll('.service-card, .testimonial-card, .hotel-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
