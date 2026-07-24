@@ -1620,15 +1620,34 @@
             lastScrollTop = currentScroll;
         });
 
-        // Form submission
-        const searchForm = document.querySelector('.search-form');
-        if (searchForm) {
-            searchForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Thank you for your interest! Redirecting to hotel search...');
-                // In production, this would redirect to your booking system
-            });
-        }
+        // Form submission - WhatsApp Redirect
+const searchForm = document.querySelector('.search-form');
+
+if (searchForm) {
+    searchForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        let destination = document.getElementById('destination').value;
+        let checkin = document.getElementById('checkin').value;
+        let checkout = document.getElementById('checkout').value;
+        let guests = document.getElementById('guests').value;
+
+        let message = `🏨 HotelReach Booking Enquiry
+
+📍 Destination: ${destination}
+📅 Check-in: ${checkin}
+📅 Check-out: ${checkout}
+👥 Guests: ${guests}
+
+Please share available hotels and prices.`;
+
+        let phone = "918877239945";
+
+        let whatsappURL = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+
+        window.open(whatsappURL, "_blank");
+    });
+}
     </script>
 </body>
 </html>
