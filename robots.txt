@@ -1,0 +1,49 @@
+# HotelReach - SEO Optimization
+# Last Updated: 2026-07-24
+# Robots.txt for search engine crawling
+
+# Allow all search engines
+User-agent: *
+Allow: /
+Allow: /hotels-in-varanasi
+Allow: /budget-hotels-varanasi
+Allow: /luxury-hotels-varanasi
+Allow: /book-hotels-india
+Allow: /blog
+Allow: /hotel-marketing-solutions
+Allow: /partner-with-us
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /api/
+Disallow: /temp/
+Disallow: /cache/
+Disallow: /?*sort=
+Disallow: /?*filter=
+Disallow: /*?page=
+Disallow: /*?utm_
+Disallow: /*?ref=
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+Allow: /images/
+Allow: /static/
+
+# Specific rules for Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: DotBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://hotelreach.in/sitemap.xml
+
+# Crawl delay (in seconds)
+Crawl-delay: 0

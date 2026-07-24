@@ -1,0 +1,99 @@
+{
+  "name": "HotelReach - Book Hotels Across India",
+  "short_name": "HotelReach",
+  "description": "Book hotels across India with HotelReach. Premium hotel booking platform offering budget to luxury hotels with best prices and digital marketing solutions.",
+  "start_url": "https://hotelreach.in/",
+  "scope": "https://hotelreach.in/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#0d6efd",
+  "background_color": "#ffffff",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["travel", "hotel", "booking"],
+  "screenshots": [
+    {
+      "src": "https://hotelreach.in/images/screenshot-mobile.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "https://hotelreach.in/images/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "icons": [
+    {
+      "src": "https://hotelreach.in/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "https://hotelreach.in/favicon-64x64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "https://hotelreach.in/favicon-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://hotelreach.in/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://hotelreach.in/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://hotelreach.in/favicon-maskable-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "https://hotelreach.in/favicon-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Hotels in Varanasi",
+      "short_name": "Varanasi Hotels",
+      "description": "Find and book the best hotels in Varanasi",
+      "url": "https://hotelreach.in/hotels-in-varanasi",
+      "icons": [
+        {
+          "src": "https://hotelreach.in/favicon-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Book Hotels in India",
+      "short_name": "Book Now",
+      "description": "Quick hotel booking across India",
+      "url": "https://hotelreach.in/book-hotels-india",
+      "icons": [
+        {
+          "src": "https://hotelreach.in/favicon-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false
+}
