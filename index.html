@@ -418,9 +418,10 @@ h1, h2, h3, h4 {
     font-size: 1.1rem;
 }
 
-/* About Section */
+/* About Section Grid Fix */
 .about-section {
     background: var(--gray-100);
+    overflow: hidden;
 }
 
 .about-grid {
@@ -430,34 +431,30 @@ h1, h2, h3, h4 {
     align-items: center;
 }
 
-.about-text h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: var(--primary-blue);
-}
-
-.about-text p {
-    margin-bottom: 1.5rem;
-    color: var(--text-muted);
-}
-
 .about-images {
     position: relative;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
 }
 
 .about-img-1 {
+    width: 85%;
+    height: auto;
     border-radius: 20px;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: block;
 }
 
 .about-img-2 {
     position: absolute;
-    bottom: -30px;
-    right: -30px;
+    bottom: -20px;
+    right: 0;
     width: 50%;
+    height: auto;
     border-radius: 20px;
-    border: 8px solid var(--gray-100);
-    box-shadow: var(--shadow-lg);
+    border: 6px solid #ffffff;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
 
 /* Featured Hotels */
