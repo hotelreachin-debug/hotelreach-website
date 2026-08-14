@@ -1070,37 +1070,52 @@ h1, h2, h3, h4 {
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content reveal">
-            <h1 class="hero-title">Book Smart. Stay Better.</h1>
-            <p class="hero-subtitle">Find the best hotels at the best prices with instant confirmation and 24x7 support.</p>
+<section class="hero" id="home">
+    <div class="hero-content reveal">
+        <!-- Professional Main Heading -->
+        <h1 class="hero-title">Your Trusted Partner for Perfect Stays.</h1>
+        
+        <!-- Professional Subtitle -->
+        <p class="hero-subtitle">Discover top-rated budget & premium hotels at guaranteed best prices with zero hidden charges, instant confirmation, and 24/7 dedicated support.</p>
+        
+        <!-- Search Form: action="hotels.html" lagane se search button pe click karte hi hotels.html khulega -->
+        <form class="search-form" action="hotels.html" method="GET">
+            <div class="search-group">
+                <i class="fa-solid fa-location-dot"></i>
+                <div class="search-input-wrap">
+                    <label>Location</label>
+                    <input type="text" name="location" placeholder="e.g. Varanasi, Ayodhya" required>
+                </div>
+            </div>
             
-            <form class="search-form" onsubmit="event.preventDefault(); window.open('https://wa.me/919774059230?text=Hello%20HotelReach,%20I%20want%20to%20book%20a%20hotel.', '_blank');">
-                <div class="search-group">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <div class="search-input-wrap">
-                        <label>Location</label>
-                        <input type="text" placeholder="e.g. Varanasi, Delhi" required>
-                    </div>
+            <div class="search-group">
+                <i class="fa-solid fa-calendar-check"></i>
+                <div class="search-input-wrap">
+                    <label>Check In</label>
+                    <input type="date" name="checkin" required>
                 </div>
-                <div class="search-group">
-                    <i class="fa-solid fa-calendar-check"></i>
-                    <div class="search-input-wrap">
-                        <label>Check In</label>
-                        <input type="date" required>
-                    </div>
+            </div>
+
+            <div class="search-group">
+                <i class="fa-solid fa-calendar-xmark"></i>
+                <div class="search-input-wrap">
+                    <label>Check Out</label>
+                    <input type="date" name="checkout" required>
                 </div>
-                <div class="search-group">
-                    <i class="fa-solid fa-user-group"></i>
-                    <div class="search-input-wrap">
-                        <label>Guests</label>
-                        <input type="number" placeholder="2 Guests, 1 Room" min="1" required>
-                    </div>
+            </div>
+
+            <div class="search-group">
+                <i class="fa-solid fa-user-group"></i>
+                <div class="search-input-wrap">
+                    <label>Guests</label>
+                    <input type="number" name="guests" placeholder="2 Guests" min="1" required>
                 </div>
-                <button type="submit" class="btn btn-primary btn-search">Search</button>
-            </form>
-        </div>
-    </section>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-search">Search Hotels</button>
+        </form>
+    </div>
+</section>
 
     <!-- About Section -->
     <section class="about-section" id="about">
