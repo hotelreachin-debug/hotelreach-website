@@ -308,10 +308,14 @@ h1, h2, h3, h4 {
     color: var(--dark);
 }
 
+
+    flex-direction: column;
+    width: 100%;
+        }
+        
 /* Hero Section */
 .hero {
-    height: 100vh;
-    min-height: 600px;
+    min-height: 100vh;
     position: relative;
     display: flex;
     align-items: center;
@@ -321,6 +325,7 @@ h1, h2, h3, h4 {
     background: linear-gradient(-45deg, #0d6efd, #001f4d, #1a1a1a, #003399);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
+    padding: 80px 15px 40px; /* Top padding navbar overlap avoid karne ke liye */
 }
 
 @keyframes gradientBG {
@@ -343,53 +348,56 @@ h1, h2, h3, h4 {
     position: relative;
     z-index: 1;
     text-align: center;
-    width: 90%;
-    max-width: 900px;
-    margin-top: 5rem;
+    width: 100%;
+    max-width: 850px;
 }
 
 .hero-title {
-    font-size: 4rem;
+    font-size: 2.5rem; /* Mobile first standard size */
     font-weight: 800;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
+    font-size: 0.95rem;
     font-weight: 300;
-    margin-bottom: 3rem;
+    margin-bottom: 1.8rem;
     text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+    opacity: 0.9;
 }
 
-/* Search Form */
+/* Compact Search Form */
 .search-form {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 15px;
-    padding: 15px;
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 14px;
+    padding: 10px; /* Padding reduced from 15px */
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 8px; /* Reduced gap between elements */
     box-shadow: var(--shadow-lg);
+    max-width: 450px; /* Form ko overall compact width di hai */
+    margin: 0 auto;
 }
 
 .search-group {
-    flex: 1;
-    min-width: 200px;
+    flex: 1 1 100%; /* Mobile par stacked, sleek rows */
     background: var(--white);
-    border-radius: 10px;
-    padding: 10px 15px;
+    border-radius: 8px;
+    padding: 6px 12px; /* Height kam karne ke liye vertical padding reduced */
     display: flex;
     align-items: center;
     gap: 10px;
     text-align: left;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .search-group i {
     color: var(--primary-blue);
-    font-size: 1.2rem;
+    font-size: 1rem; /* Compact Icon Size */
 }
 
 .search-input-wrap {
@@ -399,26 +407,79 @@ h1, h2, h3, h4 {
 }
 
 .search-input-wrap label {
-    font-size: 0.8rem;
+    font-size: 0.7rem; /* Clean & sleek label */
     color: var(--text-muted);
-    font-weight: 600;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
 }
 
 .search-input-wrap input {
     border: none;
     outline: none;
     font-family: inherit;
-    font-size: 1rem;
+    font-size: 0.88rem; /* Scaled down input text */
     color: var(--dark);
     width: 100%;
     background: transparent;
+    padding: 1px 0;
+    font-weight: 500;
 }
 
+/* Compact Search Button */
 .btn-search {
-    flex: 0 0 150px;
-    border-radius: 10px;
-    font-size: 1.1rem;
+    flex: 1 1 100%;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 10px; /* Height sleek aur balanced rakhi hai */
+    background: #0d6efd;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 2px;
 }
+
+.btn-search:hover {
+    background: #0b5ed7;
+}
+
+/* Desktop View Optimization (Width >= 768px) */
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.15rem;
+    }
+
+    .search-form {
+        max-width: 100%;
+        flex-wrap: nowrap; /* Desktop par horizontal alignment */
+        padding: 12px;
+        border-radius: 50px; /* Modern Pill Shape on Desktop */
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    .search-group {
+        flex: 1;
+        border-radius: 30px;
+        padding: 8px 16px;
+    }
+
+    .btn-search {
+        flex: 0 0 auto;
+        width: auto;
+        padding: 0 25px;
+        border-radius: 30px;
+        margin-top: 0;
+    }
+}
+
 
 /* About Section Grid Fix */
 .about-section {
