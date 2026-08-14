@@ -313,19 +313,23 @@ h1, h2, h3, h4 {
     width: 100%;
         }
         
-/* Hero Section */
+/* ==========================================
+   Hero Section & Compact Search Form (Fixed)
+   ========================================== */
+
+/* Hero Container with Forced Blue Gradient */
 .hero {
-    height: 100vh;
-    min-height: 600px;
+    min-height: 100vh;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--white);
+    color: #ffffff !important;
     overflow: hidden;
-    background: linear-gradient(-45deg, #0d6efd, #001f4d, #1a1a1a, #003399);
-    background-size: 400% 400%;
+    background: linear-gradient(-45deg, #0d6efd, #001f4d, #1a1a1a, #003399) !important;
+    background-size: 400% 400% !important;
     animation: gradientBG 15s ease infinite;
+    padding: 80px 15px 30px;
 }
 
 @keyframes gradientBG {
@@ -348,81 +352,146 @@ h1, h2, h3, h4 {
     position: relative;
     z-index: 1;
     text-align: center;
-    width: 90%;
-    max-width: 900px;
-    margin-top: 5rem;
+    width: 100%;
+    max-width: 850px;
 }
 
 .hero-title {
-    font-size: 4rem;
+    font-size: 2.2rem;
     font-weight: 800;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    color: #ffffff !important;
+    margin-bottom: 0.4rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     font-weight: 300;
-    margin-bottom: 3rem;
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+    color: #f0f0f0 !important;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    opacity: 0.9;
 }
 
-/* Search Form */
+/* Compact Search Box Container */
 .search-form {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.15) !important;
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 15px;
-    padding: 15px;
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 14px;
+    padding: 10px !important;
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
-    box-shadow: var(--shadow-lg);
+    gap: 8px !important;
+    max-width: 380px !important; /* Mobile par width aur compact kar di */
+    margin: 0 auto;
 }
 
+/* Sleek & Low Height Input Rows */
 .search-group {
-    flex: 1;
-    min-width: 200px;
-    background: var(--white);
-    border-radius: 10px;
-    padding: 10px 15px;
+    flex: 1 1 100%;
+    background: #ffffff !important;
+    border-radius: 8px;
+    padding: 6px 12px !important; /* Height Kam ki gayi h */
     display: flex;
     align-items: center;
     gap: 10px;
     text-align: left;
+    height: 46px !important; /* Fixed compact height */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
 }
 
 .search-group i {
-    color: var(--primary-blue);
-    font-size: 1.2rem;
+    color: #0d6efd !important;
+    font-size: 0.95rem;
 }
 
 .search-input-wrap {
     display: flex;
     flex-direction: column;
     width: 100%;
+    justify-content: center;
 }
 
 .search-input-wrap label {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    font-weight: 600;
+    font-size: 0.65rem !important;
+    color: #6c757d !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    margin-bottom: 2px;
 }
 
 .search-input-wrap input {
-    border: none;
-    outline: none;
+    border: none !important;
+    outline: none !important;
     font-family: inherit;
-    font-size: 1rem;
-    color: var(--dark);
+    font-size: 0.85rem !important;
+    color: #212529 !important;
     width: 100%;
-    background: transparent;
+    background: transparent !important;
+    padding: 0 !important;
+    font-weight: 500;
+    height: 18px !important;
 }
 
+/* Compact Search Button */
 .btn-search {
-    flex: 0 0 150px;
-    border-radius: 10px;
-    font-size: 1.1rem;
+    flex: 1 1 100%;
+    width: 100%;
+    height: 44px !important; /* Height half ho gayi pehle se */
+    border-radius: 8px;
+    font-size: 0.95rem !important;
+    font-weight: 600;
+    padding: 0 !important;
+    background: #0d6efd !important;
+    color: #ffffff !important;
+    border: none !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-search:hover {
+    background: #0b5ed7 !important;
+}
+
+/* Desktop Responsive Layout */
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.15rem;
+    }
+
+    .search-form {
+        max-width: 100% !important;
+        flex-wrap: nowrap;
+        padding: 10px 14px !important;
+        border-radius: 50px;
+    }
+
+    .search-group {
+        flex: 1;
+        border-radius: 30px;
+        height: 50px !important;
+    }
+
+    .btn-search {
+        flex: 0 0 auto;
+        width: auto;
+        padding: 0 28px !important;
+        height: 50px !important;
+        border-radius: 30px;
+        margin-top: 0;
+    }
 }
 
 /* About Section Grid Fix */
