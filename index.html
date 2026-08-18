@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HotelReach | Book Smart. Stay Better.</title>
     
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="logo.png">
+
     
     <!-- Canonical URL (Duplicate Content issue se bachane ke liye) -->
     <link rel="canonical" href="https://hotelreach.in/">
@@ -1588,7 +1589,19 @@ h1, h2, h3, h4 {
         object-fit: cover !important;
     }
 }
+/* Logo Styling */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
+.nav-logo-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+        
         
     </style>
 </head>
@@ -2004,9 +2017,11 @@ h1, h2, h3, h4 {
 
     <!-- Header / Navbar -->
     <header class="navbar" id="navbar">
-        <a href="#" class="logo">
-            <i class="fa-solid fa-hotel"></i> Hotel<span>Reach</span>
-        </a>
+        <a href="#" class="logo" style="display: flex; align-items: center; gap: 10px;">
+    <img src="logo.png" alt="HotelReach Logo" style="height: 40px; width: auto; object-fit: contain;">
+    <span>Hotel<span>Reach</span></span>
+</a>
+
         <ul class="nav-links" id="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
