@@ -3,1626 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HotelReach | Book Smart. Stay Better.</title>
+    <title>HotelReach - Book Smart. Stay Better.</title>
     
     <link rel="icon" type="image/png" href="logo.png">
 
-    
-    <!-- Canonical URL (Duplicate Content issue se bachane ke liye) -->
+    <!-- Canonical URL -->
     <link rel="canonical" href="https://hotelreach.in/">
 
     <!-- Google Bot Indexing Tag -->
     <meta name="robots" content="index, follow">
 
-    <!-- Font Awesome & Google Fonts Links -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        /* Yahan poora CSS code paste karein */
-        /* CSS Variables */
-:root {
-    --primary-blue: #0d6efd;
-    --primary-dark: #004bb5;
-    --gold: #d4af37;
-    --gold-light: #f3d87d;
-    --white: #ffffff;
-    --dark: #1a1a1a;
-    --gray-100: #f8f9fa;
-    --gray-200: #e9ecef;
-    --text-main: #333333;
-    --text-muted: #6c757d;
-    --shadow-sm: 0 2px 10px rgba(0,0,0,0.05);
-    --shadow-md: 0 10px 30px rgba(0,0,0,0.1);
-    --shadow-lg: 0 20px 40px rgba(13, 110, 253, 0.15);
-    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-/* Reset & Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    color: var(--text-main);
-    background-color: var(--white);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-ul {
-    list-style: none;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Scroll Progress Bar */
-#progress-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 4px;
-    background: linear-gradient(to right, var(--primary-blue), var(--gold));
-    width: 0%;
-    z-index: 9999;
-    transition: width 0.1s ease;
-}
-
-/* Loader */
-#preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--white);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-    transition: opacity 0.5s ease;
-}
-
-.loader-icon {
-    font-size: 3rem;
-    color: var(--primary-blue);
-    animation: pulse 1.5s infinite alternate;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 0.7; }
-    100% { transform: scale(1.2); opacity: 1; color: var(--gold); }
-}
-
-/* Scroll Animations (AOS Style) */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease-out;
-}
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-.reveal-left {
-    opacity: 0;
-    transform: translateX(-50px);
-    transition: all 0.8s ease-out;
-}
-.reveal-left.active {
-    opacity: 1;
-    transform: translateX(0);
-}
-.reveal-right {
-    opacity: 0;
-    transform: translateX(50px);
-    transition: all 0.8s ease-out;
-}
-.reveal-right.active {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-/* Typography */
-h1, h2, h3, h4 {
-    font-weight: 700;
-    line-height: 1.2;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.section-title h2 {
-    font-size: 2.5rem;
-    color: var(--dark);
-    position: relative;
-    display: inline-block;
-    margin-bottom: 1rem;
-}
-
-.section-title h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: var(--gold);
-    border-radius: 2px;
-}
-
-.section-title p {
-    color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* Layout Utility */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 5rem 0;
-}
-
-/* Buttons */
-.btn {
-    display: inline-block;
-    padding: 12px 28px;
-    border-radius: 30px;
-    font-weight: 600;
-    text-align: center;
-    cursor: pointer;
-    transition: var(--transition);
-    border: none;
-    outline: none;
-}
-
-.btn-primary {
-    background: linear-gradient(45deg, var(--primary-blue), #0056b3);
-    color: var(--white);
-    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(13, 110, 253, 0.4);
-    color: var(--white);
-}
-
-.btn-gold {
-    background: linear-gradient(45deg, var(--gold), #b8962e);
-    color: var(--white);
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-}
-
-.btn-gold:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-}
-
-/* Navbar */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1.5rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-    transition: var(--transition);
-    background: transparent;
-}
-
-.navbar.scrolled {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 1rem 5%;
-    box-shadow: var(--shadow-sm);
-}
-
-.logo {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--white);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: var(--transition);
-}
-
-.navbar.scrolled .logo {
-    color: var(--primary-blue);
-}
-
-.logo span {
-    color: var(--gold);
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-}
-
-.nav-links li a {
-    color: var(--white);
-    font-weight: 500;
-    position: relative;
-    transition: var(--transition);
-}
-
-.navbar.scrolled .nav-links li a {
-    color: var(--text-main);
-}
-
-.nav-links li a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--gold);
-    transition: var(--transition);
-}
-
-.nav-links li a:hover::after {
-    width: 100%;
-}
-
-.nav-links li a:hover {
-    color: var(--gold);
-}
-
-.hamburger {
-    display: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: var(--white);
-}
-
-.navbar.scrolled .hamburger {
-    color: var(--dark);
-}
-
-
-    flex-direction: column;
-    width: 100%;
-        }
-        
-/* ==========================================
-   Hero Section & Compact Search Form (Fixed)
-   ========================================== */
-
-/* Hero Container with Forced Blue Gradient */
-.hero {
-    min-height: 100vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff !important;
-    overflow: hidden;
-    background: linear-gradient(-45deg, #0d6efd, #001f4d, #1a1a1a, #003399) !important;
-    background-size: 400% 400% !important;
-    animation: gradientBG 15s ease infinite;
-    padding: 80px 15px 30px;
-}
-
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    width: 100%;
-    max-width: 850px;
-}
-
-.hero-title {
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: #ffffff !important;
-    margin-bottom: 0.4rem;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.hero-subtitle {
-    font-size: 0.9rem;
-    font-weight: 300;
-    color: #f0f0f0 !important;
-    margin-bottom: 1.5rem;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-    opacity: 0.9;
-}
-
-/* Compact Search Box Container */
-.search-form {
-    background: rgba(255, 255, 255, 0.15) !important;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 14px;
-    padding: 10px !important;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px !important;
-    max-width: 380px !important; /* Mobile par width aur compact kar di */
-    margin: 0 auto;
-}
-
-/* Sleek & Low Height Input Rows */
-.search-group {
-    flex: 1 1 100%;
-    background: #ffffff !important;
-    border-radius: 8px;
-    padding: 6px 12px !important; /* Height Kam ki gayi h */
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-align: left;
-    height: 46px !important; /* Fixed compact height */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-}
-
-.search-group i {
-    color: #0d6efd !important;
-    font-size: 0.95rem;
-}
-
-.search-input-wrap {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-}
-
-.search-input-wrap label {
-    font-size: 0.65rem !important;
-    color: #6c757d !important;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    line-height: 1;
-    margin-bottom: 2px;
-}
-
-.search-input-wrap input {
-    border: none !important;
-    outline: none !important;
-    font-family: inherit;
-    font-size: 0.85rem !important;
-    color: #212529 !important;
-    width: 100%;
-    background: transparent !important;
-    padding: 0 !important;
-}
-/* ==========================================
-   Hero Section & Original Search Form
-   ========================================== */
-
-/* Hero Section */
-.hero {
-    height: 100vh;
-    min-height: 600px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    overflow: hidden;
-    background: linear-gradient(-45deg, #0d6efd, #001f4d, #1a1a1a, #003399);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-}
-
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    width: 90%;
-    max-width: 900px;
-    margin-top: 5rem;
-}
-
-.hero-title {
-    font-size: 4rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-    color: #ffffff;
-}
-
-.hero-subtitle {
-    font-size: 1.2rem;
-    font-weight: 300;
-    margin-bottom: 3rem;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
-    color: #ffffff;
-}
-
-/* Search Form Original Layout */
-.search-form {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    padding: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-.search-group {
-    flex: 1;
-    min-width: 200px;
-    background: #ffffff;
-    border-radius: 10px;
-    padding: 10px 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-align: left;
-}
-
-.search-group i {
-    color: #0d6efd;
-    font-size: 1.2rem;
-}
-
-.search-input-wrap {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.search-input-wrap label {
-    font-size: 0.8rem;
-    color: #6c757d;
-    font-weight: 600;
-}
-
-.search-input-wrap input {
-    border: none;
-    outline: none;
-    font-family: inherit;
-    font-size: 1rem;
-    color: #212529;
-    width: 100%;
-    background: transparent;
-}
-
-/* Search Button */
-.btn-search {
-    flex: 0 0 150px;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    background: #0d6efd;
-    color: #ffffff;
-    border: none;
-    padding: 12px 20px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.btn-search:hover {
-    background: #0b5ed7;
-}
-
-/* Mobile Screen Clean Adjustment */
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.8rem;
-    }
-    .btn-search {
-        flex: 1 1 100%;
-        width: 100%;
-    }
-}
-
-/* About Section Grid Fix */
-.about-section {
-    background: var(--gray-100);
-    overflow: hidden;
-}
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-}
-
-.about-images {
-    position: relative;
-    width: 100%;
-    max-width: 480px;
-    margin: 0 auto;
-}
-
-.about-img-1 {
-    width: 85%;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    display: block;
-}
-
-.about-img-2 {
-    position: absolute;
-    bottom: -20px;
-    right: 0;
-    width: 50%;
-    height: auto;
-    border-radius: 20px;
-    border: 6px solid #ffffff;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-}
-
-/* Featured Hotels */
-.hotels-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.hotel-card {
-    background: var(--white);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-    position: relative;
-}
-
-.hotel-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-md);
-}
-
-.hotel-img-wrapper {
-    position: relative;
-    height: 220px;
-    overflow: hidden;
-}
-
-.hotel-img-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.hotel-card:hover .hotel-img-wrapper img {
-    transform: scale(1.1);
-}
-
-.hotel-badge {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background: var(--gold);
-    color: var(--white);
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-.hotel-content {
-    padding: 1.5rem;
-}
-
-.hotel-title {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-}
-
-.hotel-location {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.hotel-rating {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 1rem;
-}
-
-.hotel-rating i {
-    color: var(--gold);
-    font-size: 0.9rem;
-}
-
-.hotel-rating span {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-}
-
-.hotel-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid var(--gray-200);
-    padding-top: 1rem;
-}
-
-.hotel-price span {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-}
-
-.hotel-price strong {
-    font-size: 1.2rem;
-    color: var(--primary-blue);
-}
-
-/* Why Choose Us */
-.why-choose {
-    background: var(--primary-blue);
-    color: var(--white);
-    position: relative;
-    overflow: hidden;
-}
-
-.why-choose .section-title h2,
-.why-choose .section-title p {
-    color: var(--white);
-}
-
-.why-choose .section-title h2::after {
-    background: var(--white);
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.feature-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 2rem;
-    border-radius: 20px;
-    text-align: center;
-    transition: var(--transition);
-}
-
-.feature-card:hover {
-    transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.feature-icon {
-    width: 70px;
-    height: 70px;
-    background: var(--gold);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    margin: 0 auto 1.5rem;
-    color: var(--white);
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-}
-
-.feature-card h4 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-}
-
-/* Reviews */
-.reviews-section {
-    background: var(--gray-100);
-}
-
-.reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.review-card {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-    border-top: 4px solid var(--primary-blue);
-}
-
-.review-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
-}
-
-.review-stars {
-    color: var(--gold);
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-}
-
-.review-text {
-    font-style: italic;
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
-}
-
-.review-author {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.author-avatar {
-    width: 50px;
-    height: 50px;
-    background: var(--primary-blue);
-    color: var(--white);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1.2rem;
-}
-
-.author-info h5 {
-    margin: 0;
-    font-size: 1rem;
-}
-
-/* Partner Section */
-.partner-section {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1542314831-c6a4d1409e5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
-    color: var(--white);
-    text-align: center;
-    padding: 6rem 0;
-}
-
-.partner-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.partner-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--gold);
-}
-
-.partner-content p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-}
-
-.benefits-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 2.5rem;
-}
-
-.benefits-list li {
-    background: rgba(255,255,255,0.2);
-    backdrop-filter: blur(5px);
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.benefits-list li i {
-    color: var(--gold);
-}
-
-/* FAQ Section */
-.faq-section {
-    background: var(--white);
-}
-
-.faq-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.faq-item {
-    border: 1px solid var(--gray-200);
-    margin-bottom: 1rem;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: var(--transition);
-}
-
-.faq-item.active {
-    border-color: var(--primary-blue);
-    box-shadow: var(--shadow-sm);
-}
-
-.faq-question {
-    padding: 1.2rem 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    background: var(--white);
-    font-weight: 600;
-}
-
-.faq-question i {
-    color: var(--primary-blue);
-    transition: transform 0.3s ease;
-}
-
-.faq-item.active .faq-question i {
-    transform: rotate(180deg);
-}
-
-.faq-answer {
-    padding: 0 1.5rem;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-    background: var(--gray-100);
-    color: var(--text-muted);
-}
-
-.faq-item.active .faq-answer {
-    padding: 1.2rem 1.5rem;
-    max-height: 500px;
-}
-
-/* Footer */
-.footer {
-    background: var(--dark);
-    color: var(--white);
-    padding: 4rem 0 2rem;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 3rem;
-    margin-bottom: 3rem;
-}
-
-.footer-about h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-}
-.footer-about h3 span { color: var(--gold); }
-.footer-about p {
-    color: #aaa;
-    margin-bottom: 1.5rem;
-}
-
-.footer-socials {
-    display: flex;
-    gap: 15px;
-}
-
-.footer-socials a {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-}
-
-.footer-socials a:hover {
-    background: var(--primary-blue);
-    transform: translateY(-3px);
-}
-
-.footer-links h4 {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    position: relative;
-    display: inline-block;
-}
-
-.footer-links h4::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 30px;
-    height: 2px;
-    background: var(--gold);
-}
-
-.footer-links ul li {
-    margin-bottom: 0.8rem;
-}
-
-.footer-links ul li a {
-    color: #aaa;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.footer-links ul li a:hover {
-    color: var(--gold);
-    transform: translateX(5px);
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    color: #aaa;
-    font-size: 0.9rem;
-}
-
-/* Floating Widgets */
-.floating-whatsapp {
-    position: fixed;
-    bottom: 30px;
-    left: 30px;
-    width: 60px;
-    height: 60px;
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 15px rgba(0,0,0,0.2);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-    animation: bounce 2s infinite;
-}
-
-.floating-whatsapp:hover {
-    background-color: #128C7E;
-    transform: scale(1.1);
-    animation: none;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-    40% {transform: translateY(-10px);}
-    60% {transform: translateY(-5px);}
-}
-
-.back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 45px;
-    height: 45px;
-    background: var(--primary-blue);
-    color: var(--white);
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: var(--transition);
-    cursor: pointer;
-    box-shadow: var(--shadow-md);
-}
-
-.back-to-top.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.back-to-top:hover {
-    background: var(--gold);
-    transform: translateY(-3px);
-}
-
-/* Responsive Design */
-@media (max-width: 991px) {
-    .hero-title { font-size: 3rem; }
-    .about-grid { grid-template-columns: 1fr; }
-    .about-img-2 { width: 40%; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 250px;
-        height: 100vh;
-        background: var(--white);
-        flex-direction: column;
-        justify-content: center;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-        transition: 0.4s ease;
-    }
-    .nav-links.active {
-        right: 0;
-    }
-    .nav-links li a {
-        color: var(--text-main);
-        font-size: 1.2rem;
-    }
-    .hamburger {
-        display: block;
-        z-index: 1001;
-    }
-    .hamburger.active {
-        color: var(--text-main);
-    }
-    
-    .hero-title { font-size: 2.5rem; }
-    .search-form { flex-direction: column; }
-    .btn-search { width: 100%; }
-    
-    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-    
-    .floating-whatsapp { bottom: 20px; left: 20px; width: 50px; height: 50px; font-size: 25px; }
-    .back-to-top { bottom: 20px; right: 20px; }
-        }
-
-
-     /* =========================================================
-   HOTELREACH - DESKTOP RESPONSIVE FIX
-   Mobile design ko disturb kiye bina desktop improve karega
-========================================================= */
-
-/* ---------- DESKTOP ---------- */
-@media (min-width: 992px) {
-
-    body {
-        width: 100%;
-        overflow-x: hidden;
-    }
-
-    /* MAIN CONTAINER */
-    .container {
-        width: 90%;
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-top: 5rem;
-        padding-bottom: 5rem;
-    }
-
-    /* ================= HERO ================= */
-
-    .hero {
-        min-height: 720px;
-        height: 100vh;
-        padding: 100px 20px 50px;
-    }
-
-    .hero-content {
-        width: 100%;
-        max-width: 1100px;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    .hero-title {
-        font-size: 4rem;
-        line-height: 1.15;
-        margin-bottom: 1rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.15rem;
-        max-width: 750px;
-        margin: 0 auto 2.5rem;
-    }
-
-    /* ================= SEARCH FORM ================= */
-
-    .search-form {
-        width: 100%;
-        max-width: 1000px !important;
-        margin: 0 auto;
-        padding: 15px !important;
-
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-
-        gap: 12px !important;
-
-        border-radius: 16px;
-    }
-
-    .search-group {
-        flex: 1 1 0 !important;
-        min-width: 0;
-        width: auto;
-
-        height: 65px !important;
-
-        padding: 10px 15px !important;
-        border-radius: 10px;
-    }
-
-    .search-group i {
-        font-size: 1.1rem;
-        flex-shrink: 0;
-    }
-
-    .search-input-wrap {
-        min-width: 0;
-    }
-
-    .search-input-wrap label {
-        font-size: 0.7rem !important;
-    }
-
-    .search-input-wrap input {
-        font-size: 0.95rem !important;
-    }
-
-    .btn-search {
-        flex: 0 0 150px;
-        height: 65px;
-        border-radius: 10px;
-    }
-
-    /* ================= SECTION TITLE ================= */
-
-    .section-title {
-        margin-bottom: 3rem;
-    }
-
-    .section-title h2 {
-        font-size: 2.5rem;
-    }
-
-    /* ================= ABOUT ================= */
-
-    .about-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 5rem;
-        align-items: center;
-    }
-
-    .about-images {
-        max-width: 520px;
-    }
-
-    /* ================= HOTELS ================= */
-
-    .hotels-grid {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 25px;
-    }
-
-    .hotel-card {
-        width: 100%;
-        min-width: 0;
-    }
-
-    .hotel-img-wrapper {
-        height: 230px;
-    }
-
-    .hotel-content {
-        padding: 1.4rem;
-    }
-
-    /* ================= WHY CHOOSE US ================= */
-
-    .features-grid {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 25px;
-    }
-
-    .feature-card {
-        width: 100%;
-        min-width: 0;
-    }
-
-    /* ================= REVIEWS ================= */
-
-    .reviews-grid {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 25px;
-    }
-
-    .review-card {
-        width: 100%;
-        min-width: 0;
-    }
-
-    /* ================= PARTNER ================= */
-
-    .partner-section {
-        padding: 7rem 0;
-    }
-
-    .partner-content {
-        width: 90%;
-        max-width: 900px;
-        margin: 0 auto;
-    }
-
-    /* ================= FAQ ================= */
-
-    .faq-container {
-        width: 90%;
-        max-width: 850px;
-        margin: 0 auto;
-    }
-
-    /* ================= FOOTER ================= */
-
-    .footer-grid {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr;
-        gap: 50px;
-    }
-
-    /* ================= NAVBAR ================= */
-
-    .navbar {
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-
-    .nav-links {
-        display: flex;
-        flex-direction: row;
-        width: auto;
-    }
-
-    .hamburger {
-        display: none;
-    }
-}
-
-
-/* =========================================================
-   LARGE DESKTOP
-========================================================= */
-
-@media (min-width: 1200px) {
-
-    .hero-title {
-        font-size: 4.3rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-
-    .search-form {
-        max-width: 1050px !important;
-    }
-
-    .hotels-grid,
-    .features-grid,
-    .reviews-grid {
-        gap: 30px;
-    }
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (min-width: 769px) and (max-width: 991px) {
-
-    .hero {
-        min-height: 650px;
-    }
-
-    .hero-title {
-        font-size: 3.2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-
-    .search-form {
-        max-width: 700px !important;
-    }
-
-    .search-group {
-        flex: 1 1 45% !important;
-    }
-
-    .btn-search {
-        flex: 1 1 100%;
-    }
-
-    .hotels-grid,
-    .features-grid,
-    .reviews-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-
-/* =========================================================
-   MOBILE - ORIGINAL STYLE PROTECTED
-========================================================= */
-
-@media (max-width: 768px) {
-
-    .container {
-        width: 90%;
-        padding-top: 4rem;
-        padding-bottom: 4rem;
-    }
-
-    .hero {
-        min-height: 100vh;
-        height: auto;
-        padding: 100px 15px 40px;
-    }
-
-    .hero-content {
-        width: 100%;
-        max-width: 380px;
-        margin: 0 auto;
-    }
-
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
-    .hero-subtitle {
-        font-size: 0.9rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .search-form {
-        width: 100%;
-        max-width: 380px !important;
-        flex-direction: column;
-        gap: 8px !important;
-    }
-
-    .search-group {
-        flex: 1 1 100% !important;
-        width: 100%;
-        height: 46px !important;
-    }
-
-    .btn-search {
-        width: 100%;
-        flex: 1 1 100%;
-        height: auto;
-    }
-
-    .hotels-grid,
-    .features-grid,
-    .reviews-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-
-        /* ===== HOTEL CARD DESKTOP SIZE FIX ===== */
-
-.hotels-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-items: stretch;
-}
-
-.hotel-card {
-    width: 100%;
-    min-width: 0;
-    height: 100%;
-}
-
-.hotel-img-wrapper {
-    width: 100%;
-    height: 220px !important;
-    min-height: 220px !important;
-    max-height: 220px !important;
-    overflow: hidden;
-    position: relative;
-}
-
-.hotel-img-wrapper img {
-    width: 100% !important;
-    height: 220px !important;
-    min-height: 220px !important;
-    max-height: 220px !important;
-    object-fit: cover !important;
-    object-position: center !important;
-    display: block !important;
-}
-
-
-/* ===== LARGE DESKTOP ===== */
-
-@media (min-width: 1200px) {
-    .hotels-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .hotel-img-wrapper {
-        height: 220px !important;
-        min-height: 220px !important;
-        max-height: 220px !important;
-    }
-
-    .hotel-img-wrapper img {
-        height: 220px !important;
-        min-height: 220px !important;
-        max-height: 220px !important;
-        object-fit: cover !important;
-    }
-}
-
-
-/* ===== LAPTOP ===== */
-
-@media (min-width: 769px) and (max-width: 1199px) {
-    .hotels-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .hotel-img-wrapper {
-        height: 220px !important;
-        min-height: 220px !important;
-        max-height: 220px !important;
-    }
-
-    .hotel-img-wrapper img {
-        height: 220px !important;
-        min-height: 220px !important;
-        max-height: 220px !important;
-        object-fit: cover !important;
-    }
-}
-
-
-/* ===== MOBILE ===== */
-
-@media (max-width: 768px) {
-    .hotels-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hotel-img-wrapper {
-        height: 210px !important;
-        min-height: 210px !important;
-        max-height: 210px !important;
-    }
-
-    .hotel-img-wrapper img {
-        height: 210px !important;
-        min-height: 210px !important;
-        max-height: 210px !important;
-        object-fit: cover !important;
-    }
-}
-/* Logo Styling */
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.nav-logo-img {
-    height: 40px;
-    width: auto;
-    object-fit: contain;
-}
-        
-        
-    </style>
-</head>
-<body>
-
-    <!-- Yahan poora HTML layout (Navbar, Hero, Hotels, Reviews, Footer) paste karein -->
-
-    
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HotelReach | Book Smart. Stay Better.</title>
-    
-    <!-- SEO Meta Tags -->
+    <!-- Primary SEO Meta Tags -->
     <meta name="description" content="HotelReach is a trusted hotel booking platform that helps travelers find the best hotels at the best prices. We partner with verified hotels to provide safe, affordable, and hassle-free stays.">
     <meta name="keywords" content="HotelReach, hotel booking, budget hotels, premium hotels, Varanasi hotels, book hotels India">
     <meta name="author" content="HotelReach">
     
-    <!-- Open Graph / Facebook -->
+    <!-- Google Site Name & Open Graph Meta Tags -->
+    <meta property="og:site_name" content="HotelReach">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://hotelreach.in/">
     <meta property="og:title" content="HotelReach | Book Smart. Stay Better.">
@@ -1636,374 +33,1702 @@ h1, h2, h3, h4 {
     <meta property="twitter:description" content="Book your perfect stay with HotelReach. Verified hotels, best price guarantee, and 24x7 support.">
     <meta property="twitter:image" content="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
 
-<!-- Schema.org JSON-LD Structured Data for HotelReach -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://hotelreach.in/#website",
-      "url": "https://hotelreach.in/",
-      "name": "HotelReach",
-      "description": "Find and book verified hotels in Varanasi, Ayodhya, and top spiritual destinations with direct WhatsApp booking.",
-      "publisher": {
-        "@id": "https://hotelreach.in/#organization"
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://hotelreach.in/?s={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    },
-    {
-      "@type": ["TravelAgency", "Organization"],
-      "@id": "https://hotelreach.in/#organization",
-      "name": "HotelReach",
-      "url": "https://hotelreach.in",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://hotelreach.in/logo.png",
-        "caption": "HotelReach Logo"
-      },
-      "image": "https://hotelreach.in/logo.png",
-      "description": "HotelReach is a trusted hotel booking platform that helps travelers find verified hotels at the best prices with instant WhatsApp booking.",
-      "telephone": "+91 8877239945",
-      "email": "hotelreach.in@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "IN"
-      },
-      "priceRange": "₹1200 - ₹2800",
-      "sameAs": [
-        "https://www.facebook.com/share/1DE7DRd9YS/",
-        "https://www.instagram.com/hotelreach.in"
-      ]
-    },
-    {
-      "@type": "ItemList",
-      "@id": "https://hotelreach.in/#featured-hotels",
-      "name": "Verified Hotels on HotelReach",
-      "description": "List of top verified hotels and guest houses available on HotelReach",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "item": {
-            "@type": "Hotel",
-            "name": "Hotel Shree Hari Villa",
-            "description": "Premium hotel near Sigra, Varanasi booked via HotelReach.",
-            "url": "https://hotelreach.in/#shree-hari-villa",
-            "priceRange": "₹1,999 / night",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Amar Nagar Colony, Naipokhari, Sigra",
-              "addressLocality": "Varanasi",
-              "addressRegion": "Uttar Pradesh",
-              "addressCountry": "IN"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.6",
-              "reviewCount": "55"
-            }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "item": {
-            "@type": "Hostel",
-            "name": "Sky Inn Paying Guest House",
-            "description": "Budget friendly guest house at Assi Ghat, Varanasi.",
-            "url": "https://hotelreach.in/#sky-inn",
-            "priceRange": "₹1,299 / night",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Assi Ghat, Dumraon Colony",
-              "addressLocality": "Varanasi",
-              "addressRegion": "Uttar Pradesh",
-              "addressCountry": "IN"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.4",
-              "reviewCount": "89"
-            }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "item": {
-            "@type": "Hostel",
-            "name": "Maa Durga Inn Guest House",
-            "description": "Deluxe guest house near Dashashwamedh Ghat, Godowlia, Varanasi.",
-            "url": "https://hotelreach.in/#maa-durga-inn",
-            "priceRange": "₹1,999 / night",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Dashashwamedh Ghat, Godowlia",
-              "addressLocality": "Varanasi",
-              "addressRegion": "Uttar Pradesh",
-              "addressCountry": "IN"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.3",
-              "reviewCount": "16"
-            }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "item": {
-            "@type": "Hotel",
-            "name": "Moments Hotel Varanasi",
-            "description": "Deluxe stay nearby Shri Kashi Vishwanath Temple, Varanasi.",
-            "url": "https://hotelreach.in/#moments-hotel",
-            "priceRange": "₹1,999 / night",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Nearby Shri Kashi Vishwanath Temple",
-              "addressLocality": "Varanasi",
-              "addressRegion": "Uttar Pradesh",
-              "addressCountry": "IN"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.5",
-              "reviewCount": "39"
-            }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 5,
-          "item": {
-            "@type": "Hostel",
-            "name": "Aditya Paying Guest House",
-            "description": "Luxury guest house near Kashi Vishwanath Temple, Varanasi.",
-            "url": "https://hotelreach.in/#aditya-guest-house",
-            "priceRange": "₹1,599 / night",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Near Kashi Vishwanath",
-              "addressLocality": "Varanasi",
-              "addressRegion": "Uttar Pradesh",
-              "addressCountry": "IN"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.2",
-              "reviewCount": "10"
-            }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 6,
-          "item": {
-            "@type": "Hostel",
-            "name": "Riverview Guest House",
-            "description": "Premium stay near Durga Temple, Lanka, Varanasi.",
-            "url": "https://hotelreach.in/#riverview-guest-house",
-            "priceRange": "₹1,499 / night",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Near Durga Temple, Lanka",
-              "addressLocality": "Varanasi",
-              "addressRegion": "Uttar Pradesh",
-              "addressCountry": "IN"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.7",
-              "reviewCount": "320"
-            }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 7,
-          "item": {
-            "@type": "Hotel",
-            "name": "Hotel Rudra",
-            "description": "Deluxe hotel at Dashashwamedh Ghat Road, Varanasi.",
-            "url": "https://hotelreach.in/#hotel-rudra",
-            "priceRange": "₹1,599 / night",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Dashashwamedh Ghat Rd",
-              "addressLocality": "Varanasi",
-              "addressRegion": "Uttar Pradesh",
-              "addressCountry": "IN"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.5",
-              "reviewCount": "148"
-            }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 8,
-          "item": {
-            "@type": "Hotel",
-            "name": "Shree Murlidhar Residency",
-            "description": "Luxury residency at Dashashwamedh Ghat, Godowlia, Varanasi.",
-            "url": "https://hotelreach.in/#shree-murlidhar-residency",
-            "priceRange": "₹1,699 / night",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Dashashwamedh Ghat, Godowlia",
-              "addressLocality": "Varanasi",
-              "addressRegion": "Uttar Pradesh",
-              "addressCountry": "IN"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.6",
-              "reviewCount": "156"
-            }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 9,
-          "item": {
-            "@type": "Hostel",
-            "name": "Balaji Guest House",
-            "description": "Luxury guest house at Kedar Ghat, Bangali Tola, Varanasi.",
-            "url": "https://hotelreach.in/#balaji-guest-house",
-            "priceRange": "₹1,399 / night",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Kedar Ghat, Bangali Tola",
-              "addressLocality": "Varanasi",
-              "addressRegion": "Uttar Pradesh",
-              "addressCountry": "IN"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.3",
-              "reviewCount": "56"
-            }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 10,
-          "item": {
-            "@type": "Hostel",
-            "name": "Maa Laxmi Guest House",
-            "description": "Luxury guest house near Kashi Vishwanath Temple, Jagatganj, Varanasi.",
-            "url": "https://hotelreach.in/#maa-laxmi-guest-house",
-            "priceRange": "₹1,499 / night",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Jagatganj, Near Kashi Vishwanath Temple",
-              "addressLocality": "Varanasi",
-              "addressRegion": "Uttar Pradesh",
-              "addressCountry": "IN"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.5",
-              "reviewCount": "156"
-            }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 11,
-          "item": {
-            "@type": "Hotel",
-            "name": "Hotel Shri Awadh Inn",
-            "description": "Deluxe AC hotel at Kosi Parikrama Marg, Ayodhya.",
-            "url": "https://hotelreach.in/#hotel-shri-awadh-inn",
-            "priceRange": "₹2,800 / night",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "14, Kosi Parikrama Marg",
-              "addressLocality": "Ayodhya",
-              "addressRegion": "Uttar Pradesh",
-              "addressCountry": "IN"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.4",
-              "reviewCount": "87"
-            }
-          }
-        },
-         {
-  "@type": "ListItem",
-  "position": 13,
-  "item": {
-    "@type": "Hotel",
-    "name": "Krishnam Niwas Ayodhya",
-    "description": "Deluxe AC stay at Raghav Vihar Colony, Ranopali, Ayodhya.",
-    "url": "https://hotelreach.in/hotels.html#krishnam-niwas",
-    "priceRange": "₹2,500 / night",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Raghav Vihar Colony, Ranopali",
-      "addressLocality": "Ayodhya",
-      "addressRegion": "Uttar Pradesh",
-      "addressCountry": "IN"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "25"
-    }
-  }
-},
-    
-        {
-          "@type": "ListItem",
-          "position": 12,
-          "item": {
-            "@type": "Hotel",
-            "name": "Hotel Geeta Palace",
-            "description": "Deluxe AC hotel on Ram Path, Ranopali, Ayodhya Dham Road, Ayodhya.",
-            "url": "https://hotelreach.in/#hotel-geeta-palace",
-            "priceRange": "₹1,200 / night",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Shop No. 01, Ram Path, Ranopali, Ayodhya Dham Road",
-              "addressLocality": "Ayodhya",
-              "postalCode": "224123",
-              "addressRegion": "Uttar Pradesh",
-              "addressCountry": "IN"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.2",
-              "reviewCount": "40"
-            }
-          }
-        }
-      ]
-    }
-  ]
-}
-</script>
-</head>
-
-    <!-- Google Fonts -->
+    <!-- Font Awesome & Google Fonts Links -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- External Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Schema.org JSON-LD Structured Data for HotelReach -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://hotelreach.in/#website",
+          "url": "https://hotelreach.in/",
+          "name": "HotelReach",
+          "alternateName": ["HotelReach.in", "Hotel Reach"],
+          "description": "Find and book verified hotels in Varanasi, Ayodhya, and top spiritual destinations with direct WhatsApp booking.",
+          "publisher": {
+            "@id": "https://hotelreach.in/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://hotelreach.in/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": ["TravelAgency", "Organization"],
+          "@id": "https://hotelreach.in/#organization",
+          "name": "HotelReach",
+          "url": "https://hotelreach.in",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://hotelreach.in/logo.png",
+            "caption": "HotelReach Logo"
+          },
+          "image": "https://hotelreach.in/logo.png",
+          "description": "HotelReach is a trusted hotel booking platform that helps travelers find verified hotels at the best prices with instant WhatsApp booking.",
+          "telephone": "+91 8877239945",
+          "email": "hotelreach.in@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "IN"
+          },
+          "priceRange": "₹1200 - ₹2800",
+          "sameAs": [
+            "https://www.facebook.com/share/1DE7DRd9YS/",
+            "https://www.instagram.com/hotelreach.in"
+          ]
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://hotelreach.in/#featured-hotels",
+          "name": "Verified Hotels on HotelReach",
+          "description": "List of top verified hotels and guest houses available on HotelReach",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "Hotel",
+                "name": "Hotel Shree Hari Villa",
+                "description": "Premium hotel near Sigra, Varanasi booked via HotelReach.",
+                "url": "https://hotelreach.in/#shree-hari-villa",
+                "priceRange": "₹1,999 / night",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Amar Nagar Colony, Naipokhari, Sigra",
+                  "addressLocality": "Varanasi",
+                  "addressRegion": "Uttar Pradesh",
+                  "addressCountry": "IN"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.6",
+                  "reviewCount": "55"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@type": "Hostel",
+                "name": "Sky Inn Paying Guest House",
+                "description": "Budget friendly guest house at Assi Ghat, Varanasi.",
+                "url": "https://hotelreach.in/#sky-inn",
+                "priceRange": "₹1,299 / night",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Assi Ghat, Dumraon Colony",
+                  "addressLocality": "Varanasi",
+                  "addressRegion": "Uttar Pradesh",
+                  "addressCountry": "IN"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.4",
+                  "reviewCount": "89"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@type": "Hostel",
+                "name": "Maa Durga Inn Guest House",
+                "description": "Deluxe guest house near Dashashwamedh Ghat, Godowlia, Varanasi.",
+                "url": "https://hotelreach.in/#maa-durga-inn",
+                "priceRange": "₹1,999 / night",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Dashashwamedh Ghat, Godowlia",
+                  "addressLocality": "Varanasi",
+                  "addressRegion": "Uttar Pradesh",
+                  "addressCountry": "IN"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.3",
+                  "reviewCount": "16"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "item": {
+                "@type": "Hotel",
+                "name": "Moments Hotel Varanasi",
+                "description": "Deluxe stay nearby Shri Kashi Vishwanath Temple, Varanasi.",
+                "url": "https://hotelreach.in/#moments-hotel",
+                "priceRange": "₹1,999 / night",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Nearby Shri Kashi Vishwanath Temple",
+                  "addressLocality": "Varanasi",
+                  "addressRegion": "Uttar Pradesh",
+                  "addressCountry": "IN"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.5",
+                  "reviewCount": "39"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "item": {
+                "@type": "Hostel",
+                "name": "Aditya Paying Guest House",
+                "description": "Luxury guest house near Kashi Vishwanath Temple, Varanasi.",
+                "url": "https://hotelreach.in/#aditya-guest-house",
+                "priceRange": "₹1,599 / night",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Near Kashi Vishwanath",
+                  "addressLocality": "Varanasi",
+                  "addressRegion": "Uttar Pradesh",
+                  "addressCountry": "IN"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.2",
+                  "reviewCount": "10"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
+              "item": {
+                "@type": "Hostel",
+                "name": "Riverview Guest House",
+                "description": "Premium stay near Durga Temple, Lanka, Varanasi.",
+                "url": "https://hotelreach.in/#riverview-guest-house",
+                "priceRange": "₹1,499 / night",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Near Durga Temple, Lanka",
+                  "addressLocality": "Varanasi",
+                  "addressRegion": "Uttar Pradesh",
+                  "addressCountry": "IN"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.7",
+                  "reviewCount": "320"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 7,
+              "item": {
+                "@type": "Hotel",
+                "name": "Hotel Rudra",
+                "description": "Deluxe hotel at Dashashwamedh Ghat Road, Varanasi.",
+                "url": "https://hotelreach.in/#hotel-rudra",
+                "priceRange": "₹1,599 / night",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Dashashwamedh Ghat Rd",
+                  "addressLocality": "Varanasi",
+                  "addressRegion": "Uttar Pradesh",
+                  "addressCountry": "IN"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.5",
+                  "reviewCount": "148"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 8,
+              "item": {
+                "@type": "Hotel",
+                "name": "Shree Murlidhar Residency",
+                "description": "Luxury residency at Dashashwamedh Ghat, Godowlia, Varanasi.",
+                "url": "https://hotelreach.in/#shree-murlidhar-residency",
+                "priceRange": "₹1,699 / night",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Dashashwamedh Ghat, Godowlia",
+                  "addressLocality": "Varanasi",
+                  "addressRegion": "Uttar Pradesh",
+                  "addressCountry": "IN"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.6",
+                  "reviewCount": "156"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 9,
+              "item": {
+                "@type": "Hostel",
+                "name": "Balaji Guest House",
+                "description": "Luxury guest house at Kedar Ghat, Bangali Tola, Varanasi.",
+                "url": "https://hotelreach.in/#balaji-guest-house",
+                "priceRange": "₹1,399 / night",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Kedar Ghat, Bangali Tola",
+                  "addressLocality": "Varanasi",
+                  "addressRegion": "Uttar Pradesh",
+                  "addressCountry": "IN"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.3",
+                  "reviewCount": "56"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 10,
+              "item": {
+                "@type": "Hostel",
+                "name": "Maa Laxmi Guest House",
+                "description": "Luxury guest house near Kashi Vishwanath Temple, Jagatganj, Varanasi.",
+                "url": "https://hotelreach.in/#maa-laxmi-guest-house",
+                "priceRange": "₹1,499 / night",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Jagatganj, Near Kashi Vishwanath Temple",
+                  "addressLocality": "Varanasi",
+                  "addressRegion": "Uttar Pradesh",
+                  "addressCountry": "IN"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.5",
+                  "reviewCount": "156"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 11,
+              "item": {
+                "@type": "Hotel",
+                "name": "Hotel Shri Awadh Inn",
+                "description": "Deluxe AC hotel at Kosi Parikrama Marg, Ayodhya.",
+                "url": "https://hotelreach.in/#hotel-shri-awadh-inn",
+                "priceRange": "₹2,800 / night",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "14, Kosi Parikrama Marg",
+                  "addressLocality": "Ayodhya",
+                  "addressRegion": "Uttar Pradesh",
+                  "addressCountry": "IN"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.4",
+                  "reviewCount": "87"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 13,
+              "item": {
+                "@type": "Hotel",
+                "name": "Krishnam Niwas Ayodhya",
+                "description": "Deluxe AC stay at Raghav Vihar Colony, Ranopali, Ayodhya.",
+                "url": "https://hotelreach.in/hotels.html#krishnam-niwas",
+                "priceRange": "₹2,500 / night",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Raghav Vihar Colony, Ranopali",
+                  "addressLocality": "Ayodhya",
+                  "addressRegion": "Uttar Pradesh",
+                  "addressCountry": "IN"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "5.0",
+                  "reviewCount": "25"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 12,
+              "item": {
+                "@type": "Hotel",
+                "name": "Hotel Geeta Palace",
+                "description": "Deluxe AC hotel on Ram Path, Ranopali, Ayodhya Dham Road, Ayodhya.",
+                "url": "https://hotelreach.in/#hotel-geeta-palace",
+                "priceRange": "₹1,200 / night",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Shop No. 01, Ram Path, Ranopali, Ayodhya Dham Road",
+                  "addressLocality": "Ayodhya",
+                  "postalCode": "224123",
+                  "addressRegion": "Uttar Pradesh",
+                  "addressCountry": "IN"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.2",
+                  "reviewCount": "40"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-blue: #0d6efd;
+            --primary-dark: #004bb5;
+            --gold: #d4af37;
+            --gold-light: #f3d87d;
+            --white: #ffffff;
+            --dark: #1a1a1a;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --text-main: #333333;
+            --text-muted: #6c757d;
+            --shadow-sm: 0 2px 10px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-lg: 0 20px 40px rgba(13, 110, 253, 0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-main);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Scroll Progress Bar */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-blue), var(--gold));
+            width: 0%;
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+
+        /* Loader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader-icon {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            100% { transform: scale(1.2); opacity: 1; color: var(--gold); }
+        }
+
+        /* Scroll Animations (AOS Style) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Layout Utility */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 0;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-blue), #0056b3);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(13, 110, 253, 0.4);
+            color: var(--white);
+        }
+
+        .btn-gold {
+            background: linear-gradient(45deg, var(--gold), #b8962e);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: var(--transition);
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled .logo {
+            color: var(--primary-blue);
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links li a {
+            color: var(--white);
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled .nav-links li a {
+            color: var(--text-main);
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links li a:hover {
+            color: var(--gold);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--white);
+        }
+
+        .navbar.scrolled .hamburger {
+            color: var(--dark);
+        }
+
+        /* Hero Section & Compact Search Form */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff !important;
+            overflow: hidden;
+            background: linear-gradient(-45deg, #0d6efd, #001f4d, #1a1a1a, #003399) !important;
+            background-size: 400% 400% !important;
+            animation: gradientBG 15s ease infinite;
+            padding: 80px 15px 30px;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            width: 100%;
+            max-width: 850px;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #ffffff !important;
+            margin-bottom: 0.4rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: #f0f0f0 !important;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+            opacity: 0.9;
+        }
+
+        .search-form {
+            background: rgba(255, 255, 255, 0.15) !important;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 14px;
+            padding: 10px !important;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px !important;
+            max-width: 380px !important;
+            margin: 0 auto;
+        }
+
+        .search-group {
+            flex: 1 1 100%;
+            background: #ffffff !important;
+            border-radius: 8px;
+            padding: 6px 12px !important;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-align: left;
+            height: 46px !important;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+        }
+
+        .search-group i {
+            color: #0d6efd !important;
+            font-size: 0.95rem;
+        }
+
+        .search-input-wrap {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .search-input-wrap label {
+            font-size: 0.65rem !important;
+            color: #6c757d !important;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+
+        .search-input-wrap input {
+            border: none !important;
+            outline: none !important;
+            font-family: inherit;
+            font-size: 0.85rem !important;
+            color: #212529 !important;
+            width: 100%;
+            background: transparent !important;
+            padding: 0 !important;
+        }
+
+        .btn-search {
+            flex: 0 0 150px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            background: #0d6efd;
+            color: #ffffff;
+            border: none;
+            padding: 12px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn-search:hover {
+            background: #0b5ed7;
+        }
+
+        /* About Section */
+        .about-section {
+            background: var(--gray-100);
+            overflow: hidden;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-images {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .about-img-1 {
+            width: 85%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: block;
+        }
+
+        .about-img-2 {
+            position: absolute;
+            bottom: -20px;
+            right: 0;
+            width: 50%;
+            height: auto;
+            border-radius: 20px;
+            border: 6px solid #ffffff;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        /* Featured Hotels */
+        .hotels-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            align-items: stretch;
+            gap: 2rem;
+        }
+
+        .hotel-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            width: 100%;
+            min-width: 0;
+            height: 100%;
+        }
+
+        .hotel-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .hotel-img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 220px !important;
+            min-height: 220px !important;
+            max-height: 220px !important;
+            overflow: hidden;
+        }
+
+        .hotel-img-wrapper img {
+            width: 100% !important;
+            height: 220px !important;
+            min-height: 220px !important;
+            max-height: 220px !important;
+            object-fit: cover !important;
+            object-position: center !important;
+            display: block !important;
+            transition: transform 0.5s ease;
+        }
+
+        .hotel-card:hover .hotel-img-wrapper img {
+            transform: scale(1.1);
+        }
+
+        .hotel-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--gold);
+            color: var(--white);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .hotel-content {
+            padding: 1.5rem;
+        }
+
+        .hotel-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hotel-location {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .hotel-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .hotel-rating i {
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+
+        .hotel-rating span {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .hotel-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--gray-200);
+            padding-top: 1rem;
+        }
+
+        .hotel-price span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .hotel-price strong {
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            background: var(--primary-blue);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-choose .section-title h2,
+        .why-choose .section-title p {
+            color: var(--white);
+        }
+
+        .why-choose .section-title h2::after {
+            background: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+            color: var(--white);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .feature-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Reviews */
+        .reviews-section {
+            background: var(--gray-100);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary-blue);
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .review-stars {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-blue);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .author-info h5 {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Partner Section */
+        .partner-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1542314831-c6a4d1409e5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .partner-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .partner-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+
+        .partner-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .benefits-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 2.5rem;
+        }
+
+        .benefits-list li {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .benefits-list li i {
+            color: var(--gold);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: var(--white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border: 1px solid var(--gray-200);
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item.active {
+            border-color: var(--primary-blue);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-question {
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            background: var(--white);
+            font-weight: 600;
+        }
+
+        .faq-question i {
+            color: var(--primary-blue);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: var(--gray-100);
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1.2rem 1.5rem;
+            max-height: 500px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-about h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .footer-about h3 span { color: var(--gold); }
+        .footer-about p {
+            color: #aaa;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-socials a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .footer-socials a:hover {
+            background: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links ul li a {
+            color: #aaa;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Floating Widgets */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            animation: bounce 2s infinite;
+        }
+
+        .floating-whatsapp:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            animation: none;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: var(--primary-blue);
+            color: var(--white);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        /* Desktop Fixes */
+        @media (min-width: 992px) {
+            body {
+                width: 100%;
+                overflow-x: hidden;
+            }
+
+            .container {
+                width: 90%;
+                max-width: 1200px;
+                margin-left: auto;
+                margin-right: auto;
+                padding-top: 5rem;
+                padding-bottom: 5rem;
+            }
+
+            .hero {
+                min-height: 720px;
+                height: 100vh;
+                padding: 100px 20px 50px;
+            }
+
+            .hero-content {
+                width: 100%;
+                max-width: 1100px;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 4rem;
+                line-height: 1.15;
+                margin-bottom: 1rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.15rem;
+                max-width: 750px;
+                margin: 0 auto 2.5rem;
+            }
+
+            .search-form {
+                width: 100%;
+                max-width: 1000px !important;
+                margin: 0 auto;
+                padding: 15px !important;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                gap: 12px !important;
+                border-radius: 16px;
+            }
+
+            .search-group {
+                flex: 1 1 0 !important;
+                min-width: 0;
+                width: auto;
+                height: 65px !important;
+                padding: 10px 15px !important;
+                border-radius: 10px;
+            }
+
+            .search-group i {
+                font-size: 1.1rem;
+                flex-shrink: 0;
+            }
+
+            .search-input-wrap {
+                min-width: 0;
+            }
+
+            .search-input-wrap label {
+                font-size: 0.7rem !important;
+            }
+
+            .search-input-wrap input {
+                font-size: 0.95rem !important;
+            }
+
+            .btn-search {
+                flex: 0 0 150px;
+                height: 65px;
+                border-radius: 10px;
+            }
+
+            .section-title {
+                margin-bottom: 3rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 5rem;
+                align-items: center;
+            }
+
+            .about-images {
+                max-width: 520px;
+            }
+
+            .hotels-grid {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 25px;
+            }
+
+            .hotel-card {
+                width: 100%;
+                min-width: 0;
+            }
+
+            .hotel-img-wrapper {
+                height: 230px;
+            }
+
+            .hotel-content {
+                padding: 1.4rem;
+            }
+
+            .features-grid {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 25px;
+            }
+
+            .feature-card {
+                width: 100%;
+                min-width: 0;
+            }
+
+            .reviews-grid {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 25px;
+            }
+
+            .review-card {
+                width: 100%;
+                min-width: 0;
+            }
+
+            .partner-section {
+                padding: 7rem 0;
+            }
+
+            .partner-content {
+                width: 90%;
+                max-width: 900px;
+                margin: 0 auto;
+            }
+
+            .faq-container {
+                width: 90%;
+                max-width: 850px;
+                margin: 0 auto;
+            }
+
+            .footer-grid {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 2fr 1fr 1fr;
+                gap: 50px;
+            }
+
+            .navbar {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .nav-links {
+                display: flex;
+                flex-direction: row;
+                width: auto;
+            }
+
+            .hamburger {
+                display: none;
+            }
+        }
+
+        /* Large Desktop */
+        @media (min-width: 1200px) {
+            .hero-title {
+                font-size: 4.3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .search-form {
+                max-width: 1050px !important;
+            }
+
+            .hotels-grid,
+            .features-grid,
+            .reviews-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+            }
+
+            .hotel-img-wrapper {
+                height: 220px !important;
+                min-height: 220px !important;
+                max-height: 220px !important;
+            }
+
+            .hotel-img-wrapper img {
+                height: 220px !important;
+                min-height: 220px !important;
+                max-height: 220px !important;
+                object-fit: cover !important;
+            }
+        }
+
+        /* Tablet */
+        @media (min-width: 769px) and (max-width: 1199px) {
+            .hero {
+                min-height: 650px;
+            }
+
+            .hero-title {
+                font-size: 3.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .search-form {
+                max-width: 700px !important;
+            }
+
+            .search-group {
+                flex: 1 1 45% !important;
+            }
+
+            .btn-search {
+                flex: 1 1 100%;
+            }
+
+            .hotels-grid,
+            .features-grid,
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hotel-img-wrapper {
+                height: 220px !important;
+                min-height: 220px !important;
+                max-height: 220px !important;
+            }
+
+            .hotel-img-wrapper img {
+                height: 220px !important;
+                min-height: 220px !important;
+                max-height: 220px !important;
+                object-fit: cover !important;
+            }
+        }
+
+        /* Mobile Layout */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+
+            .hero {
+                min-height: 100vh;
+                height: auto;
+                padding: 100px 15px 40px;
+            }
+
+            .hero-content {
+                width: 100%;
+                max-width: 380px;
+                margin: 0 auto;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.9rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .search-form {
+                width: 100%;
+                max-width: 380px !important;
+                flex-direction: column;
+                gap: 8px !important;
+            }
+
+            .search-group {
+                flex: 1 1 100% !important;
+                width: 100%;
+                height: 46px !important;
+            }
+
+            .btn-search {
+                width: 100%;
+                flex: 1 1 100%;
+                height: auto;
+            }
+
+            .hotels-grid,
+            .features-grid,
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hotel-img-wrapper {
+                height: 210px !important;
+                min-height: 210px !important;
+                max-height: 210px !important;
+            }
+
+            .hotel-img-wrapper img {
+                height: 210px !important;
+                min-height: 210px !important;
+                max-height: 210px !important;
+                object-fit: cover !important;
+            }
+
+            .about-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 250px;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                justify-content: center;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transition: 0.4s ease;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li a {
+                color: var(--text-main);
+                font-size: 1.2rem;
+            }
+
+            .hamburger {
+                display: block;
+                z-index: 1001;
+            }
+
+            .hamburger.active {
+                color: var(--text-main);
+            }
+
+            .floating-whatsapp { bottom: 20px; left: 20px; width: 50px; height: 50px; font-size: 25px; }
+            .back-to-top { bottom: 20px; right: 20px; }
+        }
+
+        /* Logo Styling */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo-img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+    </style>
 </head>
 <body>
 
@@ -2018,11 +1743,9 @@ h1, h2, h3, h4 {
     <!-- Header / Navbar -->
     <header class="navbar" id="navbar">
        <a href="#" class="logo" style="display: flex; align-items: center; gap: 10px; font-size: 1.8rem; font-weight: 800; text-decoration: none;">
-    <img src="logo.png" alt="HotelReach Logo" style="height: 40px; width: auto; object-fit: contain;">
-    <span style="color: #0d6efd;">Hotel<span style="color: #eab308;">Reach</span></span>
-</a>
-
-
+            <img src="logo.png" alt="HotelReach Logo" style="height: 40px; width: auto; object-fit: contain;">
+            <span style="color: #0d6efd;">Hotel<span style="color: #eab308;">Reach</span></span>
+        </a>
 
         <ul class="nav-links" id="nav-links">
             <li><a href="#home">Home</a></li>
@@ -2038,52 +1761,48 @@ h1, h2, h3, h4 {
     </header>
 
     <!-- Hero Section -->
-<section class="hero" id="home">
-    <div class="hero-content reveal">
-        <!-- Professional Main Heading -->
-        <h1 class="hero-title">Book Smart. Stay Better.</h1>
-        
-        <!-- Professional Subtitle -->
-        <p class="hero-subtitle">Discover top-rated budget & premium hotels at guaranteed best prices with zero hidden charges, instant confirmation, and 24/7 dedicated support.</p>
-        
-        <!-- Search Form: action="hotels.html" lagane se search button pe click karte hi hotels.html khulega -->
-        <form class="search-form" action="hotels.html" method="GET">
-            <div class="search-group">
-                <i class="fa-solid fa-location-dot"></i>
-                <div class="search-input-wrap">
-                    <label>Location</label>
-                    <input type="text" name="location" placeholder="e.g. Varanasi, Ayodhya" required>
-                </div>
-            </div>
+    <section class="hero" id="home">
+        <div class="hero-content reveal">
+            <h1 class="hero-title">Book Smart. Stay Better.</h1>
+            <p class="hero-subtitle">Discover top-rated budget & premium hotels at guaranteed best prices with zero hidden charges, instant confirmation, and 24/7 dedicated support.</p>
             
-            <div class="search-group">
-                <i class="fa-solid fa-calendar-check"></i>
-                <div class="search-input-wrap">
-                    <label>Check In</label>
-                    <input type="date" name="checkin" required>
+            <form class="search-form" action="hotels.html" method="GET">
+                <div class="search-group">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div class="search-input-wrap">
+                        <label>Location</label>
+                        <input type="text" name="location" placeholder="e.g. Varanasi, Ayodhya" required>
+                    </div>
                 </div>
-            </div>
+                
+                <div class="search-group">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <div class="search-input-wrap">
+                        <label>Check In</label>
+                        <input type="date" name="checkin" required>
+                    </div>
+                </div>
 
-            <div class="search-group">
-                <i class="fa-solid fa-calendar-xmark"></i>
-                <div class="search-input-wrap">
-                    <label>Check Out</label>
-                    <input type="date" name="checkout" required>
+                <div class="search-group">
+                    <i class="fa-solid fa-calendar-xmark"></i>
+                    <div class="search-input-wrap">
+                        <label>Check Out</label>
+                        <input type="date" name="checkout" required>
+                    </div>
                 </div>
-            </div>
 
-            <div class="search-group">
-                <i class="fa-solid fa-user-group"></i>
-                <div class="search-input-wrap">
-                    <label>Guests</label>
-                    <input type="number" name="guests" placeholder="2 Guests" min="1" required>
+                <div class="search-group">
+                    <i class="fa-solid fa-user-group"></i>
+                    <div class="search-input-wrap">
+                        <label>Guests</label>
+                        <input type="number" name="guests" placeholder="2 Guests" min="1" required>
+                    </div>
                 </div>
-            </div>
-            
-            <button type="submit" class="btn btn-primary btn-search">Search Hotels</button>
-        </form>
-    </div>
-</section>
+                
+                <button type="submit" class="btn btn-primary btn-search">Search Hotels</button>
+            </form>
+        </div>
+    </section>
 
     <!-- About Section -->
     <section class="about-section" id="about">
@@ -2118,7 +1837,6 @@ h1, h2, h3, h4 {
                 <div class="hotel-badge">Premium</div>
                 <div class="hotel-img-wrapper">
                     <img src="hotel1.jpg" alt="HotelReach Luxury Deluxe Room">
-
                 </div>
                 <div class="hotel-content">
                     <h3 class="hotel-title">Hotel Shree Hari Villa</h3>
@@ -2141,45 +1859,42 @@ h1, h2, h3, h4 {
                 </div>
             </div>
 
-           <!-- Hotel 2 -->
-<div class="hotel-card reveal">
-    <div class="hotel-badge">Deluxe AC</div>
-    <div class="hotel-img-wrapper">
-        <img src="hotel11.jpg" alt="Hotel Shri Awadh Inn Ayodhya" loading="lazy">
-    </div>
-    <div class="hotel-content">
-        <h3 class="hotel-title">Hotel Shri Awadh Inn</h3>
-        
-        <div class="hotel-location">
-            <i class="fa-solid fa-location-dot"></i> 
-            <span>14, Kosi Parikrama Marg, Ayodhya</span>
-        </div>
-        
-        <div class="hotel-rating">
-            <div class="stars">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star-half-stroke"></i>
+            <!-- Hotel 2 -->
+            <div class="hotel-card reveal">
+                <div class="hotel-badge">Deluxe AC</div>
+                <div class="hotel-img-wrapper">
+                    <img src="hotel11.jpg" alt="Hotel Shri Awadh Inn Ayodhya" loading="lazy">
+                </div>
+                <div class="hotel-content">
+                    <h3 class="hotel-title">Hotel Shri Awadh Inn</h3>
+                    <div class="hotel-location">
+                        <i class="fa-solid fa-location-dot"></i> 
+                        <span>14, Kosi Parikrama Marg, Ayodhya</span>
+                    </div>
+                    <div class="hotel-rating">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                        <span class="reviews-count">(87 Reviews)</span>
+                    </div>
+                    <div class="hotel-footer">
+                        <div class="hotel-price">
+                            <span class="price-label">Starting from</span>
+                            <div class="price-value"><strong>₹1,999</strong><span class="price-period"> /night</span></div>
+                        </div>
+                        <a href="https://wa.me/919774059230?text=Hi%20HotelReach!%20I%20want%20to%20check%20availability%20and%20book%20Hotel%20Shri%20Awadh%20Inn,%20Ayodhya." 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="btn btn-primary">
+                           Book Now
+                        </a>
+                    </div>
+                </div>
             </div>
-            <span class="reviews-count">(87 Reviews)</span>
-        </div>
-        
-        <div class="hotel-footer">
-            <div class="hotel-price">
-                <span class="price-label">Starting from</span>
-                <div class="price-value"><strong>₹1,999</strong><span class="price-period"> /night</span></div>
-            </div>
-            <a href="https://wa.me/919774059230?text=Hi%20HotelReach!%20I%20want%20to%20check%20availability%20and%20book%20Hotel%20Shri%20Awadh%20Inn,%20Ayodhya." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary">
-               Book Now
-            </a>
-        </div>
-    </div>
-</div>
 
             <!-- Hotel 3 -->
             <div class="hotel-card reveal" style="transition-delay: 0.4s;">
@@ -2234,324 +1949,285 @@ h1, h2, h3, h4 {
                     </div>
                 </div>
             </div>
-        
 
-         <!-- Hotel 5 (Hotel Geeta Palace) -->
-<div class="hotel-card reveal" style="transition-delay: 0.5s;">
-    <div class="hotel-badge" style="background: var(--primary-blue);">Deluxe AC</div>
-    <div class="hotel-img-wrapper">
-        <img src="hotel12.png" alt="Hotel Geeta Palace Ayodhya">
-    </div>
-    <div class="hotel-content">
-        <h3 class="hotel-title">Hotel Geeta Palace</h3>
-        <div class="hotel-location">
-            <i class="fa-solid fa-map-marker-alt"></i> Shop No. 01, Ram Path, Ranopali, Ayodhya Dham Road, Ayodhya
-        </div>
-        <div class="hotel-rating">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star-half-stroke"></i>
-            <span>(40 Reviews)</span>
-        </div>
-        <div class="hotel-footer">
-            <div class="hotel-price">
-                <span>Starting from</span><br>
-                <strong>₹1,199</strong><span> /night</span>
+            <!-- Hotel 5 -->
+            <div class="hotel-card reveal" style="transition-delay: 0.5s;">
+                <div class="hotel-badge" style="background: var(--primary-blue);">Deluxe AC</div>
+                <div class="hotel-img-wrapper">
+                    <img src="hotel12.png" alt="Hotel Geeta Palace Ayodhya">
+                </div>
+                <div class="hotel-content">
+                    <h3 class="hotel-title">Hotel Geeta Palace</h3>
+                    <div class="hotel-location">
+                        <i class="fa-solid fa-map-marker-alt"></i> Shop No. 01, Ram Path, Ranopali, Ayodhya Dham Road, Ayodhya
+                    </div>
+                    <div class="hotel-rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                        <span>(40 Reviews)</span>
+                    </div>
+                    <div class="hotel-footer">
+                        <div class="hotel-price">
+                            <span>Starting from</span><br>
+                            <strong>₹1,199</strong><span> /night</span>
+                        </div>
+                        <a href="https://wa.me/919774059230?text=Hi%20HotelReach!%20I%20want%20to%20check%20availability%20and%20book%20Hotel%20Geeta%20Palace,%20Ayodhya." target="_blank" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
             </div>
-            <a href="https://wa.me/919774059230?text=Hi%20HotelReach!%20I%20want%20to%20check%20availability%20and%20book%20Hotel%20Geeta%20Palace,%20Ayodhya." target="_blank" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">
-                Book Now
-            </a>
-        </div>
-    </div>
-</div>
 
-    <!-- View All Hotels Button -->
+            <!-- View All Hotels Button -->
             <div style="text-align: center; margin-top: 30px; width: 100%;">
                 <a href="hotels.html" class="btn btn-primary" style="padding: 12px 30px; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
                     View All Hotels <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
-</div>
-</section>
+        </div>
+    </section>
+
     <!-- Why Choose Us -->
-<section class="why-choose" style="padding: 5rem 0;">
-    <div class="container">
-        <div class="section-title reveal">
-            <h2>Why Choose HotelReach</h2>
-            <p>We ensure a seamless, secure, and delightful experience for every traveler.</p>
-        </div>
-        
-        <div class="features-grid">
-           <!-- Government Registered & Verified Trust Badge (Blue Theme Matching Version) -->
-<div class="reveal" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 20px 20px; border-radius: 16px; border: 1.5px solid rgba(255, 255, 255, 0.25); margin: 30px auto; max-width: 850px; text-align: center; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden; color: #ffffff;">
-    
-    <!-- Background Glow Accent -->
-    <div style="position: absolute; top: -40px; right: -40px; width: 100px; height: 100px; background: rgba(250, 204, 21, 0.15); filter: blur(30px); border-radius: 50%; pointer-events: none;"></div>
-    <div style="position: absolute; bottom: -40px; left: -40px; width: 100px; height: 100px; background: rgba(255, 255, 255, 0.15); filter: blur(30px); border-radius: 50%; pointer-events: none;"></div>
-
-    <!-- Header & Title -->
-    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px;">
-        <span style="display: inline-flex; align-items: center; gap: 6px; background: #eab308; color: #0b132b; padding: 4px 12px; border-radius: 50px; font-size: 0.78rem; font-weight: 800; text-transform: uppercase;">
-            <i class="fa-solid fa-circle-check" style="color: #0b132b;"></i> Govt. Certified
-        </span>
-        <h4 style="margin: 0; color: #ffffff; font-size: 1.15rem; font-weight: 800;">
-            HotelReach Is MSME Govt. Verified
-        </h4>
-    </div>
-
-    <!-- Key Registration Badges -->
-    <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; font-size: 0.82rem; color: #ffffff; margin-bottom: 12px;">
-        
-        <div style="background: rgba(255, 255, 255, 0.15); padding: 6px 14px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.2); font-weight: 700; display: flex; align-items: center; gap: 6px;">
-            <i class="fa-solid fa-id-card" style="color: #fef08a;"></i> 
-            <span>Udyam Reg. No: <span style="color: #ffffff; font-weight: 800;">UDYAM-BR-31-0065531</span></span>
-        </div>
-
-        <div style="background: rgba(255, 255, 255, 0.15); padding: 6px 14px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.2); font-weight: 600; display: flex; align-items: center; gap: 6px;">
-            <i class="fa-solid fa-building" style="color: #fef08a;"></i> 
-            <span>Micro Enterprise (Services)</span>
-        </div>
-
-        <div style="background: rgba(255, 255, 255, 0.15); padding: 6px 14px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.2); font-weight: 600; display: flex; align-items: center; gap: 6px;">
-            <i class="fa-solid fa-tag" style="color: #fef08a;"></i> 
-            <span>NIC Code: 79900 (Reservation Services)</span>
-        </div>
-
-    </div>
-
-    <!-- Verification Tag & Govt Link -->
-    <div style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.9); display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; border-top: 1px dashed rgba(255, 255, 255, 0.25); padding-top: 10px;">
-        <span style="display: flex; align-items: center; gap: 5px; font-weight: 700; color: #ffffff;">
-            <i class="fa-solid fa-shield-halved" style="color: #fef08a;"></i> Registered Under Ministry of MSME, Govt. of India
-        </span>
-        <span style="color: rgba(255, 255, 255, 0.4);">|</span>
-        <a href="https://udyamregistration.gov.in" target="_blank" style="color: #fef08a; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 4px;">
-            Verify Status <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7rem;"></i>
-        </a>
-    </div>
-
-</div>
-            <!-- 2. Best Price Guarantee -->
-            <div class="feature-card reveal" style="transition-delay: 0.1s;">
-                <div class="feature-icon"><i class="fa-solid fa-tags"></i></div>
-                <h4>Best Price Guarantee</h4>
-                <p>Unbeatable prices for budget to premium stays.</p>
+    <section class="why-choose" style="padding: 5rem 0;">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Why Choose HotelReach</h2>
+                <p>We ensure a seamless, secure, and delightful experience for every traveler.</p>
             </div>
+            
+            <div class="features-grid">
+                <!-- Government Registered Badge -->
+                <div class="reveal" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 20px 20px; border-radius: 16px; border: 1.5px solid rgba(255, 255, 255, 0.25); margin: 30px auto; max-width: 850px; text-align: center; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden; color: #ffffff;">
+                    <div style="position: absolute; top: -40px; right: -40px; width: 100px; height: 100px; background: rgba(250, 204, 21, 0.15); filter: blur(30px); border-radius: 50%; pointer-events: none;"></div>
+                    <div style="position: absolute; bottom: -40px; left: -40px; width: 100px; height: 100px; background: rgba(255, 255, 255, 0.15); filter: blur(30px); border-radius: 50%; pointer-events: none;"></div>
 
-            <!-- 3. Verified Hotels -->
-            <div class="feature-card reveal" style="transition-delay: 0.2s;">
-                <div class="feature-icon"><i class="fa-solid fa-check-circle"></i></div>
-                <h4>Verified Hotels</h4>
-                <p>Every partner hotel is inspected for safety & hygiene.</p>
-            </div>
+                    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px;">
+                        <span style="display: inline-flex; align-items: center; gap: 6px; background: #eab308; color: #0b132b; padding: 4px 12px; border-radius: 50px; font-size: 0.78rem; font-weight: 800; text-transform: uppercase;">
+                            <i class="fa-solid fa-circle-check" style="color: #0b132b;"></i> Govt. Certified
+                        </span>
+                        <h4 style="margin: 0; color: #ffffff; font-size: 1.15rem; font-weight: 800;">
+                            HotelReach Is MSME Govt. Verified
+                        </h4>
+                    </div>
 
-            <!-- 4. Instant Booking -->
-            <div class="feature-card reveal" style="transition-delay: 0.3s;">
-                <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
-                <h4>Instant Booking</h4>
-                <p>Quick, hassle-free and instant confirmation.</p>
-            </div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; font-size: 0.82rem; color: #ffffff; margin-bottom: 12px;">
+                        <div style="background: rgba(255, 255, 255, 0.15); padding: 6px 14px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.2); font-weight: 700; display: flex; align-items: center; gap: 6px;">
+                            <i class="fa-solid fa-id-card" style="color: #fef08a;"></i> 
+                            <span>Udyam Reg. No: <span style="color: #ffffff; font-weight: 800;">UDYAM-BR-31-0065531</span></span>
+                        </div>
 
-            <!-- 5. 24×7 Support -->
-            <div class="feature-card reveal" style="transition-delay: 0.4s;">
-                <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
-                <h4>24×7 Support</h4>
-                <p>Dedicated customer support ready to help you anytime.</p>
+                        <div style="background: rgba(255, 255, 255, 0.15); padding: 6px 14px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.2); font-weight: 600; display: flex; align-items: center; gap: 6px;">
+                            <i class="fa-solid fa-building" style="color: #fef08a;"></i> 
+                            <span>Micro Enterprise (Services)</span>
+                        </div>
+
+                        <div style="background: rgba(255, 255, 255, 0.15); padding: 6px 14px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.2); font-weight: 600; display: flex; align-items: center; gap: 6px;">
+                            <i class="fa-solid fa-tag" style="color: #fef08a;"></i> 
+                            <span>NIC Code: 79900 (Reservation Services)</span>
+                        </div>
+                    </div>
+
+                    <div style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.9); display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; border-top: 1px dashed rgba(255, 255, 255, 0.25); padding-top: 10px;">
+                        <span style="display: flex; align-items: center; gap: 5px; font-weight: 700; color: #ffffff;">
+                            <i class="fa-solid fa-shield-halved" style="color: #fef08a;"></i> Registered Under Ministry of MSME, Govt. of India
+                        </span>
+                        <span style="color: rgba(255, 255, 255, 0.4);">|</span>
+                        <a href="https://udyamregistration.gov.in" target="_blank" style="color: #fef08a; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 4px;">
+                            Verify Status <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7rem;"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Features -->
+                <div class="feature-card reveal" style="transition-delay: 0.1s;">
+                    <div class="feature-icon"><i class="fa-solid fa-tags"></i></div>
+                    <h4>Best Price Guarantee</h4>
+                    <p>Unbeatable prices for budget to premium stays.</p>
+                </div>
+
+                <div class="feature-card reveal" style="transition-delay: 0.2s;">
+                    <div class="feature-icon"><i class="fa-solid fa-check-circle"></i></div>
+                    <h4>Verified Hotels</h4>
+                    <p>Every partner hotel is inspected for safety & hygiene.</p>
+                </div>
+
+                <div class="feature-card reveal" style="transition-delay: 0.3s;">
+                    <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h4>Instant Booking</h4>
+                    <p>Quick, hassle-free and instant confirmation.</p>
+                </div>
+
+                <div class="feature-card reveal" style="transition-delay: 0.4s;">
+                    <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
+                    <h4>24×7 Support</h4>
+                    <p>Dedicated customer support ready to help you anytime.</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-    
+    </section>
 
     <!-- Reviews Section -->
-<section class="reviews-section" id="reviews">
-    <div class="container">
-        <div class="section-title reveal">
-            <h2>What Our Customers Say</h2>
-            <p>Trusted by thousands of travelers. Read their experiences & share yours!</p>
+    <section class="reviews-section" id="reviews">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>What Our Customers Say</h2>
+                <p>Trusted by thousands of travelers. Read their experiences & share yours!</p>
+            </div>
+
+            <!-- Write A Review Form -->
+            <div class="review-card reveal" style="max-width: 700px; margin: 0 auto 40px auto; text-align: left; background: #ffffff; padding: 25px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.08);">
+                <h3 style="margin-bottom: 15px; color: var(--dark, #0b132b); font-size: 1.2rem; display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-pen-nib" style="color: var(--gold, #d97706);"></i> Write a Review
+                </h3>
+                
+                <form action="https://formspree.io/f/xwlevkkz" method="POST">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 15px;">
+                        <div>
+                            <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px;">Your Name</label>
+                            <input type="text" name="Name" placeholder="e.g. Rahul Sharma" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; outline: none; box-sizing: border-box;">
+                        </div>
+                        <div>
+                            <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px;">Rating</label>
+                            <select name="Rating" style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; outline: none; background: #fff; box-sizing: border-box;">
+                                <option value="5 ⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐ (5/5 Excellent)</option>
+                                <option value="4 ⭐⭐⭐⭐">⭐⭐⭐⭐ (4/5 Very Good)</option>
+                                <option value="3 ⭐⭐⭐">⭐⭐⭐ (3/5 Good)</option>
+                                <option value="2 ⭐⭐">⭐⭐ (2/5 Average)</option>
+                                <option value="1 ⭐">⭐ (1/5 Poor)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px;">Your Experience</label>
+                        <textarea name="Review" rows="3" placeholder="How was your hotel booking experience with HotelReach?" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; outline: none; font-family: inherit; box-sizing: border-box; resize: vertical;"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="background: var(--dark, #0b132b); color: #fff; padding: 10px 24px; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
+                        Submit Review <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Customer Reviews Grid -->
+            <div class="reviews-grid">
+                <div class="review-card reveal">
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"Great service and best prices! Booked a room for my Varanasi tour through HotelReach and got a budget-friendly deal. The room and service were both excellent. Highly recommended!"</p>
+                    <div class="review-author">
+                        <div class="author-avatar">R</div>
+                        <div class="author-info"><h5>Rakesh kumar</h5></div>
+                    </div>
+                </div>
+
+                <div class="review-card reveal">
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"Easily got a hotel through HotelReach. Great service! I was able to find the perfect place in Varanasi because of your excellent service. Keep it up!"</p>
+                    <div class="review-author">
+                        <div class="author-avatar">K</div>
+                        <div class="author-info"><h5>Karga Genga Rori</h5></div>
+                    </div>
+                </div>
+
+                <div class="review-card reveal">
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"I booked my hotel in Varanasi through HotelReach, and I had a great experience. The booking process was smooth and hassle-free. The hotel matched the description, the rooms were clean, and the staff was friendly and helpful. I would definitely recommend HotelReach."</p>
+                    <div class="review-author">
+                        <div class="author-avatar">B</div>
+                        <div class="author-info"><h5>Biki Saha</h5></div>
+                    </div>
+                </div>
+
+                <div class="review-card reveal">
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"Amazing experience! What was shown on HotelReach is exactly what I got. Great rates and even better service. First time using it and not disappointed at all. A must-try for Varanasi travelers."</p>
+                    <div class="review-author">
+                        <div class="author-avatar">N</div>
+                        <div class="author-info"><h5>Nitesh Chanchal</h5></div>
+                    </div>
+                </div>
+
+                <div class="review-card reveal">
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"Had a wonderful experience booking through HotelReach. The hotel was clean, comfortable, and exactly as shown. The booking process was quick, prices were reasonable, and the support team was very helpful. Highly recommended."</p>
+                    <div class="review-author">
+                        <div class="author-avatar">H</div>
+                        <div class="author-info"><h5>Harsh Ginoria</h5></div>
+                    </div>
+                </div>
+
+                <div class="review-card reveal">
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"Great experience with HotelReach! Easy booking, affordable prices, clean rooms, and excellent customer support. Highly recommended for anyone visiting Varanasi."</p>
+                    <div class="review-author">
+                        <div class="author-avatar" style="background: var(--gold);">V</div>
+                        <div class="author-info"><h5>Vinay Gupta</h5></div>
+                    </div>
+                </div>
+
+                <div class="review-card reveal">
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"Maine recently HotelReach ki service use ki aur sach bataun to experience bahut hi accha raha! Booking process ekdum simple aur fast thi - koi confusion nahi, instant confirmation mil gaya. Jo hotel select kiya tha woh verified tha, safety aur hygiene dono levels par best laga. Customer support 24x7 available tha, kisi bhi query ka turant response milta hai. Prices bhi reasonable the aur value-for-money feel hua. Overall stay smooth, comfortable aur tension-free rahi. Agar aap verified aur hassle-free hotel booking chahte ho to HotelReach ekdam reliable option hai. Highly recommended!."</p>
+                    <div class="review-author">
+                        <div class="author-avatar" style="background: var(--gold);">V</div>
+                        <div class="author-info"><h5>Raja Kumar Sah</h5></div>
+                    </div>
+                </div>
+
+                <div class="review-card reveal">
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"HotelReach is the best! When I visited Varanasi, I booked my hotel through HotelReach. Excellent service and smooth booking experience. Highly recommended!"</p>
+                    <div class="review-author">
+                        <div class="author-avatar" style="background: var(--dark);">R</div>
+                        <div class="author-info"><h5>Raunac Gupta</h5></div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <!-- Write A Review Form (Formspree Connected) -->
-        <div class="review-card reveal" style="max-width: 700px; margin: 0 auto 40px auto; text-align: left; background: #ffffff; padding: 25px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.08);">
-            <h3 style="margin-bottom: 15px; color: var(--dark, #0b132b); font-size: 1.2rem; display: flex; align-items: center; gap: 8px;">
-                <i class="fa-solid fa-pen-nib" style="color: var(--gold, #d97706);"></i> Write a Review
-            </h3>
-            
-            <form action="https://formspree.io/f/xwlevkkz" method="POST">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 15px;">
-                    <div>
-                        <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px;">Your Name</label>
-                        <input type="text" name="Name" placeholder="e.g. Rahul Sharma" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; outline: none; box-sizing: border-box;">
-                    </div>
-                    <div>
-                        <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px;">Rating</label>
-                        <select name="Rating" style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; outline: none; background: #fff; box-sizing: border-box;">
-                            <option value="5 ⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐ (5/5 Excellent)</option>
-                            <option value="4 ⭐⭐⭐⭐">⭐⭐⭐⭐ (4/5 Very Good)</option>
-                            <option value="3 ⭐⭐⭐">⭐⭐⭐ (3/5 Good)</option>
-                            <option value="2 ⭐⭐">⭐⭐ (2/5 Average)</option>
-                            <option value="1 ⭐">⭐ (1/5 Poor)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div style="margin-bottom: 15px;">
-                    <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px;">Your Experience</label>
-                    <textarea name="Review" rows="3" placeholder="How was your hotel booking experience with HotelReach?" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; outline: none; font-family: inherit; box-sizing: border-box; resize: vertical;"></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary" style="background: var(--dark, #0b132b); color: #fff; padding: 10px 24px; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
-                    Submit Review <i class="fa-solid fa-paper-plane"></i>
-                </button>
-            </form>
-        </div>
-
-        <!-- Existing Customer Reviews Grid -->
-        <div class="reviews-grid">
-            <!-- Review 1 -->
-            <div class="review-card reveal">
-                <div class="review-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="review-text">"Great service and best prices! Booked a room for my Varanasi tour through HotelReach and got a budget-friendly deal. The room and service were both excellent. Highly recommended!"</p>
-                <div class="review-author">
-                    <div class="author-avatar">R</div>
-                    <div class="author-info">
-                        <h5>Rakesh kumar</h5>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Review 2 -->
-            <div class="review-card reveal">
-                <div class="review-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="review-text">"Easily got a hotel through HotelReach. Great service! I was able to find the perfect place in Varanasi because of your excellent service. Keep it up!"</p>
-                <div class="review-author">
-                    <div class="author-avatar">K</div>
-                    <div class="author-info">
-                        <h5>Karga Genga Rori</h5>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Review 3 -->
-            <div class="review-card reveal">
-                <div class="review-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="review-text">"I booked my hotel in Varanasi through HotelReach, and I had a great experience. The booking process was smooth and hassle-free. The hotel matched the description, the rooms were clean, and the staff was friendly and helpful. I would definitely recommend HotelReach."</p>
-                <div class="review-author">
-                    <div class="author-avatar">B</div>
-                    <div class="author-info">
-                        <h5>Biki Saha</h5>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Review 4 -->
-            <div class="review-card reveal">
-                <div class="review-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="review-text">"Amazing experience! What was shown on HotelReach is exactly what I got. Great rates and even better service. First time using it and not disappointed at all. A must-try for Varanasi travelers."</p>
-                <div class="review-author">
-                    <div class="author-avatar">N</div>
-                    <div class="author-info">
-                        <h5>Nitesh Chanchal</h5>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Review 5 -->
-            <div class="review-card reveal">
-                <div class="review-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="review-text">"Had a wonderful experience booking through HotelReach. The hotel was clean, comfortable, and exactly as shown. The booking process was quick, prices were reasonable, and the support team was very helpful. Highly recommended."</p>
-                <div class="review-author">
-                    <div class="author-avatar">H</div>
-                    <div class="author-info">
-                        <h5>Harsh Ginoria</h5>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Review 6 -->
-            <div class="review-card reveal">
-                <div class="review-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="review-text">"Great experience with HotelReach! Easy booking, affordable prices, clean rooms, and excellent customer support. Highly recommended for anyone visiting Varanasi."</p>
-                <div class="review-author">
-                    <div class="author-avatar" style="background: var(--gold);">V</div>
-                    <div class="author-info">
-                        <h5>Vinay Gupta</h5>
-                    </div>
-                </div>
-            </div>
-             <!-- Review 7 -->
-            <div class="review-card reveal">
-                <div class="review-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="review-text">"Maine recently HotelReach ki service use ki aur sach bataun to experience bahut hi accha raha! Booking process ekdum simple aur fast thi - koi confusion nahi, instant confirmation mil gaya. Jo hotel select kiya tha woh verified tha, safety aur hygiene dono levels par best laga.
-Customer support 24x7 available tha, kisi bhi query ka turant response milta hai. Prices bhi reasonable the aur value-for-money feel hua. Overall stay smooth, comfortable aur tension-free rahi. Agar aap verified aur hassle-free hotel booking chahte ho to HotelReach ekdam reliable option hai. Highly recommended!."</p>
-                <div class="review-author">
-                    <div class="author-avatar" style="background: var(--gold);">V</div>
-                    <div class="author-info">
-                        <h5>Raja Kumar Sah</h5>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Review 8 -->
-            <div class="review-card reveal">
-                <div class="review-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="review-text">"HotelReach is the best! When I visited Varanasi, I booked my hotel through HotelReach. Excellent service and smooth booking experience. Highly recommended!"</p>
-                <div class="review-author">
-                    <div class="author-avatar" style="background: var(--dark);">R</div>
-                    <div class="author-info">
-                        <h5>Raunac Gupta</h5>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
+    </section>
 
     <!-- Partner Section -->
-<section class="partner-section" id="partner">
-    <div class="container">
-        <div class="partner-content reveal">
-            <h2>Become a Hotel Partner</h2>
-            <p>Grow your hotel business with HotelReach. Partner with us and reach thousands of travelers looking for hotels every day. Increase your bookings, improve your online visibility, and receive dedicated support from our team.</p>
-            
-            <ul class="benefits-list">
-                <li><i class="fa-solid fa-check"></i> More Direct Bookings</li>
-                <li><i class="fa-solid fa-check"></i> Zero Hidden Charges</li>
-                <li><i class="fa-solid fa-check"></i> Dedicated Partner Support</li>
-                <li><i class="fa-solid fa-check"></i> Digital Marketing Assistance</li>
-                <li><i class="fa-solid fa-check"></i> Easy Onboarding</li>
-                <li><i class="fa-solid fa-check"></i> Fast Payments</li>
-                <li><i class="fa-solid fa-check"></i> Higher Occupancy Rate</li>
-            </ul>
+    <section class="partner-section" id="partner">
+        <div class="container">
+            <div class="partner-content reveal">
+                <h2>Become a Hotel Partner</h2>
+                <p>Grow your hotel business with HotelReach. Partner with us and reach thousands of travelers looking for hotels every day. Increase your bookings, improve your online visibility, and receive dedicated support from our team.</p>
+                
+                <ul class="benefits-list">
+                    <li><i class="fa-solid fa-check"></i> More Direct Bookings</li>
+                    <li><i class="fa-solid fa-check"></i> Zero Hidden Charges</li>
+                    <li><i class="fa-solid fa-check"></i> Dedicated Partner Support</li>
+                    <li><i class="fa-solid fa-check"></i> Digital Marketing Assistance</li>
+                    <li><i class="fa-solid fa-check"></i> Easy Onboarding</li>
+                    <li><i class="fa-solid fa-check"></i> Fast Payments</li>
+                    <li><i class="fa-solid fa-check"></i> Higher Occupancy Rate</li>
+                </ul>
 
-            <!-- Clean & Single CTA Button -->
-            <a href="https://docs.google.com/forms/d/15mSjYv4PEoWsuuTBcO0vz38oECb6BZYJm_SkS29aSYI/viewform?chromeless=1&edit_requested=true" target="_blank" class="btn btn-gold" style="font-size: 1.1rem; padding: 15px 35px; display: inline-block;">
-                <i class="fa-solid fa-file-pen"></i> Become a Partner
-            </a>
+                <a href="https://docs.google.com/forms/d/15mSjYv4PEoWsuuTBcO0vz38oECb6BZYJm_SkS29aSYI/viewform?chromeless=1&edit_requested=true" target="_blank" class="btn btn-gold" style="font-size: 1.1rem; padding: 15px 35px; display: inline-block;">
+                    <i class="fa-solid fa-file-pen"></i> Become a Partner
+                </a>
+            </div>
         </div>
-    </div>
-</section>
-    
+    </section>
 
     <!-- FAQ Section -->
     <section class="faq-section" id="faq">
@@ -2642,10 +2318,10 @@ Customer support 24x7 available tha, kisi bhi query ka turant response milta hai
                 <div class="footer-links">
                     <h4>Contact Us</h4>
                     <ul>
-<li><a href="https://wa.me/919774059230" target="_blank"><i class="fa-brands fa-whatsapp" style="font-size: 1.2rem; color: #25d366;"></i> +91 9774059230</a></li>
-<li><a href="tel:+918877239945"><i class="fa-solid fa-phone" style="font-size: 1.1rem; color: #3b82f6;"></i> +91 8877239945</a></li>                       
- <li><a href="mailto:hotelreach.in@gmail.com"><i class="fa-solid fa-envelope" style="color: var(--gold);"></i> hotelreach.in@gmail.com</a></li>
- <li><a href="https://hotelreach.in" target="_blank"><i class="fa-solid fa-globe" style="color: var(--primary-blue);"></i> hotelreach.in</a></li>
+                        <li><a href="https://wa.me/919774059230" target="_blank"><i class="fa-brands fa-whatsapp" style="font-size: 1.2rem; color: #25d366;"></i> +91 9774059230</a></li>
+                        <li><a href="tel:+918877239945"><i class="fa-solid fa-phone" style="font-size: 1.1rem; color: #3b82f6;"></i> +91 8877239945</a></li>                       
+                        <li><a href="mailto:hotelreach.in@gmail.com"><i class="fa-solid fa-envelope" style="color: var(--gold);"></i> hotelreach.in@gmail.com</a></li>
+                        <li><a href="https://hotelreach.in" target="_blank"><i class="fa-solid fa-globe" style="color: var(--primary-blue);"></i> hotelreach.in</a></li>
                     </ul>
                 </div>
             </div>
@@ -2666,128 +2342,111 @@ Customer support 24x7 available tha, kisi bhi query ka turant response milta hai
         <i class="fa-solid fa-arrow-up"></i>
     </div>
 
-    <!-- External Script -->
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- Script Logic -->
     <script>
-        // Yahan poora JavaScript code paste karein
         document.addEventListener('DOMContentLoaded', () => {
-    
-    // 1. Preloader Removal
-    window.addEventListener('load', () => {
-        const preloader = document.getElementById('preloader');
-        if (preloader) {
-            preloader.style.opacity = '0';
-            setTimeout(() => {
-                preloader.style.display = 'none';
-            }, 500);
-        }
-    });
+            // Preloader Removal
+            window.addEventListener('load', () => {
+                const preloader = document.getElementById('preloader');
+                if (preloader) {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 500);
+                }
+            });
 
-    // 2. Scroll Progress Bar & Navbar Sticky & Back To Top
-    const progressBar = document.getElementById('progress-bar');
-    const navbar = document.getElementById('navbar');
-    const backToTop = document.getElementById('backToTop');
+            // Scroll Progress Bar & Navbar Sticky & Back To Top
+            const progressBar = document.getElementById('progress-bar');
+            const navbar = document.getElementById('navbar');
+            const backToTop = document.getElementById('backToTop');
 
-    window.addEventListener('scroll', () => {
-        // Progress bar logic
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        if (progressBar) {
-            progressBar.style.width = scrolled + '%';
-        }
+            window.addEventListener('scroll', () => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                if (progressBar) {
+                    progressBar.style.width = scrolled + '%';
+                }
 
-        // Navbar sticky glassmorphism
-        if (window.scrollY > 50) {
-            if (navbar) navbar.classList.add('scrolled');
-            if (backToTop) backToTop.classList.add('active');
-        } else {
-            if (navbar) navbar.classList.remove('scrolled');
-            if (backToTop) backToTop.classList.remove('active');
-        }
-    });
+                if (window.scrollY > 50) {
+                    if (navbar) navbar.classList.add('scrolled');
+                    if (backToTop) backToTop.classList.add('active');
+                } else {
+                    if (navbar) navbar.classList.remove('scrolled');
+                    if (backToTop) backToTop.classList.remove('active');
+                }
+            });
 
-    // Back to top click
-    if (backToTop) {
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
-
-    // 3. Hamburger Menu Toggle
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    const navItems = document.querySelectorAll('.nav-links li a');
-
-    if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
-            if (navLinks.classList.contains('active')) {
-                hamburger.innerHTML = '<i class="fa-solid fa-xmark"></i>';
-            } else {
-                hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            if (backToTop) {
+                backToTop.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
             }
-        });
-    }
 
-    // Close mobile menu when link is clicked
-    navItems.forEach(item => {
-        item.addEventListener('click', () => {
-            if (navLinks) navLinks.classList.remove('active');
-            if (hamburger) {
-                hamburger.classList.remove('active');
-                hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
-            }
-        });
-    });
+            // Hamburger Menu Toggle
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('nav-links');
+            const navItems = document.querySelectorAll('.nav-links li a');
 
-    // 4. Scroll Reveal Animations (Intersection Observer)
-    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-    
-    const revealOptions = {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, revealOptions);
-
-    revealElements.forEach(el => {
-        revealObserver.observe(el);
-    });
-
-    // 5. FAQ Accordion Logic
-    const faqItems = document.querySelectorAll('.faq-item');
-    
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        
-        if (question) {
-            question.addEventListener('click', () => {
-                // Close other open items
-                faqItems.forEach(otherItem => {
-                    if (otherItem !== item && otherItem.classList.contains('active')) {
-                        otherItem.classList.remove('active');
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                    if (navLinks.classList.contains('active')) {
+                        hamburger.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                    } else {
+                        hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
                     }
                 });
-                
-                // Toggle current item
-                item.classList.toggle('active');
-            });
-        }
-    });
+            }
 
-});
-        
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    if (navLinks) navLinks.classList.remove('active');
+                    if (hamburger) {
+                        hamburger.classList.remove('active');
+                        hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                    }
+                });
+            });
+
+            // Scroll Reveal Animations
+            const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => {
+                revealObserver.observe(el);
+            });
+
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                if (question) {
+                    question.addEventListener('click', () => {
+                        faqItems.forEach(otherItem => {
+                            if (otherItem !== item && otherItem.classList.contains('active')) {
+                                otherItem.classList.remove('active');
+                            }
+                        });
+                        item.classList.toggle('active');
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
