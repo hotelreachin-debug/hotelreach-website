@@ -421,7 +421,7 @@
             --radius-sm: 10px;
             --radius-md: 18px;
             --radius-lg: 28px;
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 0.3s ease;
         }
 
         *, *::before, *::after {
@@ -431,15 +431,15 @@
         }
 
         html, body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden !important;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    color: var(--text-dark);
-    background-color: var(--light-bg);
-    line-height: 1.5;
-    -webkit-tap-highlight-color: transparent;
-}
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden !important;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            line-height: 1.5;
+            -webkit-tap-highlight-color: transparent;
+        }
 
         .cinzel {
             font-family: 'Cinzel', serif;
@@ -463,7 +463,7 @@
             100% { background-position: 100% 50%; }
         }
 
-        /* Ultra Modern Preloader - 3.5 Sec Deluxe Opening Animation */
+        /* Preloader - Updated 2 Sec Timer */
         #preloader {
             position: fixed;
             inset: 0;
@@ -472,13 +472,13 @@
             justify-content: center;
             align-items: center;
             z-index: 100000;
-            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), visibility 1s ease;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
         }
 
         .loader-content {
             text-align: center;
             color: white;
-            animation: fadeInUp 1s ease forwards;
+            animation: fadeInUp 0.8s ease forwards;
         }
 
         @keyframes fadeInUp {
@@ -488,36 +488,36 @@
 
         .loader-pulse-ring {
             position: relative;
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 24px;
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
             background: rgba(2, 132, 199, 0.15);
             border: 2px solid var(--primary-accent);
-            animation: ringGlow 3.5s infinite ease-in-out;
+            animation: ringGlow 2s infinite ease-in-out;
         }
 
         .loader-pulse-ring i {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             color: var(--gold-accent);
-            animation: pulseIcon 1.75s ease-in-out infinite alternate;
+            animation: pulseIcon 1.2s ease-in-out infinite alternate;
         }
 
         @keyframes pulseIcon {
             0% { transform: scale(0.9); opacity: 0.8; }
-            100% { transform: scale(1.15); opacity: 1; color: var(--gold-accent); filter: drop-shadow(0 0 15px var(--gold-accent)); }
+            100% { transform: scale(1.1); opacity: 1; color: var(--gold-accent); filter: drop-shadow(0 0 15px var(--gold-accent)); }
         }
 
         @keyframes ringGlow {
             0%, 100% { transform: scale(1); box-shadow: 0 0 20px var(--primary); }
-            50% { transform: scale(1.15); box-shadow: 0 0 50px var(--gold-accent); }
+            50% { transform: scale(1.1); box-shadow: 0 0 40px var(--gold-accent); }
         }
 
         .loader-progress-line {
-            width: 180px;
+            width: 160px;
             height: 3px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
@@ -533,7 +533,7 @@
             height: 100%;
             width: 0%;
             background: linear-gradient(90deg, var(--primary), var(--gold-accent));
-            animation: loadProgress 3.5s linear forwards;
+            animation: loadProgress 2s linear forwards;
         }
 
         @keyframes loadProgress {
@@ -546,12 +546,12 @@
             width: 90%;
             max-width: 1240px;
             margin: 0 auto;
-            padding: 6rem 0;
+            padding: 5rem 0;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3.5rem;
         }
 
         .section-badge {
@@ -582,146 +582,85 @@
             color: var(--text-muted);
             max-width: 650px;
             margin: 0 auto;
-            font-size: 1.08rem;
+            font-size: 1.05rem;
         }
         
-/* Dynamic Dark Glassmorphic Navigation bar */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 0.8rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10000;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    background: rgba(11, 19, 43, 0.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-}
+        /* Navigation bar Adaptive Glass Style */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 0.8rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10000;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            background: rgba(11, 19, 43, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
 
-.navbar .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-}
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
 
-.navbar .logo span {
-    color: #ffffff !important;
-    font-weight: 800;
-    font-size: 1.4rem;
-}
+        .navbar .logo span {
+            color: #ffffff !important;
+            font-weight: 800;
+            font-size: 1.4rem;
+        }
 
-.navbar .logo span span {
-    color: var(--gold-accent) !important;
-}
+        .navbar .logo span span {
+            color: var(--gold-accent) !important;
+        }
 
-.navbar .nav-links a {
-    color: rgba(255, 255, 255, 0.9) !important;
-    font-weight: 600;
-    font-size: 0.95rem;
-}
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            list-style: none;
+        }
 
-.navbar .hamburger {
-    display: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: #ffffff !important;
-    padding: 5px;
-}
+        .navbar .nav-links a {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
 
-/* Light Section Adaptability on Scroll */
-.navbar.light-theme {
-    background: rgba(255, 255, 255, 0.96) !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
+        .navbar .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #ffffff !important;
+            padding: 5px;
+        }
 
-.navbar.light-theme .logo span {
-    color: #0f172a !important;
-}
+        /* Light Section Adaptability on Scroll */
+        .navbar.light-theme {
+            background: rgba(255, 255, 255, 0.96) !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
 
-.navbar.light-theme .nav-links a,
-.navbar.light-theme .hamburger {
-    color: #0f172a !important;
-}
+        .navbar.light-theme .logo span {
+            color: #0f172a !important;
+        }
 
-/* Perfect Mobile Layout & Hamburger Restored */
-@media (max-width: 768px) {
-    body {
-        overflow-x: hidden !important;
-    }
+        .navbar.light-theme .nav-links a,
+        .navbar.light-theme .hamburger {
+            color: #0f172a !important;
+        }
 
-    .navbar {
-        padding: 0.7rem 4%;
-    }
-
-    .navbar .hamburger {
-        display: block !important;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 270px;
-        height: 100vh;
-        background: #0b132b !important;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
-        transition: right 0.3s ease-in-out;
-        z-index: 9999;
-    }
-
-    .nav-links.active {
-        right: 0 !important;
-    }
-
-    .nav-links a {
-        color: #ffffff !important;
-        font-size: 1.15rem;
-    }
-
-    .hero {
-        padding: 90px 12px 35px;
-        min-height: auto;
-    }
-
-    .hero-title {
-        font-size: 1.8rem !important;
-        line-height: 1.25;
-    }
-
-    .hero-subtitle {
-        font-size: 0.88rem !important;
-        margin-bottom: 1.5rem;
-    }
-
-    .search-glass-card {
-        padding: 10px;
-        width: 100%;
-    }
-
-    .search-form {
-        grid-template-columns: 1fr !important;
-        gap: 8px;
-    }
-
-    .btn-search {
-        padding: 12px;
-        font-size: 0.95rem;
-    }
-}
-
-        /* Hero Section with Parallax Background */
+        /* Hero Section */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -1046,6 +985,7 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            text-decoration: none;
         }
 
         .btn-book:hover {
@@ -1140,7 +1080,7 @@
             box-shadow: 0 10px 20px rgba(217, 119, 6, 0.3);
         }
 
-        /* Form Card Restored */
+        /* Form Card */
         .review-form-card {
             max-width: 700px;
             margin: 0 auto 50px auto;
@@ -1227,6 +1167,7 @@
             gap: 12px;
             margin: 2rem auto 2.5rem;
             max-width: 900px;
+            list-style: none;
         }
 
         .benefits-list li {
@@ -1254,6 +1195,7 @@
             gap: 12px;
             box-shadow: 0 10px 30px rgba(217, 119, 6, 0.4);
             transition: var(--transition);
+            text-decoration: none;
         }
 
         .btn-gold-lg:hover {
@@ -1340,6 +1282,7 @@
             color: white;
             transition: var(--transition);
             margin-right: 10px;
+            text-decoration: none;
         }
 
         .footer-socials a:hover {
@@ -1361,6 +1304,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            text-decoration: none;
         }
 
         .footer-col ul a:hover {
@@ -1394,6 +1338,7 @@
             z-index: 9999;
             transition: var(--transition);
             animation: bounceFloat 2.5s infinite;
+            text-decoration: none;
         }
 
         .floating-whatsapp:hover {
@@ -1416,100 +1361,97 @@
             .about-grid, .footer-grid { grid-template-columns: 1fr; gap: 3rem; }
         }
 
-      @media (max-width: 768px) {
-    .container {
-        width: 92%;
-        padding: 3.5rem 0;
-    }
+        @media (max-width: 768px) {
+            .container {
+                width: 92%;
+                padding: 3.5rem 0;
+            }
 
-    .hero {
-        padding: 95px 12px 35px;
-        min-height: auto;
-    }
+            .navbar {
+                padding: 0.7rem 4%;
+            }
 
-    .hero-title {
-        font-size: 1.85rem !important;
-        line-height: 1.2;
-    }
+            .navbar .hamburger {
+                display: block !important;
+            }
 
-    .hero-subtitle {
-        font-size: 0.9rem !important;
-        margin-bottom: 1.5rem;
-    }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 270px;
+                height: 100vh;
+                background: #0b132b !important;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+                transition: right 0.3s ease-in-out;
+                z-index: 9999;
+            }
 
-    .search-glass-card {
-        padding: 12px;
-        width: 100%;
-        border-radius: 18px;
-    }
+            .nav-links.active {
+                right: 0 !important;
+            }
 
-    .search-form {
-        grid-template-columns: 1fr !important;
-        gap: 8px;
-    }
+            .nav-links a {
+                color: #ffffff !important;
+                font-size: 1.15rem;
+            }
 
-    .search-group {
-        padding: 10px 14px;
-    }
+            .hero {
+                padding: 90px 12px 35px;
+                min-height: auto;
+            }
 
-    .btn-search {
-        padding: 14px;
-        font-size: 0.95rem;
-    }
+            .hero-title {
+                font-size: 1.85rem !important;
+                line-height: 1.25;
+            }
 
-    .about-img-main {
-        width: 100%;
-    }
+            .hero-subtitle {
+                font-size: 0.9rem !important;
+                margin-bottom: 1.5rem;
+            }
 
-    .about-img-floating {
-        display: none;
-    }
+            .search-glass-card {
+                padding: 12px;
+                width: 100%;
+                border-radius: 18px;
+            }
 
-    .about-text h3 {
-        font-size: 1.7rem !important;
-        line-height: 1.25;
-    }
+            .search-form {
+                grid-template-columns: 1fr !important;
+                gap: 8px;
+            }
 
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 260px;
-        height: 100vh;
-        background: #0b132b !important;
-        flex-direction: column;
-        justify-content: center;
-        gap: 1.8rem;
-        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
-        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        will-change: transform;
-    }
+            .search-group {
+                padding: 10px 14px;
+            }
 
-    .nav-links.active {
-        transform: translateX(-100%);
-        right: -260px;
-    }
+            .btn-search {
+                grid-column: span 1;
+                padding: 14px;
+                font-size: 0.95rem;
+            }
 
-    .nav-links a {
-        color: #ffffff !important;
-        font-size: 1.1rem;
-    }
-} 
-    
-    /* Mobile text and card sizes fix */
-    .hero { padding: 100px 15px 40px; min-height: auto; }
-    .hero-title { font-size: 2rem !important; line-height: 1.2; }
-    .hero-subtitle { font-size: 0.95rem !important; margin-bottom: 1.8rem; }
-    .search-glass-card { padding: 10px; width: 100%; }
-    .search-form { grid-template-columns: 1fr !important; gap: 8px; }
-    .btn-search { grid-column: span 1; padding: 12px; font-size: 0.95rem; }
-    .hotels-grid, .features-grid, .reviews-grid { grid-template-columns: 1fr; }
-}
-            .nav-links.active { right: 0; }
-            .hero-title { font-size: 2.4rem; }
-            .search-form { grid-template-columns: 1fr; }
-            .btn-search { grid-column: span 1; }
-            .hotels-grid, .features-grid, .reviews-grid { grid-template-columns: 1fr; }
+            .about-img-main {
+                width: 100%;
+            }
+
+            .about-img-floating {
+                display: none;
+            }
+
+            .about-text h3 {
+                font-size: 1.7rem !important;
+                line-height: 1.25;
+            }
+
+            .hotels-grid, .features-grid, .reviews-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -1518,7 +1460,7 @@
     <!-- Progress Bar -->
     <div id="progress-bar"></div>
 
-    <!-- Ultra Preloader - Extended 3.5s Opening Animation -->
+    <!-- Ultra Preloader - Updated 2 Sec Timer -->
     <div id="preloader">
         <div class="loader-content">
             <div class="loader-pulse-ring">
@@ -1537,7 +1479,7 @@
     <header class="navbar" id="navbar">
         <a href="#" class="logo">
             <img src="logo.png" alt="HotelReach Logo" onerror="this.style.display='none'">
-            <span style="color: #ffffff;">Hotel<span style="color: var(--gold-accent);">Reach</span></span>
+            <span>Hotel<span>Reach</span></span>
         </a>
 
         <ul class="nav-links" id="nav-links">
@@ -1632,7 +1574,7 @@
         </div>
     </section>
 
-    <!-- Featured Hotels Section (All Original 5 Hotels Restored) -->
+    <!-- Featured Hotels Section -->
     <section class="container" id="hotels">
         <div class="section-header" data-aos="fade-up">
             <span class="section-badge">Handpicked Stays</span>
@@ -1774,7 +1716,7 @@
         </div>
     </section>
 
-    <!-- Govt Certification Section (Restored 100% Exact Text & Links) -->
+    <!-- Govt Certification Section -->
     <section class="container" style="padding-top:0; padding-bottom:2rem;">
         <div class="govt-banner" data-aos="zoom-in" data-aos-duration="1000">
             <div class="govt-flex">
@@ -1838,7 +1780,7 @@
         </div>
     </section>
 
-    <!-- Reviews Section (Formspree Review Form + All 8 Original Reviews Restored) -->
+    <!-- Reviews Section -->
     <section class="container" id="reviews">
         <div class="section-header" data-aos="fade-up">
             <span class="section-badge">Testimonials</span>
@@ -1846,7 +1788,6 @@
             <p class="section-subtitle">Trusted by thousands of travelers. Read their experiences & share yours!</p>
         </div>
 
-        <!-- Write A Review Form Formspree Integration Restored -->
         <div class="review-form-card" data-aos="fade-up">
             <h3 style="margin-bottom: 15px; color: var(--text-dark); font-size: 1.25rem; display: flex; align-items: center; gap: 8px;">
                 <i class="fa-solid fa-pen-nib" style="color: var(--gold);"></i> Write a Review
@@ -1875,7 +1816,7 @@
                     <textarea name="Review" rows="3" placeholder="How was your hotel booking experience with HotelReach?" required style="width: 100%; padding: 12px 14px; border: 1px solid var(--border-light); border-radius: var(--radius-sm); outline: none; font-family: inherit; resize: vertical;"></textarea>
                 </div>
 
-                <button type="submit" class="btn-book" style="background: var(--dark-bg); color: #fff; padding: 12px 28px; cursor: pointer;">
+                <button type="submit" class="btn-book" style="background: var(--dark-bg); color: #fff; padding: 12px 28px; cursor: pointer; border:none;">
                     Submit Review <i class="fa-solid fa-paper-plane"></i>
                 </button>
             </form>
@@ -2012,7 +1953,7 @@
         </div>
     </section>
 
-    <!-- Partner Section (7 Original Benefits Bullet Points & Link Restored) -->
+    <!-- Partner Section -->
     <section class="container" id="partner">
         <div class="partner-box" data-aos="zoom-in" data-aos-duration="1000">
             <h2 class="cinzel" style="font-size: 2.5rem; margin-bottom: 1rem;">Become a Hotel Partner</h2>
@@ -2036,7 +1977,7 @@
         </div>
     </section>
 
-    <!-- FAQ Section (All 5 Original FAQs Restored) -->
+    <!-- FAQ Section -->
     <section class="container" id="faq">
         <div class="section-header" data-aos="fade-up">
             <span class="section-badge">FAQ</span>
@@ -2097,7 +2038,7 @@
         </div>
     </section>
 
-    <!-- Footer (All Contact Links & Social Links Restored) -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container" style="padding-top:0; padding-bottom:0;">
             <div class="footer-grid">
@@ -2141,73 +2082,55 @@
         </div>
     </footer>
 
-    <!-- Floating Widgets Restored -->
+    <!-- Floating WhatsApp Widget -->
     <a href="https://wa.me/919774059230?text=Hello%20HotelReach,%20I%20need%20help%20with%20booking." target="_blank" class="floating-whatsapp" aria-label="Chat on WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- AOS Animation & JS Scripts -->
+    <!-- AOS Animation & Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Initialize AOS Animations
+            // Initialize AOS
             AOS.init({
                 duration: 900,
                 once: true,
                 offset: 100
             });
 
-            // Smooth 3.5 Seconds Preloader Animation Timer
+            // Fast 2 Seconds Preloader Timer
             setTimeout(() => {
                 const preloader = document.getElementById('preloader');
                 if (preloader) {
                     preloader.style.opacity = '0';
                     preloader.style.visibility = 'hidden';
                 }
-            }, 3500);
+            }, 2000);
 
-            // Scroll Progress & Sticky Navbar
-            const progressBar = document.getElementById('progress-bar');
+            // Dynamic Section Theme Adaptability & Scroll Handler
             const navbar = document.getElementById('navbar');
+            const aboutSec = document.getElementById('about');
 
             window.addEventListener('scroll', () => {
                 const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
                 const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                 const scrolled = (winScroll / height) * 100;
+                
+                const progressBar = document.getElementById('progress-bar');
                 if (progressBar) progressBar.style.width = scrolled + '%';
 
-                if (window.scrollY > 40) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
+                // Light Theme adaptation on Light Sections
+                if (aboutSec) {
+                    const aboutTop = aboutSec.getBoundingClientRect().top;
+                    if (aboutTop <= 80) {
+                        navbar.classList.add('light-theme');
+                    } else {
+                        navbar.classList.remove('light-theme');
+                    }
                 }
             });
 
-            // Dynamic Section Theme Adaptability & Scroll Handler
-const navbar = document.getElementById('navbar');
-const aboutSec = document.getElementById('about');
-
-window.addEventListener('scroll', () => {
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    
-    const progressBar = document.getElementById('progress-bar');
-    if (progressBar) progressBar.style.width = scrolled + '%';
-
-    // Section ke according Navbar ka color automatic badlega
-    if (aboutSec) {
-        const aboutTop = aboutSec.getBoundingClientRect().top;
-        if (aboutTop <= 80) {
-            navbar.classList.add('light-theme');
-        } else {
-            navbar.classList.remove('light-theme');
-        }
-    }
-});
-            
-
-            // Mobile Hamburger Menu Toggle
+            // Mobile Menu Toggle
             const hamburger = document.getElementById('hamburger');
             const navLinks = document.getElementById('nav-links');
 
@@ -2217,7 +2140,17 @@ window.addEventListener('scroll', () => {
                 });
             }
 
-            // FAQ Accordion Toggle
+            // Close menu on link click in mobile
+            const navItems = navLinks.querySelectorAll('a');
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+
+            // FAQ Accordion
             const faqItems = document.querySelectorAll('.faq-item');
             faqItems.forEach(item => {
                 const question = item.querySelector('.faq-question');
