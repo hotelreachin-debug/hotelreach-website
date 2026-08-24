@@ -1547,7 +1547,7 @@
         </div>
     </section>
 
-    <!-- VISUAL BANNER FORMAT DESTINATIONS SECTION -->
+  <!-- VISUAL BANNER FORMAT DESTINATIONS SECTION -->
 <section class="container" id="hotels" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 15px; box-sizing: border-box;">
     <div class="section-title reveal" style="text-align: center; margin-bottom: 25px;">
         <h2 style="font-size: 1.6rem; margin-bottom: 8px;">Our Prime Destinations & Services</h2>
@@ -1558,69 +1558,62 @@
     <div class="card-banner reveal" id="ayodhya" style="margin-bottom: 30px; border-radius: 12px; overflow: hidden; background: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border: 1px solid #eee;">
         <div class="banner-inner" style="display: flex; flex-direction: column;">
             
-            <!-- Left Form Panel -->
+            <!-- Form Panel -->
             <div class="banner-left" style="padding: 20px; box-sizing: border-box;">
-                <div class="brand-header" style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-                    <img src="logo.png" alt="HotelReach" style="height:26px;">
-                    <div>
-                        <div class="brand-title" style="font-weight: 700; font-size: 1.1rem; line-height: 1;">HotelReach</div>
-                        <div class="brand-tag" style="font-size: 0.75rem; color: #666;">Book Smart. Stay Better.</div>
-                    </div>
-                </div>
-
                 <div class="script-sub gold" style="color: #d97706; font-size: 0.9rem; font-weight: 600;">Book Your Stay in</div>
                 <div class="main-heading" style="font-size: 1.8rem; font-weight: 800; margin-bottom: 8px; color: #1e293b; display: flex; align-items: center; gap: 8px;">
                     AYODHYA 
                     <i class="fa-solid fa-gopuram" style="font-size:1.5rem; color: #d97706;"></i>
                 </div>
-                <p class="desc-text" style="font-size: 0.85rem; color: #475569; margin-bottom: 15px;">Find verified hotels near Ram Mandir at the <strong>best prices</strong>.</p>
+
+http://googleusercontent.com/map_location_reference/3
+                <p class="desc-text" style="font-size: 0.85rem; color: #475569; margin-bottom: 15px;">Find verified hotels near [Shree Ramjanmbhumi Temple Ayodhya](http://googleusercontent.com/map_location_reference/2) at the <strong>best prices</strong>.</p>
 
                 <div class="booking-card-panel" style="background: #f8fafc; padding: 15px; border-radius: 10px; border: 1px solid #e2e8f0;">
                     <div class="panel-title" style="font-weight: 700; font-size: 0.95rem; margin-bottom: 12px; color: #334155;">
                         <i class="fa-solid fa-calendar-days" style="color:#d97706;"></i> Book Your Hotel
                     </div>
-                    <form action="https://wa.me/919774059230" method="GET" target="_blank">
-                        <!-- Mobile responsive stack layout -->
+                    <form onsubmit="bookHotelWhatsApp(event, 'Ayodhya', 'ayodhya-in', 'ayodhya-out', 'ayodhya-guests')">
                         <div class="form-row-2" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 10px;">
                             <div class="input-box" style="width: 100%;">
                                 <label style="display: block; font-size: 0.75rem; color: #64748b; font-weight: 600; margin-bottom: 4px;">Check-in Date</label>
-                                <input type="text" value="24 Aug 2026" readonly style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff; box-sizing: border-box; font-size: 0.85rem;">
+                                <input type="date" id="ayodhya-in" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff; box-sizing: border-box; font-size: 0.85rem;">
                             </div>
                             <div class="input-box" style="width: 100%;">
                                 <label style="display: block; font-size: 0.75rem; color: #64748b; font-weight: 600; margin-bottom: 4px;">Check-out Date</label>
-                                <input type="text" value="26 Aug 2026" readonly style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff; box-sizing: border-box; font-size: 0.85rem;">
+                                <input type="date" id="ayodhya-out" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff; box-sizing: border-box; font-size: 0.85rem;">
                             </div>
                         </div>
                         <div class="input-box" style="margin-bottom: 12px;">
                             <label style="display: block; font-size: 0.75rem; color: #64748b; font-weight: 600; margin-bottom: 4px;">Guests</label>
-                            <select style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff; box-sizing: border-box; font-size: 0.85rem;">
-                                <option>2 Guests</option>
-                                <option>1 Guest</option>
-                                <option>3 Guests</option>
-                                <option>Family / Group</option>
+                            <select id="ayodhya-guests" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff; box-sizing: border-box; font-size: 0.85rem;">
+                                <option value="1 Guest">1 Guest</option>
+                                <option value="2 Guests" selected>2 Guests</option>
+                                <option value="3 Guests">3 Guests</option>
+                                <option value="Family / Group">Family / Group</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn-submit btn-amber" style="width: 100%; padding: 12px; background: #d97706; color: #fff; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 0.9rem;">
-                            <i class="fa-solid fa-magnifying-glass"></i> Search Hotels
+                        <button type="submit" class="btn-submit btn-amber" style="width: 100%; padding: 12px; background: #d97706; color: #fff; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <i class="fa-brands fa-whatsapp" style="font-size: 1.1rem;"></i> Search Hotels on WhatsApp
                         </button>
                     </form>
                 </div>
             </div>
 
-            <!-- Right Gradient Panel -->
-            <div class="banner-right" style="background: linear-gradient(135deg, #d97706, #b45309); padding: 20px; color: #fff; box-sizing: border-box; display: flex; flex-direction: column; gap: 15px;">
-                <div class="badge-verified-top" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(5px); padding: 10px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
-                    <i class="fa-solid fa-check-circle" style="font-size: 1.2rem;"></i>
+            <!-- Ayodhya Image Banner Panel -->
+            <div class="banner-right" style="background: linear-gradient(rgba(217, 119, 6, 0.6), rgba(180, 83, 9, 0.85)), url('https://images.unsplash.com/photo-1609137144813-7d9921338f24?auto=format&fit=crop&w=800&q=80') center/cover no-repeat; min-height: 180px; padding: 20px; color: #fff; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between;">
+                <div class="badge-verified-top" style="background: rgba(0,0,0,0.35); backdrop-filter: blur(4px); padding: 10px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fa-solid fa-check-circle" style="font-size: 1.2rem; color: #fbbf24;"></i>
                     <div>
                         <strong style="font-size: 0.85rem;">Verified Hotels</strong><br>
                         <span style="font-size:0.7rem; opacity: 0.9;">Safe • Trusted • Quality</span>
                     </div>
                 </div>
 
-                <div class="badge-location-bottom" style="background: rgba(0,0,0,0.25); backdrop-filter: blur(5px); padding: 10px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
-                    <i class="fa-solid fa-location-dot" style="font-size: 1.2rem;"></i>
+                <div class="badge-location-bottom" style="background: rgba(0,0,0,0.45); backdrop-filter: blur(4px); padding: 10px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fa-solid fa-location-dot" style="font-size: 1.2rem; color: #fbbf24;"></i>
                     <div>
-                        <div class="loc-title" style="font-weight: 700; font-size: 0.85rem;">Near Ram Mandir</div>
+                        <div class="loc-title" style="font-weight: 700; font-size: 0.85rem;">Near [Shree Ramjanmbhumi Temple Ayodhya](http://googleusercontent.com/map_location_reference/4)</div>
                         <div class="loc-sub" style="font-size: 0.7rem; opacity: 0.9;">Comfortable Stays | Great Locations | Easy Booking</div>
                     </div>
                 </div>
@@ -1653,14 +1646,6 @@
         <div class="banner-inner" style="display: flex; flex-direction: column;">
             
             <div class="banner-left" style="padding: 20px; box-sizing: border-box;">
-                <div class="brand-header" style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-                    <img src="logo.png" alt="HotelReach" style="height:26px;">
-                    <div>
-                        <div class="brand-title" style="font-weight: 700; font-size: 1.1rem; line-height: 1;">HotelReach</div>
-                        <div class="brand-tag" style="font-size: 0.75rem; color: #666;">Book Smart. Stay Better.</div>
-                    </div>
-                </div>
-
                 <div class="script-sub blue" style="color: #2563eb; font-size: 0.9rem; font-weight: 600;">Book Your Stay in</div>
                 <div class="main-heading" style="font-size: 1.8rem; font-weight: 800; margin-bottom: 8px; color: #1e293b; display: flex; align-items: center; gap: 8px;">
                     VARANASI 
@@ -1672,46 +1657,47 @@
                     <div class="panel-title" style="font-weight: 700; font-size: 0.95rem; margin-bottom: 12px; color: #334155;">
                         <i class="fa-solid fa-calendar-days" style="color:#2563eb;"></i> Book Your Hotel
                     </div>
-                    <form action="https://wa.me/919774059230" method="GET" target="_blank">
+                    <form onsubmit="bookHotelWhatsApp(event, 'Varanasi', 'varanasi-in', 'varanasi-out', 'varanasi-guests')">
                         <div class="form-row-2" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 10px;">
                             <div class="input-box" style="width: 100%;">
                                 <label style="display: block; font-size: 0.75rem; color: #64748b; font-weight: 600; margin-bottom: 4px;">Check-in Date</label>
-                                <input type="text" value="24 Aug 2026" readonly style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff; box-sizing: border-box; font-size: 0.85rem;">
+                                <input type="date" id="varanasi-in" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff; box-sizing: border-box; font-size: 0.85rem;">
                             </div>
                             <div class="input-box" style="width: 100%;">
                                 <label style="display: block; font-size: 0.75rem; color: #64748b; font-weight: 600; margin-bottom: 4px;">Check-out Date</label>
-                                <input type="text" value="26 Aug 2026" readonly style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff; box-sizing: border-box; font-size: 0.85rem;">
+                                <input type="date" id="varanasi-out" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff; box-sizing: border-box; font-size: 0.85rem;">
                             </div>
                         </div>
                         <div class="input-box" style="margin-bottom: 12px;">
                             <label style="display: block; font-size: 0.75rem; color: #64748b; font-weight: 600; margin-bottom: 4px;">Guests</label>
-                            <select style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff; box-sizing: border-box; font-size: 0.85rem;">
-                                <option>2 Guests</option>
-                                <option>1 Guest</option>
-                                <option>3 Guests</option>
-                                <option>Family / Group</option>
+                            <select id="varanasi-guests" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff; box-sizing: border-box; font-size: 0.85rem;">
+                                <option value="1 Guest">1 Guest</option>
+                                <option value="2 Guests" selected>2 Guests</option>
+                                <option value="3 Guests">3 Guests</option>
+                                <option value="Family / Group">Family / Group</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn-submit btn-blue" style="width: 100%; padding: 12px; background: #2563eb; color: #fff; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 0.9rem;">
-                            <i class="fa-solid fa-magnifying-glass"></i> Search Hotels
+                        <button type="submit" class="btn-submit btn-blue" style="width: 100%; padding: 12px; background: #2563eb; color: #fff; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <i class="fa-brands fa-whatsapp" style="font-size: 1.1rem;"></i> Search Hotels on WhatsApp
                         </button>
                     </form>
                 </div>
             </div>
 
-            <div class="banner-right" style="background: linear-gradient(135deg, #2563eb, #1d4ed8); padding: 20px; color: #fff; box-sizing: border-box; display: flex; flex-direction: column; gap: 15px;">
-                <div class="badge-verified-top" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(5px); padding: 10px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
-                    <i class="fa-solid fa-check-circle" style="font-size: 1.2rem;"></i>
+            <!-- Varanasi Image Banner Panel -->
+            <div class="banner-right" style="background: linear-gradient(rgba(37, 99, 235, 0.6), rgba(29, 78, 216, 0.85)), url('https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=800&q=80') center/cover no-repeat; min-height: 180px; padding: 20px; color: #fff; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between;">
+                <div class="badge-verified-top" style="background: rgba(0,0,0,0.35); backdrop-filter: blur(4px); padding: 10px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fa-solid fa-check-circle" style="font-size: 1.2rem; color: #60a5fa;"></i>
                     <div>
                         <strong style="font-size: 0.85rem;">Verified Hotels</strong><br>
                         <span style="font-size:0.7rem; opacity: 0.9;">Safe • Trusted • Quality</span>
                     </div>
                 </div>
 
-                <div class="badge-location-bottom" style="background: rgba(0,0,0,0.25); backdrop-filter: blur(5px); padding: 10px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
-                    <i class="fa-solid fa-location-dot" style="font-size: 1.2rem;"></i>
+                <div class="badge-location-bottom" style="background: rgba(0,0,0,0.45); backdrop-filter: blur(4px); padding: 10px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fa-solid fa-location-dot" style="font-size: 1.2rem; color: #60a5fa;"></i>
                     <div>
-                        <div class="loc-title" style="font-weight: 700; font-size: 0.85rem;">Near Kashi Vishwanath Temple</div>
+                        <div class="loc-title" style="font-weight: 700; font-size: 0.85rem;">Near [Shri Kashi Vishwanath Temple](http://googleusercontent.com/map_location_reference/5)</div>
                         <div class="loc-sub" style="font-size: 0.7rem; opacity: 0.9;">Comfortable Stays | Great Locations | Easy Booking</div>
                     </div>
                 </div>
@@ -1743,14 +1729,6 @@
         <div class="banner-inner" style="display: flex; flex-direction: column;">
             
             <div class="banner-left" style="padding: 20px; box-sizing: border-box;">
-                <div class="brand-header" style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-                    <img src="logo.png" alt="HotelReach" style="height:26px;">
-                    <div>
-                        <div class="brand-title" style="font-weight: 700; font-size: 1.1rem; line-height: 1;">HotelReach</div>
-                        <div class="brand-tag" style="font-size: 0.75rem; color: #666;">Book Smart. Stay Better.</div>
-                    </div>
-                </div>
-
                 <div class="script-sub gold" style="color: #d97706; font-size: 0.9rem; font-weight: 600;">Travel in</div>
                 <div class="main-heading" style="font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; color: #1e293b;">
                     VARANASI & AYODHYA
@@ -1761,21 +1739,32 @@
                     <div class="panel-title" style="font-weight: 700; font-size: 0.95rem; margin-bottom: 12px; color: #334155;">
                         <i class="fa-solid fa-car" style="color:#d97706;"></i> Book Your Ride
                     </div>
-                    <div style="display:flex; gap:8px; margin-bottom:12px; font-size:0.75rem; font-weight:600;">
-                        <span style="background:#e2e8f0; padding:4px 8px; border-radius:4px; color:#334155;"><i class="fa-solid fa-map-pin"></i> Local Sightseeing</span>
-                        <span style="background:#e2e8f0; padding:4px 8px; border-radius:4px; color:#334155;"><i class="fa-solid fa-plane"></i> Airport Transfer</span>
-                    </div>
-                    <a href="https://wa.me/919774059230?text=Hello%20HotelReach!%20I%20want%20to%20book%20a%20cab%20in%20Varanasi/Ayodhya." target="_blank" style="display: block; text-align: center; padding: 12px; background: #25d366; color: #fff; text-decoration: none; font-weight: 700; border-radius: 6px; font-size: 0.9rem;">
-                        <i class="fa-brands fa-whatsapp" style="font-size:1.1rem;"></i> Book on WhatsApp
-                    </a>
+                    <form onsubmit="bookCabWhatsApp(event)">
+                        <div class="input-box" style="margin-bottom: 10px;">
+                            <label style="display: block; font-size: 0.75rem; color: #64748b; font-weight: 600; margin-bottom: 4px;">Service Type</label>
+                            <select id="cab-service" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff; box-sizing: border-box; font-size: 0.85rem;">
+                                <option value="Local Sightseeing">Local Sightseeing</option>
+                                <option value="Airport Transfer">Airport Transfer</option>
+                                <option value="Varanasi to Ayodhya (One Way / Round Trip)">Varanasi ⇄ Ayodhya Cab</option>
+                            </select>
+                        </div>
+                        <div class="input-box" style="margin-bottom: 12px;">
+                            <label style="display: block; font-size: 0.75rem; color: #64748b; font-weight: 600; margin-bottom: 4px;">Travel Date</label>
+                            <input type="date" id="cab-date" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff; box-sizing: border-box; font-size: 0.85rem;">
+                        </div>
+                        <button type="submit" style="width: 100%; padding: 12px; background: #25d366; color: #fff; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <i class="fa-brands fa-whatsapp" style="font-size: 1.1rem;"></i> Book Ride on WhatsApp
+                        </button>
+                    </form>
                     <div style="font-size:0.7rem; text-align:center; color:#64748b; margin-top:8px;">
                         Quick Booking | Best Prices | 24/7 Support
                     </div>
                 </div>
             </div>
 
-            <div class="banner-right" style="background: linear-gradient(135deg, #0f172a, #1e293b); padding: 15px; color: #fff; box-sizing: border-box;">
-                <div class="badge-location-bottom" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); padding: 10px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
+            <!-- Cab Image Banner Panel -->
+            <div class="banner-right" style="background: linear-gradient(rgba(15, 23, 42, 0.5), rgba(30, 41, 59, 0.85)), url('https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80') center/cover no-repeat; min-height: 180px; padding: 15px; color: #fff; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end;">
+                <div class="badge-location-bottom" style="background: rgba(0, 0, 0, 0.45); backdrop-filter: blur(4px); padding: 10px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
                     <i class="fa-solid fa-car-side" style="font-size: 1.2rem; color: #d97706;"></i>
                     <div>
                         <div class="loc-title" style="font-weight: 700; font-size: 0.85rem;">VARANASI ⇄ AYODHYA</div>
@@ -1786,6 +1775,34 @@
         </div>
     </div>
 </section>
+
+<!-- WHATSAPP AUTOMATION SCRIPT -->
+<script>
+function bookHotelWhatsApp(event, destination, inId, outId, guestsId) {
+    event.preventDefault();
+    const checkIn = document.getElementById(inId).value;
+    const checkOut = document.getElementById(outId).value;
+    const guests = document.getElementById(guestsId).value;
+    const phone = "919774059230";
+
+    const text = `Hello HotelReach!\nI want to book a hotel in *${destination}*.\n\n📅 *Check-in Date:* ${checkIn}\n📅 *Check-out Date:* ${checkOut}\n👥 *Guests:* ${guests}\n\nPlease share available verified hotels and best rates!`;
+    
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+}
+
+function bookCabWhatsApp(event) {
+    event.preventDefault();
+    const service = document.getElementById('cab-service').value;
+    const travelDate = document.getElementById('cab-date').value;
+    const phone = "919774059230";
+
+    const text = `Hello HotelReach!\nI want to book a cab.\n\n🚗 *Service:* ${service}\n📅 *Travel Date:* ${travelDate}\n\nPlease share available cabs and fare details!`;
+
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+}
+</script>
 
     <!-- Why Choose Us -->
     <section class="why-choose" style="padding: 5rem 0;">
