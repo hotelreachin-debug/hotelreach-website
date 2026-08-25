@@ -1547,185 +1547,1268 @@
         </div>
     </section>
 
-  <!-- VISUAL BANNER FORMAT DESTINATIONS SECTION -->
-<section class="container" id="hotels" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 15px; box-sizing: border-box;">
-    <div class="section-title reveal" style="text-align: center; margin-bottom: 25px;">
-        <h2 style="font-size: 1.6rem; margin-bottom: 8px;">Our Prime Destinations & Services</h2>
-        <p style="font-size: 0.9rem; color: #666; max-width: 600px; margin: 0 auto;">Explore verified hotel stays & comfortable cab rides with instant WhatsApp booking.</p>
+ <!-- =========================================================
+     HOTELREACH — PREMIUM DESTINATIONS & SERVICES
+========================================================= -->
+
+<style>
+    .hr-destinations {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 30px 15px;
+        box-sizing: border-box;
+    }
+
+    .hr-section-head {
+        text-align: center;
+        margin-bottom: 28px;
+    }
+
+    .hr-section-head .eyebrow {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 7px;
+    }
+
+    .hr-section-head h2 {
+        margin: 0 0 8px;
+        color: #172033;
+        font-size: clamp(1.55rem, 4vw, 2.25rem);
+        font-weight: 850;
+    }
+
+    .hr-section-head p {
+        max-width: 650px;
+        margin: auto;
+        color: #64748b;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* MAIN CARD */
+    .hr-destination-card {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 32px;
+        background: #fff;
+        border: 1px solid #e8edf3;
+        border-radius: 22px;
+        box-shadow: 0 12px 35px rgba(15, 23, 42, .09);
+    }
+
+    /* HERO */
+    .hr-destination-hero {
+        position: relative;
+        min-height: 300px;
+        display: flex;
+        align-items: flex-end;
+        padding: 24px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .hr-destination-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            linear-gradient(
+                to top,
+                rgba(0,0,0,.78) 0%,
+                rgba(0,0,0,.38) 48%,
+                rgba(0,0,0,.08) 100%
+            );
+        z-index: 1;
+    }
+
+    .hr-ayodhya-hero {
+        background:
+            url("ayodhya-banner.jpg")
+            center/cover no-repeat;
+    }
+
+    .hr-varanasi-hero {
+        background:
+            url("varanasi-banner.jpg")
+            center/cover no-repeat;
+    }
+
+    .hr-cab-hero {
+        background:
+            linear-gradient(135deg, #0f172a, #1e293b 55%, #334155);
+    }
+
+    .hr-hero-content {
+        position: relative;
+        z-index: 2;
+        color: #fff;
+        width: 100%;
+    }
+
+    .hr-location-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 7px 11px;
+        border-radius: 50px;
+        background: rgba(255,255,255,.16);
+        border: 1px solid rgba(255,255,255,.25);
+        backdrop-filter: blur(8px);
+        font-size: 11px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .hr-hero-content h3 {
+        margin: 0;
+        font-size: clamp(2rem, 7vw, 3.2rem);
+        line-height: .95;
+        font-weight: 900;
+        letter-spacing: -.8px;
+    }
+
+    .hr-hero-content p {
+        margin: 12px 0 0;
+        max-width: 600px;
+        font-size: 13px;
+        line-height: 1.55;
+        color: rgba(255,255,255,.9);
+    }
+
+    .hr-hero-icon {
+        position: absolute;
+        right: 25px;
+        top: 25px;
+        z-index: 2;
+        width: 55px;
+        height: 55px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(255,255,255,.15);
+        border: 1px solid rgba(255,255,255,.25);
+        color: #fff;
+        font-size: 24px;
+        backdrop-filter: blur(8px);
+    }
+
+    /* CONTENT */
+    .hr-content {
+        padding: 20px;
+    }
+
+    .hr-intro {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 17px;
+    }
+
+    .hr-intro-icon {
+        flex-shrink: 0;
+        width: 38px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 11px;
+        background: #f8fafc;
+        font-size: 16px;
+    }
+
+    .hr-intro h4 {
+        margin: 0 0 3px;
+        color: #1e293b;
+        font-size: 14px;
+        font-weight: 800;
+    }
+
+    .hr-intro p {
+        margin: 0;
+        color: #64748b;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    /* PRICE OPTIONS */
+    .hr-price-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 9px;
+        margin-bottom: 18px;
+    }
+
+    .hr-price-item {
+        padding: 12px 9px;
+        border-radius: 12px;
+        background: #f8fafc;
+        border: 1px solid #edf1f5;
+        text-align: center;
+    }
+
+    .hr-price-item i {
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
+
+    .hr-price-item strong {
+        display: block;
+        color: #334155;
+        font-size: 11px;
+        margin-bottom: 2px;
+    }
+
+    .hr-price-item span {
+        display: block;
+        color: #64748b;
+        font-size: 9px;
+    }
+
+    /* BOOKING PANEL */
+    .hr-booking-panel {
+        padding: 17px;
+        border-radius: 16px;
+        background: linear-gradient(145deg, #f8fafc, #fff);
+        border: 1px solid #e2e8f0;
+    }
+
+    .hr-booking-title {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        margin-bottom: 13px;
+        color: #1e293b;
+        font-size: 14px;
+        font-weight: 800;
+    }
+
+    .hr-booking-title i {
+        width: 31px;
+        height: 31px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 9px;
+    }
+
+    .hr-form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .hr-field {
+        margin-bottom: 10px;
+    }
+
+    .hr-field.full {
+        grid-column: 1 / -1;
+    }
+
+    .hr-field label {
+        display: block;
+        margin-bottom: 5px;
+        color: #64748b;
+        font-size: 10px;
+        font-weight: 700;
+    }
+
+    .hr-field input,
+    .hr-field select {
+        width: 100%;
+        min-height: 42px;
+        padding: 9px 10px;
+        box-sizing: border-box;
+        border: 1px solid #cbd5e1;
+        border-radius: 9px;
+        background: #fff;
+        color: #334155;
+        font-size: 12px;
+        outline: none;
+        transition: .2s ease;
+    }
+
+    .hr-field input:focus,
+    .hr-field select:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37,99,235,.08);
+    }
+
+    .hr-whatsapp-btn {
+        width: 100%;
+        min-height: 45px;
+        border: 0;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 800;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .hr-whatsapp-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 18px rgba(0,0,0,.12);
+    }
+
+    .hr-ayodhya-btn {
+        background: linear-gradient(135deg, #d97706, #ea580c);
+    }
+
+    .hr-varanasi-btn {
+        background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    }
+
+    .hr-cab-btn {
+        background: linear-gradient(135deg, #16a34a, #15803d);
+    }
+
+    /* TRUST STRIP */
+    .hr-trust-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border-top: 1px solid #eef2f7;
+        background: #fff;
+    }
+
+    .hr-trust-item {
+        padding: 13px 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        border-right: 1px solid #eef2f7;
+    }
+
+    .hr-trust-item:last-child {
+        border-right: 0;
+    }
+
+    .hr-trust-item i {
+        font-size: 14px;
+    }
+
+    .hr-trust-item strong {
+        display: block;
+        color: #334155;
+        font-size: 10px;
+    }
+
+    .hr-trust-item span {
+        display: block;
+        margin-top: 1px;
+        color: #94a3b8;
+        font-size: 8px;
+    }
+
+    /* CAB SERVICES */
+    .hr-service-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 9px;
+        margin-bottom: 18px;
+    }
+
+    .hr-service-item {
+        padding: 12px 8px;
+        text-align: center;
+        border-radius: 12px;
+        background: #f8fafc;
+        border: 1px solid #edf1f5;
+    }
+
+    .hr-service-item i {
+        font-size: 17px;
+        color: #d97706;
+        margin-bottom: 6px;
+    }
+
+    .hr-service-item strong {
+        display: block;
+        color: #334155;
+        font-size: 10px;
+    }
+
+    .hr-service-item span {
+        display: block;
+        margin-top: 2px;
+        color: #64748b;
+        font-size: 8px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 700px) {
+
+        .hr-destinations {
+            padding: 22px 10px;
+        }
+
+        .hr-destination-card {
+            border-radius: 18px;
+        }
+
+        .hr-destination-hero {
+            min-height: 260px;
+            padding: 18px;
+        }
+
+        .hr-hero-icon {
+            width: 45px;
+            height: 45px;
+            right: 18px;
+            top: 18px;
+            font-size: 19px;
+        }
+
+        .hr-content {
+            padding: 15px;
+        }
+
+        .hr-price-grid,
+        .hr-service-grid {
+            gap: 6px;
+        }
+
+        .hr-price-item,
+        .hr-service-item {
+            padding: 10px 5px;
+        }
+
+        .hr-trust-item {
+            padding: 11px 4px;
+            flex-direction: column;
+            gap: 4px;
+            text-align: center;
+        }
+
+        .hr-trust-item strong {
+            font-size: 9px;
+        }
+
+        .hr-trust-item span {
+            font-size: 7px;
+        }
+
+        .hr-form-grid {
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+
+        .hr-field.full {
+            grid-column: auto;
+        }
+    }
+</style>
+
+
+<section class="hr-destinations" id="hotels">
+
+    <!-- SECTION HEADING -->
+    <div class="hr-section-head reveal">
+
+        <div class="eyebrow" style="color:#2563eb;">
+            HOTELREACH
+        </div>
+
+        <h2>
+            Explore. Stay. Travel.
+        </h2>
+
+        <p>
+            Book trusted stays and comfortable rides in India's most popular
+            spiritual destinations with easy WhatsApp booking.
+        </p>
+
     </div>
 
-    <!-- 1. AYODHYA STAYS BANNER -->
-    <div class="card-banner reveal" id="ayodhya" style="margin-bottom: 30px; border-radius: 12px; overflow: hidden; background: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border: 1px solid #eee;">
-        <div class="banner-inner" style="display: flex; flex-direction: column;">
-            
-            <!-- Form Panel -->
-            <div class="banner-left" style="padding: 20px; box-sizing: border-box;">
-                <div class="script-sub gold" style="color: #d97706; font-size: 0.9rem; font-weight: 600;">Book Your Stay in</div>
-                <div class="main-heading" style="font-size: 1.8rem; font-weight: 800; margin-bottom: 8px; color: #1e293b; display: flex; align-items: center; gap: 8px;">
-                    AYODHYA 
-                    <i class="fa-solid fa-gopuram" style="font-size:1.5rem; color: #d97706;"></i>
+
+    <!-- =====================================================
+         AYODHYA
+    ====================================================== -->
+
+    <div class="hr-destination-card reveal" id="ayodhya">
+
+        <!-- HERO IMAGE -->
+        <div class="hr-destination-hero hr-ayodhya-hero">
+
+            <div class="hr-hero-icon">
+                <i class="fa-solid fa-gopuram"></i>
+            </div>
+
+            <div class="hr-hero-content">
+
+                <div class="hr-location-badge">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Ayodhya, Uttar Pradesh
                 </div>
 
-                <p class="desc-text" style="font-size: 0.85rem; color: #475569; margin-bottom: 15px;">Find verified hotels near [Shree Ram janmbhumi Temple Ayodhya] at the <strong>best prices</strong>.</p>
+                <h3>
+                    AYODHYA
+                </h3>
 
-                <div class="booking-card-panel" style="background: #f8fafc; padding: 15px; border-radius: 10px; border: 1px solid #e2e8f0;">
-                    <div class="panel-title" style="font-weight: 700; font-size: 0.95rem; margin-bottom: 12px; color: #334155;">
-                        <i class="fa-solid fa-calendar-days" style="color:#d97706;"></i> Book Your Hotel
-                    </div>
-                    <form onsubmit="bookHotelWhatsApp(event, 'Ayodhya', 'ayodhya-in', 'ayodhya-out', 'ayodhya-guests')">
-                        <div class="form-row-2" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 10px;">
-                            <div class="input-box" style="width: 100%;">
-                                <label style="display: block; font-size: 0.75rem; color: #64748b; font-weight: 600; margin-bottom: 4px;">Check-in Date</label>
-                                <input type="date" id="ayodhya-in" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff; box-sizing: border-box; font-size: 0.85rem;">
-                            </div>
-                            <div class="input-box" style="width: 100%;">
-                                <label style="display: block; font-size: 0.75rem; color: #64748b; font-weight: 600; margin-bottom: 4px;">Check-out Date</label>
-                                <input type="date" id="ayodhya-out" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff; box-sizing: border-box; font-size: 0.85rem;">
-                            </div>
+                <p>
+                    Stay close to Shree Ram Janmabhoomi Temple with
+                    verified hotels for every budget.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="hr-content">
+
+            <!-- LOCATION -->
+            <div class="hr-intro">
+
+                <div class="hr-intro-icon" style="color:#d97706;">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+
+                <div>
+
+                    <h4>
+                        Stay Near Shree Ram Janmabhoomi
+                    </h4>
+
+                    <p>
+                        Find convenient hotel options near
+                        Shree Ram Janmabhoomi Temple, Ayodhya.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- HOTEL TYPES -->
+            <div class="hr-price-grid">
+
+                <div class="hr-price-item">
+
+                    <i class="fa-solid fa-wallet" style="color:#16a34a;"></i>
+
+                    <strong>
+                        Budget
+                    </strong>
+
+                    <span>
+                        Affordable stays
+                    </span>
+
+                </div>
+
+                <div class="hr-price-item">
+
+                    <i class="fa-solid fa-hotel" style="color:#2563eb;"></i>
+
+                    <strong>
+                        Standard
+                    </strong>
+
+                    <span>
+                        Comfortable stays
+                    </span>
+
+                </div>
+
+                <div class="hr-price-item">
+
+                    <i class="fa-solid fa-star" style="color:#d97706;"></i>
+
+                    <strong>
+                        Premium
+                    </strong>
+
+                    <span>
+                        Better comfort
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOOKING -->
+            <div class="hr-booking-panel">
+
+                <div class="hr-booking-title">
+
+                    <i style="background:#fff7ed; color:#d97706;">
+                        <i class="fa-solid fa-calendar-days"></i>
+                    </i>
+
+                    Book Your Stay
+
+                </div>
+
+
+                <form onsubmit="bookHotelWhatsApp(event, 'Ayodhya', 'ayodhya-in', 'ayodhya-out', 'ayodhya-guests')">
+
+                    <div class="hr-form-grid">
+
+                        <div class="hr-field">
+
+                            <label>
+                                CHECK-IN
+                            </label>
+
+                            <input
+                                type="date"
+                                id="ayodhya-in"
+                                required
+                            >
+
                         </div>
-                        <div class="input-box" style="margin-bottom: 12px;">
-                            <label style="display: block; font-size: 0.75rem; color: #64748b; font-weight: 600; margin-bottom: 4px;">Guests</label>
-                            <select id="ayodhya-guests" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff; box-sizing: border-box; font-size: 0.85rem;">
-                                <option value="1 Guest">1 Guest</option>
-                                <option value="2 Guests" selected>2 Guests</option>
-                                <option value="3 Guests">3 Guests</option>
-                                <option value="Family / Group">Family / Group</option>
+
+
+                        <div class="hr-field">
+
+                            <label>
+                                CHECK-OUT
+                            </label>
+
+                            <input
+                                type="date"
+                                id="ayodhya-out"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="hr-field full">
+
+                            <label>
+                                NUMBER OF GUESTS
+                            </label>
+
+                            <select id="ayodhya-guests">
+
+                                <option value="1 Guest">
+                                    1 Guest
+                                </option>
+
+                                <option value="2 Guests" selected>
+                                    2 Guests
+                                </option>
+
+                                <option value="3 Guests">
+                                    3 Guests
+                                </option>
+
+                                <option value="4 Guests">
+                                    4 Guests
+                                </option>
+
+                                <option value="5 Guests">
+                                    5 Guests
+                                </option>
+
+                                <option value="6 Guests">
+                                    6 Guests
+                                </option>
+
+                                <option value="Family / Group">
+                                    Family / Group
+                                </option>
+
                             </select>
+
                         </div>
-                        <button type="submit" class="btn-submit btn-amber" style="width: 100%; padding: 12px; background: #d97706; color: #fff; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 8px;">
-                            <i class="fa-brands fa-whatsapp" style="font-size: 1.1rem;"></i> Search Hotels on WhatsApp
-                        </button>
-                    </form>
+
+                    </div>
+
+
+                    <button type="submit"
+                            class="hr-whatsapp-btn hr-ayodhya-btn">
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                        Search Hotels on WhatsApp
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <!-- TRUST -->
+        <div class="hr-trust-grid">
+
+            <div class="hr-trust-item">
+
+                <i class="fa-solid fa-indian-rupee-sign"
+                   style="color:#2563eb;"></i>
+
+                <div>
+                    <strong>Best Prices</strong>
+                    <span>Great Rates</span>
                 </div>
+
             </div>
 
-            
+
+            <div class="hr-trust-item">
+
+                <i class="fa-solid fa-shield-halved"
+                   style="color:#2563eb;"></i>
+
+                <div>
+                    <strong>Verified Hotels</strong>
+                    <span>Trusted Stays</span>
+                </div>
+
+            </div>
+
+
+            <div class="hr-trust-item">
+
+                <i class="fa-solid fa-headset"
+                   style="color:#2563eb;"></i>
+
+                <div>
+                    <strong>24/7 Support</strong>
+                    <span>Always Available</span>
+                </div>
+
+            </div>
+
+
+            <div class="hr-trust-item">
+
+                <i class="fa-brands fa-whatsapp"
+                   style="color:#25d366;"></i>
+
+                <div>
+                    <strong>Easy Booking</strong>
+                    <span>WhatsApp</span>
+                </div>
+
+            </div>
+
         </div>
 
-        <!-- Bottom Highlights -->
-        <div class="banner-bottom-bar" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 12px; background: #fff; border-top: 1px solid #f1f5f9;">
-            <div style="display: flex; align-items: center; gap: 8px;">
-                <i class="fa-solid fa-indian-rupee-sign" style="color:#2563eb;"></i>
-                <div><h5 style="margin:0; font-size: 0.75rem;">Best Prices</h5><p style="margin:0; font-size: 0.65rem; color:#64748b;">Guaranteed</p></div>
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-                <i class="fa-solid fa-shield-halved" style="color:#2563eb;"></i>
-                <div><h5 style="margin:0; font-size: 0.75rem;">Verified Hotels</h5><p style="margin:0; font-size: 0.65rem; color:#64748b;">100% Trusted</p></div>
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-                <i class="fa-solid fa-headset" style="color:#2563eb;"></i>
-                <div><h5 style="margin:0; font-size: 0.75rem;">24/7 Support</h5><p style="margin:0; font-size: 0.65rem; color:#64748b;">We're Here to Help</p></div>
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-                <i class="fa-brands fa-whatsapp" style="color:#25d366;"></i>
-                <div><h5 style="margin:0; font-size: 0.75rem;">Easy Booking</h5><p style="margin:0; font-size: 0.65rem; color:#64748b;">On WhatsApp</p></div>
-            </div>
-        </div>
     </div>
 
-    <!-- 2. VARANASI STAYS BANNER -->
-    <div class="card-banner reveal" id="varanasi" style="margin-bottom: 30px; border-radius: 12px; overflow: hidden; background: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border: 1px solid #eee;">
-        <div class="banner-inner" style="display: flex; flex-direction: column;">
-            
-            <div class="banner-left" style="padding: 20px; box-sizing: border-box;">
-                <div class="script-sub blue" style="color: #2563eb; font-size: 0.9rem; font-weight: 600;">Book Your Stay in</div>
-                <div class="main-heading" style="font-size: 1.8rem; font-weight: 800; margin-bottom: 8px; color: #1e293b; display: flex; align-items: center; gap: 8px;">
-                    VARANASI 
-                    <i class="fa-solid fa-om" style="font-size:1.5rem; color: #2563eb;"></i>
-                </div>
-                <p class="desc-text" style="font-size: 0.85rem; color: #475569; margin-bottom: 15px;">Find verified hotels near Kashi Vishwanath at the <strong>best prices</strong>.</p>
 
-                <div class="booking-card-panel" style="background: #f8fafc; padding: 15px; border-radius: 10px; border: 1px solid #e2e8f0;">
-                    <div class="panel-title" style="font-weight: 700; font-size: 0.95rem; margin-bottom: 12px; color: #334155;">
-                        <i class="fa-solid fa-calendar-days" style="color:#2563eb;"></i> Book Your Hotel
-                    </div>
-                    <form onsubmit="bookHotelWhatsApp(event, 'Varanasi', 'varanasi-in', 'varanasi-out', 'varanasi-guests')">
-                        <div class="form-row-2" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 10px;">
-                            <div class="input-box" style="width: 100%;">
-                                <label style="display: block; font-size: 0.75rem; color: #64748b; font-weight: 600; margin-bottom: 4px;">Check-in Date</label>
-                                <input type="date" id="varanasi-in" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff; box-sizing: border-box; font-size: 0.85rem;">
-                            </div>
-                            <div class="input-box" style="width: 100%;">
-                                <label style="display: block; font-size: 0.75rem; color: #64748b; font-weight: 600; margin-bottom: 4px;">Check-out Date</label>
-                                <input type="date" id="varanasi-out" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff; box-sizing: border-box; font-size: 0.85rem;">
-                            </div>
+
+    <!-- =====================================================
+         VARANASI
+    ====================================================== -->
+
+    <div class="hr-destination-card reveal" id="varanasi">
+
+        <!-- HERO -->
+        <div class="hr-destination-hero hr-varanasi-hero">
+
+            <div class="hr-hero-icon">
+                <i class="fa-solid fa-om"></i>
+            </div>
+
+            <div class="hr-hero-content">
+
+                <div class="hr-location-badge">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Varanasi, Uttar Pradesh
+                </div>
+
+                <h3>
+                    VARANASI
+                </h3>
+
+                <p>
+                    Discover comfortable stays near Kashi Vishwanath
+                    and the heart of the spiritual city.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="hr-content">
+
+            <div class="hr-intro">
+
+                <div class="hr-intro-icon" style="color:#2563eb;">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+
+                <div>
+
+                    <h4>
+                        Stay Near Kashi Vishwanath
+                    </h4>
+
+                    <p>
+                        Find verified hotel options near Kashi Vishwanath
+                        Temple and popular areas of Varanasi.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- HOTEL TYPES -->
+            <div class="hr-price-grid">
+
+                <div class="hr-price-item">
+
+                    <i class="fa-solid fa-wallet" style="color:#16a34a;"></i>
+
+                    <strong>
+                        Budget
+                    </strong>
+
+                    <span>
+                        Affordable stays
+                    </span>
+
+                </div>
+
+
+                <div class="hr-price-item">
+
+                    <i class="fa-solid fa-hotel" style="color:#2563eb;"></i>
+
+                    <strong>
+                        Standard
+                    </strong>
+
+                    <span>
+                        Comfortable stays
+                    </span>
+
+                </div>
+
+
+                <div class="hr-price-item">
+
+                    <i class="fa-solid fa-star" style="color:#d97706;"></i>
+
+                    <strong>
+                        Premium
+                    </strong>
+
+                    <span>
+                        Better comfort
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOOKING -->
+            <div class="hr-booking-panel">
+
+                <div class="hr-booking-title">
+
+                    <i style="background:#eff6ff; color:#2563eb;">
+                        <i class="fa-solid fa-calendar-days"></i>
+                    </i>
+
+                    Book Your Stay
+
+                </div>
+
+
+                <form onsubmit="bookHotelWhatsApp(event, 'Varanasi', 'varanasi-in', 'varanasi-out', 'varanasi-guests')">
+
+                    <div class="hr-form-grid">
+
+                        <div class="hr-field">
+
+                            <label>
+                                CHECK-IN
+                            </label>
+
+                            <input
+                                type="date"
+                                id="varanasi-in"
+                                required
+                            >
+
                         </div>
-                        <div class="input-box" style="margin-bottom: 12px;">
-                            <label style="display: block; font-size: 0.75rem; color: #64748b; font-weight: 600; margin-bottom: 4px;">Guests</label>
-                            <select id="varanasi-guests" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff; box-sizing: border-box; font-size: 0.85rem;">
-                                <option value="1 Guest">1 Guest</option>
-                                <option value="2 Guests" selected>2 Guests</option>
-                                <option value="3 Guests">3 Guests</option>
-                                <option value="Family / Group">Family / Group</option>
+
+
+                        <div class="hr-field">
+
+                            <label>
+                                CHECK-OUT
+                            </label>
+
+                            <input
+                                type="date"
+                                id="varanasi-out"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="hr-field full">
+
+                            <label>
+                                NUMBER OF GUESTS
+                            </label>
+
+                            <select id="varanasi-guests">
+
+                                <option value="1 Guest">
+                                    1 Guest
+                                </option>
+
+                                <option value="2 Guests" selected>
+                                    2 Guests
+                                </option>
+
+                                <option value="3 Guests">
+                                    3 Guests
+                                </option>
+
+                                <option value="4 Guests">
+                                    4 Guests
+                                </option>
+
+                                <option value="5 Guests">
+                                    5 Guests
+                                </option>
+
+                                <option value="6 Guests">
+                                    6 Guests
+                                </option>
+
+                                <option value="Family / Group">
+                                    Family / Group
+                                </option>
+
                             </select>
+
                         </div>
-                        <button type="submit" class="btn-submit btn-blue" style="width: 100%; padding: 12px; background: #2563eb; color: #fff; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 8px;">
-                            <i class="fa-brands fa-whatsapp" style="font-size: 1.1rem;"></i> Search Hotels on WhatsApp
-                        </button>
-                    </form>
-                </div>
+
+                    </div>
+
+
+                    <button type="submit"
+                            class="hr-whatsapp-btn hr-varanasi-btn">
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                        Search Hotels on WhatsApp
+
+                    </button>
+
+                </form>
+
             </div>
+
         </div>
 
-        <div class="banner-bottom-bar" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 12px; background: #fff; border-top: 1px solid #f1f5f9;">
-            <div style="display: flex; align-items: center; gap: 8px;">
-                <i class="fa-solid fa-indian-rupee-sign" style="color:#2563eb;"></i>
-                <div><h5 style="margin:0; font-size: 0.75rem;">Best Prices</h5><p style="margin:0; font-size: 0.65rem; color:#64748b;">Guaranteed</p></div>
+
+        <!-- TRUST -->
+        <div class="hr-trust-grid">
+
+            <div class="hr-trust-item">
+
+                <i class="fa-solid fa-indian-rupee-sign"
+                   style="color:#2563eb;"></i>
+
+                <div>
+                    <strong>Best Prices</strong>
+                    <span>Great Rates</span>
+                </div>
+
             </div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-                <i class="fa-solid fa-shield-halved" style="color:#2563eb;"></i>
-                <div><h5 style="margin:0; font-size: 0.75rem;">Verified Hotels</h5><p style="margin:0; font-size: 0.65rem; color:#64748b;">100% Trusted</p></div>
+
+
+            <div class="hr-trust-item">
+
+                <i class="fa-solid fa-shield-halved"
+                   style="color:#2563eb;"></i>
+
+                <div>
+                    <strong>Verified Hotels</strong>
+                    <span>Trusted Stays</span>
+                </div>
+
             </div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-                <i class="fa-solid fa-headset" style="color:#2563eb;"></i>
-                <div><h5 style="margin:0; font-size: 0.75rem;">24/7 Support</h5><p style="margin:0; font-size: 0.65rem; color:#64748b;">We're Here to Help</p></div>
+
+
+            <div class="hr-trust-item">
+
+                <i class="fa-solid fa-headset"
+                   style="color:#2563eb;"></i>
+
+                <div>
+                    <strong>24/7 Support</strong>
+                    <span>Always Available</span>
+                </div>
+
             </div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-                <i class="fa-brands fa-whatsapp" style="color:#25d366;"></i>
-                <div><h5 style="margin:0; font-size: 0.75rem;">Easy Booking</h5><p style="margin:0; font-size: 0.65rem; color:#64748b;">On WhatsApp</p></div>
+
+
+            <div class="hr-trust-item">
+
+                <i class="fa-brands fa-whatsapp"
+                   style="color:#25d366;"></i>
+
+                <div>
+                    <strong>Easy Booking</strong>
+                    <span>WhatsApp</span>
+                </div>
+
             </div>
+
         </div>
+
     </div>
 
-    <!-- 3. CAB / RIDE BOOKING BANNER -->
-    <div class="card-banner reveal" id="cabs" style="margin-bottom: 30px; border-radius: 12px; overflow: hidden; background: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border: 1px solid #eee;">
-        <div class="banner-inner" style="display: flex; flex-direction: column;">
-            
-            <div class="banner-left" style="padding: 20px; box-sizing: border-box;">
-                <div class="script-sub gold" style="color: #d97706; font-size: 0.9rem; font-weight: 600;">Travel in</div>
-                <div class="main-heading" style="font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; color: #1e293b;">
-                    VARANASI & AYODHYA
-                </div>
-                <p class="desc-text" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #64748b; margin-bottom: 15px;">COMFORTABLE JOURNEYS, MEMORABLE EXPERIENCES</p>
 
-                <div class="booking-card-panel" style="background: #f8fafc; padding: 15px; border-radius: 10px; border: 1px solid #e2e8f0;">
-                    <div class="panel-title" style="font-weight: 700; font-size: 0.95rem; margin-bottom: 12px; color: #334155;">
-                        <i class="fa-solid fa-car" style="color:#d97706;"></i> Book Your Ride
-                    </div>
-                    <form onsubmit="bookCabWhatsApp(event)">
-                        <div class="input-box" style="margin-bottom: 10px;">
-                            <label style="display: block; font-size: 0.75rem; color: #64748b; font-weight: 600; margin-bottom: 4px;">Service Type</label>
-                            <select id="cab-service" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff; box-sizing: border-box; font-size: 0.85rem;">
-                                <option value="Local Sightseeing">Local Sightseeing</option>
-                                <option value="Airport Transfer">Airport Transfer</option>
-                                <option value="Varanasi to Ayodhya (One Way / Round Trip)">Varanasi ⇄ Ayodhya Cab</option>
+
+    <!-- =====================================================
+         CAB / RIDE SERVICE
+    ====================================================== -->
+
+    <div class="hr-destination-card reveal" id="cabs">
+
+        <!-- CAB HERO -->
+        <div class="hr-destination-hero hr-cab-hero">
+
+            <div class="hr-hero-icon">
+                <i class="fa-solid fa-car-side"></i>
+            </div>
+
+            <div class="hr-hero-content">
+
+                <div class="hr-location-badge">
+                    <i class="fa-solid fa-route"></i>
+                    Varanasi & Ayodhya
+                </div>
+
+                <h3 style="font-size:clamp(1.7rem,6vw,2.8rem);">
+                    TRAVEL WITH EASE
+                </h3>
+
+                <p>
+                    Comfortable cab services for sightseeing,
+                    airport transfers and Varanasi–Ayodhya journeys.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="hr-content">
+
+            <!-- SERVICES -->
+            <div class="hr-service-grid">
+
+                <div class="hr-service-item">
+
+                    <i class="fa-solid fa-map-location-dot"></i>
+
+                    <strong>
+                        Sightseeing
+                    </strong>
+
+                    <span>
+                        Explore the city
+                    </span>
+
+                </div>
+
+
+                <div class="hr-service-item">
+
+                    <i class="fa-solid fa-plane-departure"></i>
+
+                    <strong>
+                        Airport Transfer
+                    </strong>
+
+                    <span>
+                        Easy transfers
+                    </span>
+
+                </div>
+
+
+                <div class="hr-service-item">
+
+                    <i class="fa-solid fa-road"></i>
+
+                    <strong>
+                        Ayodhya Trip
+                    </strong>
+
+                    <span>
+                        One way / Round trip
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOOK RIDE -->
+            <div class="hr-booking-panel">
+
+                <div class="hr-booking-title">
+
+                    <i style="background:#f0fdf4; color:#16a34a;">
+                        <i class="fa-solid fa-car"></i>
+                    </i>
+
+                    Book Your Ride
+
+                </div>
+
+
+                <form onsubmit="bookCabWhatsApp(event)">
+
+                    <div class="hr-form-grid">
+
+                        <div class="hr-field full">
+
+                            <label>
+                                SERVICE TYPE
+                            </label>
+
+                            <select id="cab-service">
+
+                                <option value="Local Sightseeing">
+                                    Local Sightseeing
+                                </option>
+
+                                <option value="Airport Transfer">
+                                    Airport Transfer
+                                </option>
+
+                                <option value="Varanasi to Ayodhya (One Way / Round Trip)">
+                                    Varanasi ⇄ Ayodhya Cab
+                                </option>
+
                             </select>
+
                         </div>
-                        <div class="input-box" style="margin-bottom: 12px;">
-                            <label style="display: block; font-size: 0.75rem; color: #64748b; font-weight: 600; margin-bottom: 4px;">Travel Date</label>
-                            <input type="date" id="cab-date" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff; box-sizing: border-box; font-size: 0.85rem;">
+
+
+                        <div class="hr-field full">
+
+                            <label>
+                                TRAVEL DATE
+                            </label>
+
+                            <input
+                                type="date"
+                                id="cab-date"
+                                required
+                            >
+
                         </div>
-                        <button type="submit" style="width: 100%; padding: 12px; background: #25d366; color: #fff; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 8px;">
-                            <i class="fa-brands fa-whatsapp" style="font-size: 1.1rem;"></i> Book Ride on WhatsApp
-                        </button>
-                    </form>
-                    <div style="font-size:0.7rem; text-align:center; color:#64748b; margin-top:8px;">
-                        Quick Booking | Best Prices | 24/7 Support
+
                     </div>
+
+
+                    <button type="submit"
+                            class="hr-whatsapp-btn hr-cab-btn">
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                        Get Cab Quote on WhatsApp
+
+                    </button>
+
+                </form>
+
+
+                <div style="text-align:center; margin-top:9px; color:#94a3b8; font-size:9px;">
+
+                    Quick Booking &nbsp; • &nbsp;
+                    Best Available Prices &nbsp; • &nbsp;
+                    24/7 Support
+
                 </div>
+
             </div>
+
         </div>
+
+
+        <!-- CAB TRUST -->
+        <div class="hr-trust-grid">
+
+            <div class="hr-trust-item">
+
+                <i class="fa-solid fa-car-side"
+                   style="color:#d97706;"></i>
+
+                <div>
+                    <strong>Comfortable Cars</strong>
+                    <span>Easy Travel</span>
+                </div>
+
+            </div>
+
+
+            <div class="hr-trust-item">
+
+                <i class="fa-solid fa-indian-rupee-sign"
+                   style="color:#2563eb;"></i>
+
+                <div>
+                    <strong>Best Prices</strong>
+                    <span>Quick Quote</span>
+                </div>
+
+            </div>
+
+
+            <div class="hr-trust-item">
+
+                <i class="fa-solid fa-headset"
+                   style="color:#2563eb;"></i>
+
+                <div>
+                    <strong>24/7 Support</strong>
+                    <span>Travel Help</span>
+                </div>
+
+            </div>
+
+
+            <div class="hr-trust-item">
+
+                <i class="fa-brands fa-whatsapp"
+                   style="color:#25d366;"></i>
+
+                <div>
+                    <strong>Easy Booking</strong>
+                    <span>WhatsApp</span>
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
+
 </section>
 
 <!-- WHATSAPP AUTOMATION SCRIPT -->
