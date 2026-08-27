@@ -2402,55 +2402,28 @@
 <header class="navbar" id="navbar">
 
     <a href="#home" class="logo">
-
         <img src="logo.png" alt="HotelReach Logo">
 
         <span>
             Hotel<span class="logo-gold">Reach</span>
         </span>
-
     </a>
-
 
     <nav>
         <ul class="nav-links" id="nav-links">
 
-            <li>
-                <a href="#home">Home</a>
-            </li>
-
-            <li>
-                <a href="#about">About</a>
-            </li>
-
-            <li>
-                <a href="#hotels">Destinations</a>
-            </li>
-
-            <li>
-                <a href="#reviews">Reviews</a>
-            </li>
-
-            <li>
-                <a href="#partner">Partner</a>
-            </li>
-
-            <li>
-                <a href="#faq">FAQ</a>
-            </li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#hotels">Destinations</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#partner">Partner</a></li>
+            <li><a href="#faq">FAQ</a></li>
 
         </ul>
     </nav>
 
-
-    <button
-        class="hamburger"
-        id="hamburger"
-        type="button"
-        aria-label="Open Menu">
-
+    <button class="hamburger" id="hamburger" type="button">
         <i class="fa-solid fa-bars"></i>
-
     </button>
 
 </header>
@@ -2817,6 +2790,58 @@
     }
 
 }
+@media (max-width: 850px) {
+
+    .hamburger {
+        display: flex !important;
+        position: relative;
+        z-index: 100001;
+    }
+
+    .nav-links {
+        position: fixed !important;
+        top: 74px !important;
+        left: 12px !important;
+        right: 12px !important;
+
+        display: none !important;
+        flex-direction: column !important;
+
+        padding: 12px !important;
+        margin: 0 !important;
+
+        background: #fff !important;
+
+        border-radius: 15px !important;
+
+        box-shadow: 0 15px 40px rgba(0,0,0,.15) !important;
+
+        z-index: 100000 !important;
+    }
+
+    .nav-links.active {
+        display: flex !important;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 13px 15px;
+
+        color: #334155 !important;
+        text-decoration: none;
+
+        border-radius: 9px;
+    }
+
+    .nav-links li a:hover {
+        background: #f1f5f9;
+    }
+
+}
 
 </style>
 
@@ -2948,7 +2973,57 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+
+    if (!hamburger || !navLinks) return;
+
+    hamburger.onclick = function (e) {
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        navLinks.classList.toggle("active");
+
+        const icon = hamburger.querySelector("i");
+
+        if (navLinks.classList.contains("active")) {
+
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-xmark");
+
+        } else {
+
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+
+        }
+    };
+
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+
+        link.onclick = function () {
+
+            navLinks.classList.remove("active");
+
+            const icon = hamburger.querySelector("i");
+
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+
+        };
+
+    });
+
+});
+
+
 </script>
+
+
 
 
 <!-- =========================================================
