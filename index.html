@@ -2843,185 +2843,230 @@
 
 }
 
+/* =========================================
+   HOTELREACH - CUSTOMER REVIEWS
+   PERFECT CONTENT-FIT SLIDER
+========================================= */
+
+.reviews-slider-wrapper {
+    position: relative;
+    width: 100%;
+    padding: 10px 55px 45px;
+    overflow: hidden;
+}
+
+.reviews-slider {
+    display: flex;
+    align-items: flex-start;
+    gap: 22px;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+}
+
+.reviews-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.reviews-slider:active {
+    cursor: grabbing;
+}
+
+/* Review Card */
+
+.reviews-slider .review-card {
+    flex: 0 0 calc(33.333% - 15px);
+    width: calc(33.333% - 15px);
+
+    /* IMPORTANT */
+    height: auto !important;
+    min-height: 0 !important;
+
+    align-self: flex-start;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 24px;
+    box-sizing: border-box;
+
+    border-radius: 18px;
+    scroll-snap-align: start;
+
+    overflow: hidden;
+}
+
+/* Stars */
+
+.reviews-slider .review-stars {
+    margin-bottom: 14px;
+    flex-shrink: 0;
+}
+
+/* Review Text */
+
+.reviews-slider .review-text {
+    margin: 0;
+    line-height: 1.65;
+    font-size: 0.95rem;
+
+    /* Do NOT force fixed height */
+    height: auto !important;
+    min-height: 0 !important;
+
+    overflow: visible;
+
+    display: block;
+}
+
+/* Author */
+
+.reviews-slider .review-author {
+    margin-top: 20px;
+    flex-shrink: 0;
+}
+
+/* Buttons */
+
+.review-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--dark);
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    z-index: 10;
+
+    transition: all 0.25s ease;
+}
+
+.review-btn:hover {
+    transform: translateY(-50%) scale(1.08);
+}
+
+.review-prev {
+    left: 5px;
+}
+
+.review-next {
+    right: 5px;
+}
+
+/* Dots */
+
+.review-dots {
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+}
+
+.review-dot {
+    width: 8px;
+    height: 8px;
+
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+
+    background: #ccc;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.review-dot.active {
+    width: 24px;
+    border-radius: 10px;
+    background: var(--gold);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 992px) {
+
+    .reviews-slider .review-card {
+        flex: 0 0 calc(50% - 11px);
+        width: calc(50% - 11px);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .reviews-slider-wrapper {
+        padding: 5px 38px 42px;
+    }
+
+    .reviews-slider {
+        gap: 15px;
+    }
+
+    .reviews-slider .review-card {
+        flex: 0 0 100%;
+        width: 100%;
+
+        padding: 20px;
+
+        border-radius: 16px;
+    }
+
+    .reviews-slider .review-text {
+        font-size: 0.92rem;
+        line-height: 1.6;
+    }
+
+    .reviews-slider .review-author {
+        margin-top: 18px;
+    }
+
+    .review-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 11px;
+    }
+
+    .review-prev {
+        left: 1px;
+    }
+
+    .review-next {
+        right: 1px;
+    }
+}
 </style>
 
 
-<!-- ================= NAVBAR JAVASCRIPT ================= -->
 
-<script>
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const navbar =
-        document.getElementById("navbar");
-
-    const hamburger =
-        document.getElementById("hamburger");
-
-    const navLinks =
-        document.getElementById("nav-links");
-
-
-    /* =========================
-       MOBILE MENU
-    ========================= */
-
-    if (hamburger && navLinks) {
-
-        hamburger.addEventListener("click", function (event) {
-
-            event.stopPropagation();
-
-            navLinks.classList.toggle("active");
-
-
-            const icon =
-                hamburger.querySelector("i");
-
-
-            if (navLinks.classList.contains("active")) {
-
-                icon.classList.remove("fa-bars");
-
-                icon.classList.add("fa-xmark");
-
-            } else {
-
-                icon.classList.remove("fa-xmark");
-
-                icon.classList.add("fa-bars");
-
-            }
-
-        });
-
-
-        /* CLOSE AFTER CLICK */
-
-        navLinks
-            .querySelectorAll("a")
-            .forEach(function (link) {
-
-                link.addEventListener("click", function () {
-
-                    navLinks.classList.remove("active");
-
-                    const icon =
-                        hamburger.querySelector("i");
-
-                    icon.classList.remove("fa-xmark");
-
-                    icon.classList.add("fa-bars");
-
-                });
-
-            });
-
-
-        /* CLOSE OUTSIDE */
-
-        document.addEventListener("click", function (event) {
-
-            if (
-                !navbar.contains(event.target) &&
-                navLinks.classList.contains("active")
-            ) {
-
-                navLinks.classList.remove("active");
-
-                const icon =
-                    hamburger.querySelector("i");
-
-                icon.classList.remove("fa-xmark");
-
-                icon.classList.add("fa-bars");
-
-            }
-
-        });
-
-    }
-
-
-    /* =========================
-       NAVBAR SCROLL
-    ========================= */
-
-    function updateNavbar() {
-
-        if (!navbar) return;
-
-        if (window.scrollY > 40) {
-
-            navbar.classList.add("scrolled");
-
-        } else {
-
-            navbar.classList.remove("scrolled");
-
-        }
-
-    }
-
-
-    window.addEventListener(
-        "scroll",
-        updateNavbar
-    );
-
-    updateNavbar();
-
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const hamburger = document.getElementById("hamburger");
-    const navLinks = document.getElementById("nav-links");
-
-    if (!hamburger || !navLinks) return;
-
-    hamburger.onclick = function (e) {
-
-        e.preventDefault();
-        e.stopPropagation();
-
-        navLinks.classList.toggle("active");
-
-        const icon = hamburger.querySelector("i");
-
-        if (navLinks.classList.contains("active")) {
-
-            icon.classList.remove("fa-bars");
-            icon.classList.add("fa-xmark");
-
-        } else {
-
-            icon.classList.remove("fa-xmark");
-            icon.classList.add("fa-bars");
-
-        }
-    };
-
-
-    navLinks.querySelectorAll("a").forEach(function (link) {
-
-        link.onclick = function () {
-
-            navLinks.classList.remove("active");
-
-            const icon = hamburger.querySelector("i");
-
-            icon.classList.remove("fa-xmark");
-            icon.classList.add("fa-bars");
-
-        };
-
-    });
-
-});
-
-
-</script>
 
 
 
@@ -3031,65 +3076,6 @@ document.addEventListener("DOMContentLoaded", function () {
 ========================================================= -->
 
 <div id="progress-bar"></div>
-
-
-<!-- =========================================================
-     HEADER / NAVBAR
-========================================================= -->
-
-<header class="navbar" id="navbar">
-
-    <a href="#home"
-       class="logo"
-       style="display:flex; align-items:center; gap:10px; font-size:1.8rem; font-weight:800; text-decoration:none;">
-
-        <img src="logo.png"
-             alt="HotelReach Logo"
-             style="height:40px; width:auto; object-fit:contain;">
-
-        <span style="color:#0d6efd;">
-            Hotel<span style="color:#eab308;">Reach</span>
-        </span>
-
-    </a>
-
-
-    <ul class="nav-links" id="nav-links">
-
-        <li>
-            <a href="#home">Home</a>
-        </li>
-
-        <li>
-            <a href="#about">About</a>
-        </li>
-
-        <li>
-            <a href="#hotels">Destinations</a>
-        </li>
-
-        <li>
-            <a href="#reviews">Reviews</a>
-        </li>
-
-        <li>
-            <a href="#partner">Partner</a>
-        </li>
-
-        <li>
-            <a href="#faq">FAQ</a>
-        </li>
-
-    </ul>
-
-
-    <div class="hamburger" id="hamburger">
-
-        <i class="fa-solid fa-bars"></i>
-
-    </div>
-
-</header>
 
 
 <!-- =========================================================
@@ -3446,124 +3432,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 <!-- =========================================================
-     ANIMATION + NAVBAR JAVASCRIPT
-========================================================= -->
-
-<script>
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    /* PRELOADER */
-
-    setTimeout(function () {
-
-        const preloader = document.getElementById("preloader");
-
-        if (preloader) {
-            preloader.classList.add("hide");
-        }
-
-    }, 700);
-
-
-
-    /* NAVBAR SCROLL */
-
-    const navbar = document.getElementById("navbar");
-
-    window.addEventListener("scroll", function () {
-
-        if (window.scrollY > 40) {
-            navbar.classList.add("scrolled");
-        } else {
-            navbar.classList.remove("scrolled");
-        }
-
-    });
-
-
-
-    /* SCROLL PROGRESS */
-
-    window.addEventListener("scroll", function () {
-
-        const scrollTop =
-            document.documentElement.scrollTop ||
-            document.body.scrollTop;
-
-        const scrollHeight =
-            document.documentElement.scrollHeight -
-            document.documentElement.clientHeight;
-
-        const progress =
-            scrollHeight > 0
-            ? (scrollTop / scrollHeight) * 100
-            : 0;
-
-        const bar = document.getElementById("progress-bar");
-
-        if (bar) {
-            bar.style.width = progress + "%";
-        }
-
-    });
-
-
-
-    /* MOBILE MENU */
-
-    const hamburger = document.getElementById("hamburger");
-    const navLinks = document.getElementById("nav-links");
-
-    if (hamburger && navLinks) {
-
-        hamburger.addEventListener("click", function () {
-
-            navLinks.classList.toggle("active");
-
-            const icon =
-                hamburger.querySelector("i");
-
-            if (navLinks.classList.contains("active")) {
-
-                icon.classList.remove("fa-bars");
-                icon.classList.add("fa-xmark");
-
-            } else {
-
-                icon.classList.remove("fa-xmark");
-                icon.classList.add("fa-bars");
-
-            }
-
-        });
-
-
-        /* CLOSE MENU AFTER CLICK */
-
-        navLinks.querySelectorAll("a").forEach(function (link) {
-
-            link.addEventListener("click", function () {
-
-                navLinks.classList.remove("active");
-
-                const icon =
-                    hamburger.querySelector("i");
-
-                icon.classList.remove("fa-xmark");
-                icon.classList.add("fa-bars");
-
-            });
-
-        });
-
-    }
-
-});
-
-</script>
-
- <!-- =========================================================
      HOTELREACH — PREMIUM DESTINATIONS & SERVICES
 ========================================================= -->
 
@@ -4940,140 +4808,343 @@ function bookCabWhatsApp(event) {
     </section>
 
     <!-- Reviews Section -->
-    <section class="reviews-section" id="reviews">
-        <div class="container">
-            <div class="section-title reveal">
-                <h2>What Our Customers Say</h2>
-                <p>Trusted by thousands of travelers. Read their experiences & share yours!</p>
-            </div>
+<section class="reviews-section" id="reviews">
+    <div class="container">
 
-            <!-- Write A Review Form -->
-            <div class="review-card reveal" style="max-width: 700px; margin: 0 auto 40px auto; text-align: left; background: #ffffff; padding: 25px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.08);">
-                <h3 style="margin-bottom: 15px; color: var(--dark, #0b132b); font-size: 1.2rem; display: flex; align-items: center; gap: 8px;">
-                    <i class="fa-solid fa-pen-nib" style="color: var(--gold, #d97706);"></i> Write a Review
-                </h3>
-                
-                <form action="https://formspree.io/f/xwlevkkz" method="POST">
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 15px;">
-                        <div>
-                            <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px;">Your Name</label>
-                            <input type="text" name="Name" placeholder="e.g. Rahul Sharma" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; outline: none; box-sizing: border-box;">
-                        </div>
-                        <div>
-                            <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px;">Rating</label>
-                            <select name="Rating" style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; outline: none; background: #fff; box-sizing: border-box;">
-                                <option value="5 ⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐ (5/5 Excellent)</option>
-                                <option value="4 ⭐⭐⭐⭐">⭐⭐⭐⭐ (4/5 Very Good)</option>
-                                <option value="3 ⭐⭐⭐">⭐⭐⭐ (3/5 Good)</option>
-                                <option value="2 ⭐⭐">⭐⭐ (2/5 Average)</option>
-                                <option value="1 ⭐">⭐ (1/5 Poor)</option>
-                            </select>
-                        </div>
+        <!-- Section Heading -->
+        <div class="section-title reveal">
+            <h2>What Our Customers Say</h2>
+            <p>Trusted by travelers. Read their experiences & share yours!</p>
+        </div>
+
+        <!-- Write A Review Form -->
+        <div class="review-card reveal"
+             style="max-width:700px; margin:0 auto 40px auto; text-align:left; background:#ffffff; padding:25px; border-radius:16px; box-shadow:0 10px 25px rgba(0,0,0,0.06); border:1px solid rgba(0,0,0,0.08);">
+
+            <h3 style="margin-bottom:15px; color:var(--dark,#0b132b); font-size:1.2rem; display:flex; align-items:center; gap:8px;">
+                <i class="fa-solid fa-pen-nib" style="color:var(--gold,#d97706);"></i>
+                Write a Review
+            </h3>
+
+            <form action="https://formspree.io/f/xwlevkkz" method="POST">
+
+                <!-- Name + Rating -->
+                <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:15px; margin-bottom:15px;">
+
+                    <div>
+                        <label style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:5px;">
+                            Your Name
+                        </label>
+
+                        <input
+                            type="text"
+                            name="Name"
+                            placeholder="e.g. Rahul Sharma"
+                            required
+                            style="width:100%; padding:10px 12px; border:1px solid #cbd5e1; border-radius:8px; outline:none; box-sizing:border-box;">
                     </div>
 
-                    <div style="margin-bottom: 15px;">
-                        <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px;">Your Experience</label>
-                        <textarea name="Review" rows="3" placeholder="How was your hotel booking experience with HotelReach?" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; outline: none; font-family: inherit; box-sizing: border-box; resize: vertical;"></textarea>
+                    <div>
+                        <label style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:5px;">
+                            Rating
+                        </label>
+
+                        <select
+                            name="Rating"
+                            style="width:100%; padding:10px 12px; border:1px solid #cbd5e1; border-radius:8px; outline:none; background:#fff; box-sizing:border-box;">
+
+                            <option value="5 ⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐ (5/5 Excellent)</option>
+                            <option value="4 ⭐⭐⭐⭐">⭐⭐⭐⭐ (4/5 Very Good)</option>
+                            <option value="3 ⭐⭐⭐">⭐⭐⭐ (3/5 Good)</option>
+                            <option value="2 ⭐⭐">⭐⭐ (2/5 Average)</option>
+                            <option value="1 ⭐">⭐ (1/5 Poor)</option>
+
+                        </select>
                     </div>
 
-                    <button type="submit" class="btn btn-primary" style="background: var(--dark, #0b132b); color: #fff; padding: 10px 24px; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
-                        Submit Review <i class="fa-solid fa-paper-plane"></i>
-                    </button>
-                </form>
-            </div>
+                </div>
 
-            <!-- Customer Reviews Grid -->
-            <div class="reviews-grid">
-                <div class="review-card reveal">
+                <!-- Review -->
+                <div style="margin-bottom:15px;">
+
+                    <label style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:5px;">
+                        Your Experience
+                    </label>
+
+                    <textarea
+                        name="Review"
+                        rows="3"
+                        placeholder="How was your hotel booking experience with HotelReach?"
+                        required
+                        style="width:100%; padding:10px 12px; border:1px solid #cbd5e1; border-radius:8px; outline:none; font-family:inherit; box-sizing:border-box; resize:vertical;"></textarea>
+
+                </div>
+
+                <!-- Submit -->
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                    style="background:var(--dark,#0b132b); color:#fff; padding:10px 24px; border:none; border-radius:50px; font-weight:600; cursor:pointer; display:inline-flex; align-items:center; gap:8px;">
+
+                    Submit Review
+                    <i class="fa-solid fa-paper-plane"></i>
+
+                </button>
+
+            </form>
+        </div>
+
+
+        <!-- Customer Reviews Slider -->
+        <div class="reviews-slider-wrapper">
+
+            <div class="reviews-slider" id="reviewsSlider">
+
+                <!-- Review 1 -->
+                <div class="review-card">
+
                     <div class="review-stars">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="review-text">"Great service and best prices! Booked a room for my Varanasi tour through HotelReach and got a budget-friendly deal. The room and service were both excellent. Highly recommended!"</p>
+
+                    <p class="review-text">
+                        "Great service and best prices! My Varanasi hotel booking was easy and hassle-free. The room was clean and the service was excellent."
+                    </p>
+
                     <div class="review-author">
                         <div class="author-avatar">R</div>
-                        <div class="author-info"><h5>Rakesh kumar</h5></div>
+                        <div class="author-info">
+                            <h5>Rakesh Kumar</h5>
+                        </div>
                     </div>
+
                 </div>
 
-                <div class="review-card reveal">
+
+                <!-- Review 2 -->
+                <div class="review-card">
+
                     <div class="review-stars">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="review-text">"Easily got a hotel through HotelReach. Great service! I was able to find the perfect place in Varanasi because of your excellent service. Keep it up!"</p>
+
+                    <p class="review-text">
+                        "Easily booked a great hotel through HotelReach. Excellent service and a smooth experience. Found the perfect place in Varanasi."
+                    </p>
+
                     <div class="review-author">
                         <div class="author-avatar">K</div>
-                        <div class="author-info"><h5>Karga Genga Rori</h5></div>
+                        <div class="author-info">
+                            <h5>Karga Genga Rori</h5>
+                        </div>
                     </div>
+
                 </div>
 
-                <div class="review-card reveal">
+
+                <!-- Review 3 -->
+                <div class="review-card">
+
                     <div class="review-stars">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="review-text">"I booked my hotel in Varanasi through HotelReach, and I had a great experience. The booking process was smooth and hassle-free. The hotel matched the description, the rooms were clean, and the staff was friendly and helpful. I would definitely recommend HotelReach."</p>
+
+                    <p class="review-text">
+                        "Had a great experience with HotelReach. The booking was smooth, the hotel was clean, and the staff was friendly and helpful."
+                    </p>
+
                     <div class="review-author">
                         <div class="author-avatar">B</div>
-                        <div class="author-info"><h5>Biki Saha</h5></div>
+                        <div class="author-info">
+                            <h5>Biki Saha</h5>
+                        </div>
                     </div>
+
                 </div>
 
-                <div class="review-card reveal">
+
+                <!-- Review 4 -->
+                <div class="review-card">
+
                     <div class="review-stars">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="review-text">"Amazing experience! What was shown on HotelReach is exactly what I got. Great rates and even better service. First time using it and not disappointed at all. A must-try for Varanasi travelers."</p>
+
+                    <p class="review-text">
+                        "Amazing experience! The hotel was exactly as shown, with great rates and excellent service. A must-try for Varanasi travelers."
+                    </p>
+
                     <div class="review-author">
                         <div class="author-avatar">N</div>
-                        <div class="author-info"><h5>Nitesh Chanchal</h5></div>
+                        <div class="author-info">
+                            <h5>Nitesh Chanchal</h5>
+                        </div>
                     </div>
+
                 </div>
 
-                <div class="review-card reveal">
+
+                <!-- Review 5 -->
+                <div class="review-card">
+
                     <div class="review-stars">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="review-text">"Had a wonderful experience booking through HotelReach. The hotel was clean, comfortable, and exactly as shown. The booking process was quick, prices were reasonable, and the support team was very helpful. Highly recommended."</p>
+
+                    <p class="review-text">
+                        "Wonderful experience with HotelReach. Clean and comfortable hotel, quick booking, reasonable prices, and helpful support."
+                    </p>
+
                     <div class="review-author">
                         <div class="author-avatar">H</div>
-                        <div class="author-info"><h5>Harsh Ginoria</h5></div>
+                        <div class="author-info">
+                            <h5>Harsh Ginoria</h5>
+                        </div>
                     </div>
+
                 </div>
 
-                <div class="review-card reveal">
+
+                <!-- Review 6 -->
+                <div class="review-card">
+
                     <div class="review-stars">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="review-text">"Great experience with HotelReach! Easy booking, affordable prices, clean rooms, and excellent customer support. Highly recommended for anyone visiting Varanasi."</p>
+
+                    <p class="review-text">
+                        "Great experience with HotelReach! Easy booking, affordable prices, clean rooms, and excellent customer support."
+                    </p>
+
                     <div class="review-author">
-                        <div class="author-avatar" style="background: var(--gold);">V</div>
-                        <div class="author-info"><h5>Vinay Gupta</h5></div>
+                        <div class="author-avatar" style="background:var(--gold);">V</div>
+                        <div class="author-info">
+                            <h5>Vinay Gupta</h5>
+                        </div>
                     </div>
+
                 </div>
 
-                <div class="review-card reveal">
+
+                <!-- Review 7 -->
+                <div class="review-card">
+
                     <div class="review-stars">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="review-text">"Maine recently HotelReach ki service use ki aur sach bataun to experience bahut hi accha raha! Booking process ekdum simple aur fast thi - koi confusion nahi, instant confirmation mil gaya. Jo hotel select kiya tha woh verified tha, safety aur hygiene dono levels par best laga. Customer support 24x7 available tha, kisi bhi query ka turant response milta hai. Prices bhi reasonable the aur value-for-money feel hua. Overall stay smooth, comfortable aur tension-free rahi. Agar aap verified aur hassle-free hotel booking chahte ho to HotelReach ekdam reliable option hai. Highly recommended!."</p>
+
+                    <p class="review-text">
+                        "HotelReach made my booking simple and hassle-free. The hotel was clean, verified, and comfortable. Great prices and quick support."
+                    </p>
+
                     <div class="review-author">
-                        <div class="author-avatar" style="background: var(--gold);">V</div>
-                        <div class="author-info"><h5>Raja Kumar Sah</h5></div>
+                        <div class="author-avatar" style="background:var(--gold);">R</div>
+                        <div class="author-info">
+                            <h5>Raja Kumar Sah</h5>
+                        </div>
                     </div>
+
                 </div>
 
-                <div class="review-card reveal">
+
+                <!-- Review 8 -->
+                <div class="review-card">
+
                     <div class="review-stars">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="review-text">"HotelReach is the best! When I visited Varanasi, I booked my hotel through HotelReach. Excellent service and smooth booking experience. Highly recommended!"</p>
+
+                    <p class="review-text">
+                        "HotelReach is the best! Smooth booking experience, excellent service, and great hotel options in Varanasi."
+                    </p>
+
                     <div class="review-author">
-                        <div class="author-avatar" style="background: var(--dark);">R</div>
-                        <div class="author-info"><h5>Raunac Gupta</h5></div>
+                        <div class="author-avatar" style="background:var(--dark);">R</div>
+                        <div class="author-info">
+                            <h5>Raunac Gupta</h5>
+                        </div>
                     </div>
+
                 </div>
+
             </div>
+
+
+            <!-- Slider Controls -->
+            <button
+                class="review-btn review-prev"
+                id="reviewPrev"
+                aria-label="Previous review">
+
+                <i class="fa-solid fa-chevron-left"></i>
+
+            </button>
+
+
+            <button
+                class="review-btn review-next"
+                id="reviewNext"
+                aria-label="Next review">
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+            </button>
+
+
+            <!-- Slider Dots -->
+            <div
+                class="review-dots"
+                id="reviewDots">
+            </div>
+
         </div>
-    </section>
+
+    </div>
+</section>
+    <!-- Slider Controls -->
+    <button class="review-btn review-prev" id="reviewPrev" aria-label="Previous review">
+        <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <button class="review-btn review-next" id="reviewNext" aria-label="Next review">
+        <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <!-- Dots -->
+    <div class="review-dots" id="reviewDots"></div>
+</div>
 
     <!-- Partner Section -->
     <section class="partner-section" id="partner">
@@ -5212,6 +5283,64 @@ function bookCabWhatsApp(event) {
         <i class="fa-solid fa-arrow-up"></i>
     </div>
 
+    <!-- Final mobile navbar fix -->
+    <style>
+        @media (max-width: 850px) {
+            .navbar {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                transform: none !important;
+                width: 100% !important;
+                height: 64px !important;
+                padding: 0 15px !important;
+                z-index: 99999 !important;
+            }
+
+            .hamburger {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                position: relative !important;
+                z-index: 100001 !important;
+                pointer-events: auto !important;
+            }
+
+            .nav-links {
+                position: fixed !important;
+                top: 74px !important;
+                left: 12px !important;
+                right: 12px !important;
+                width: auto !important;
+                display: none !important;
+                flex-direction: column !important;
+                gap: 3px !important;
+                padding: 10px !important;
+                margin: 0 !important;
+                background: #fff !important;
+                border: 1px solid #e5e7eb !important;
+                border-radius: 15px !important;
+                box-shadow: 0 15px 40px rgba(0,0,0,.15) !important;
+                z-index: 100000 !important;
+            }
+
+            .nav-links.active {
+                display: flex !important;
+            }
+
+            .nav-links li { width: 100% !important; }
+            .nav-links li a {
+                display: block !important;
+                width: 100% !important;
+                padding: 13px 15px !important;
+                box-sizing: border-box !important;
+                color: #334155 !important;
+                background: transparent !important;
+                border-radius: 9px !important;
+            }
+        }
+    </style>
+
     <!-- Script Logic -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -5260,7 +5389,9 @@ function bookCabWhatsApp(event) {
             const navItems = document.querySelectorAll('.nav-links li a');
 
             if (hamburger && navLinks) {
-                hamburger.addEventListener('click', () => {
+                hamburger.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
                     navLinks.classList.toggle('active');
                     hamburger.classList.toggle('active');
                     if (navLinks.classList.contains('active')) {
@@ -5272,11 +5403,22 @@ function bookCabWhatsApp(event) {
             }
 
             navItems.forEach(item => {
-                item.addEventListener('click', () => {
+                item.addEventListener('click', (event) => {
                     if (navLinks) navLinks.classList.remove('active');
                     if (hamburger) {
                         hamburger.classList.remove('active');
                         hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                    }
+
+                    const targetId = item.getAttribute('href');
+                    if (targetId && targetId.startsWith('#')) {
+                        const target = document.querySelector(targetId);
+                        if (target) {
+                            event.preventDefault();
+                            const navHeight = navbar ? navbar.offsetHeight + 15 : 80;
+                            const targetTop = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                            window.scrollTo({ top: targetTop, behavior: 'smooth' });
+                        }
                     }
                 });
             });
@@ -5301,56 +5443,6 @@ function bookCabWhatsApp(event) {
                 revealObserver.observe(el);
             });
 
-
-
-            // navbar JavaScript 
-            document.addEventListener("DOMContentLoaded", function () {
-
-    const hamburger = document.getElementById("hamburger");
-    const navLinks = document.getElementById("nav-links");
-
-    if (!hamburger || !navLinks) return;
-
-    hamburger.onclick = function (e) {
-
-        e.preventDefault();
-        e.stopPropagation();
-
-        navLinks.classList.toggle("active");
-
-        const icon = hamburger.querySelector("i");
-
-        if (navLinks.classList.contains("active")) {
-
-            icon.classList.remove("fa-bars");
-            icon.classList.add("fa-xmark");
-
-        } else {
-
-            icon.classList.remove("fa-xmark");
-            icon.classList.add("fa-bars");
-
-        }
-    };
-
-
-    navLinks.querySelectorAll("a").forEach(function (link) {
-
-        link.onclick = function () {
-
-            navLinks.classList.remove("active");
-
-            const icon = hamburger.querySelector("i");
-
-            icon.classList.remove("fa-xmark");
-            icon.classList.add("fa-bars");
-
-        };
-
-    });
-
-});
-
             // FAQ Accordion
             const faqItems = document.querySelectorAll('.faq-item');
             faqItems.forEach(item => {
@@ -5368,5 +5460,228 @@ function bookCabWhatsApp(event) {
             });
         });
     </script>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const slider = document.getElementById("reviewsSlider");
+    const prevBtn = document.getElementById("reviewPrev");
+    const nextBtn = document.getElementById("reviewNext");
+    const dotsContainer = document.getElementById("reviewDots");
+
+    if (!slider) return;
+
+    const cards = Array.from(slider.querySelectorAll(".review-card"));
+
+    let currentIndex = 0;
+    let autoSlide;
+    let isDragging = false;
+    let startX = 0;
+    let startScrollLeft = 0;
+
+    /* Create dots */
+    cards.forEach((_, index) => {
+        const dot = document.createElement("button");
+        dot.className = "review-dot";
+        dot.setAttribute("aria-label", `Go to review ${index + 1}`);
+
+        dot.addEventListener("click", () => {
+            currentIndex = index;
+            goToSlide(currentIndex);
+            restartAutoSlide();
+        });
+
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = Array.from(
+        dotsContainer.querySelectorAll(".review-dot")
+    );
+
+    function getVisibleCards() {
+        if (window.innerWidth <= 600) return 1;
+        if (window.innerWidth <= 992) return 2;
+        return 3;
+    }
+
+    function getMaxIndex() {
+        return Math.max(0, cards.length - getVisibleCards());
+    }
+
+    function updateDots() {
+        dots.forEach(dot => dot.classList.remove("active"));
+
+        const activeIndex = Math.min(
+            currentIndex,
+            dots.length - 1
+        );
+
+        if (dots[activeIndex]) {
+            dots[activeIndex].classList.add("active");
+        }
+    }
+
+    function goToSlide(index) {
+
+        const maxIndex = getMaxIndex();
+
+        if (index > maxIndex) {
+            index = 0;
+        }
+
+        if (index < 0) {
+            index = maxIndex;
+        }
+
+        currentIndex = index;
+
+        const card = cards[currentIndex];
+
+        if (card) {
+            slider.scrollTo({
+                left: card.offsetLeft - slider.offsetLeft,
+                behavior: "smooth"
+            });
+        }
+
+        updateDots();
+    }
+
+    /* Next */
+    nextBtn.addEventListener("click", function () {
+        goToSlide(currentIndex + 1);
+        restartAutoSlide();
+    });
+
+    /* Previous */
+    prevBtn.addEventListener("click", function () {
+        goToSlide(currentIndex - 1);
+        restartAutoSlide();
+    });
+
+    /* Auto Slide */
+    function startAutoSlide() {
+        autoSlide = setInterval(() => {
+            goToSlide(currentIndex + 1);
+        }, 4500);
+    }
+
+    function stopAutoSlide() {
+        clearInterval(autoSlide);
+    }
+
+    function restartAutoSlide() {
+        stopAutoSlide();
+        startAutoSlide();
+    }
+
+    /* Pause when mouse is over */
+    slider.addEventListener("mouseenter", stopAutoSlide);
+
+    slider.addEventListener("mouseleave", function () {
+        startAutoSlide();
+    });
+
+    /* =========================
+       TOUCH / MOUSE DRAG
+    ========================= */
+
+    slider.addEventListener("pointerdown", function (e) {
+
+        isDragging = true;
+        startX = e.clientX;
+        startScrollLeft = slider.scrollLeft;
+
+        slider.setPointerCapture(e.pointerId);
+        stopAutoSlide();
+    });
+
+    slider.addEventListener("pointermove", function (e) {
+
+        if (!isDragging) return;
+
+        const distance = e.clientX - startX;
+
+        slider.scrollLeft = startScrollLeft - distance;
+    });
+
+    slider.addEventListener("pointerup", function (e) {
+
+        if (!isDragging) return;
+
+        isDragging = false;
+
+        const distance = e.clientX - startX;
+
+        if (Math.abs(distance) > 50) {
+
+            if (distance < 0) {
+                goToSlide(currentIndex + 1);
+            } else {
+                goToSlide(currentIndex - 1);
+            }
+
+        } else {
+            goToSlide(currentIndex);
+        }
+
+        restartAutoSlide();
+    });
+
+    slider.addEventListener("pointercancel", function () {
+        isDragging = false;
+        restartAutoSlide();
+    });
+
+    /* Update slide when manually scrolled */
+    let scrollTimer;
+
+    slider.addEventListener("scroll", function () {
+
+        clearTimeout(scrollTimer);
+
+        scrollTimer = setTimeout(() => {
+
+            let closestIndex = 0;
+            let smallestDistance = Infinity;
+
+            cards.forEach((card, index) => {
+
+                const distance = Math.abs(
+                    card.offsetLeft - slider.scrollLeft
+                );
+
+                if (distance < smallestDistance) {
+                    smallestDistance = distance;
+                    closestIndex = index;
+                }
+            });
+
+            currentIndex = Math.min(
+                closestIndex,
+                getMaxIndex()
+            );
+
+            updateDots();
+
+        }, 100);
+    });
+
+    /* Resize handling */
+    window.addEventListener("resize", function () {
+        currentIndex = Math.min(
+            currentIndex,
+            getMaxIndex()
+        );
+
+        goToSlide(currentIndex);
+    });
+
+    /* Initial state */
+    updateDots();
+    startAutoSlide();
+
+});
+</script>
 </body>
 </html>
