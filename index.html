@@ -6146,30 +6146,62 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
     <script>
-document.getElementById("hotelSearchForm").addEventListener("submit", function(event) {
+document.addEventListener("DOMContentLoaded", function () {
 
-    event.preventDefault();
+    const hotelForm = document.getElementById("hotelSearchForm");
 
-    // Get form values
-    const location =
-        document.getElementById("hotelLocation").value.trim();
+    // Form nahi mila to kuch mat karo
+    if (!hotelForm) return;
 
-    const checkin =
-        document.getElementById("hotelCheckin").value;
+    hotelForm.addEventListener("submit", function (event) {
 
-    const checkout =
-        document.getElementById("hotelCheckout").value;
+        event.preventDefault();
 
-    const guests =
-        document.getElementById("hotelGuests").value;
+        // Get form values
+        const locationInput =
+            document.getElementById("hotelLocation");
+
+        const checkinInput =
+            document.getElementById("hotelCheckin");
+
+        const checkoutInput =
+            document.getElementById("hotelCheckout");
+
+        const guestsInput =
+            document.getElementById("hotelGuests");
 
 
-    // Your WhatsApp number
-    const whatsappNumber = "919774059230";
+        // Check inputs exist
+        if (
+            !locationInput ||
+            !checkinInput ||
+            !checkoutInput ||
+            !guestsInput
+        ) {
+            console.error("Hotel search fields not found.");
+            return;
+        }
 
 
-// WhatsApp message
-const message =
+        const location = locationInput.value.trim();
+        const checkin = checkinInput.value;
+        const checkout = checkoutInput.value;
+        const guests = guestsInput.value;
+
+
+        // Validate
+        if (!location || !checkin || !checkout || !guests) {
+            alert("Please fill all hotel search details.");
+            return;
+        }
+
+
+        // HotelReach WhatsApp number
+        const whatsappNumber = "919774059230";
+
+
+        // Customer WhatsApp message
+        const message =
 `Hello HotelReach 👋
 
 I want to book a hotel.
@@ -6186,32 +6218,34 @@ Thank you.
 Book Smart. Stay Better.`;
 
 
-    // WhatsApp URL
-    const whatsappURL =
-        "https://wa.me/" +
-        whatsappNumber +
-        "?text=" +
-        encodeURIComponent(message);
+        // Create WhatsApp URL
+        const whatsappURL =
+            "https://wa.me/" +
+            whatsappNumber +
+            "?text=" +
+            encodeURIComponent(message);
 
 
-    // Open WhatsApp
-    window.open(whatsappURL, "_blank");
+        // Open WhatsApp
+        window.open(whatsappURL, "_blank");
 
 
-    // Then go to hotels.html
-    setTimeout(function() {
+        // Go to Hotels page
+        setTimeout(function () {
 
-        window.location.href =
-            "hotels.html?location=" +
-            encodeURIComponent(location) +
-            "&checkin=" +
-            encodeURIComponent(checkin) +
-            "&checkout=" +
-            encodeURIComponent(checkout) +
-            "&guests=" +
-            encodeURIComponent(guests);
+            window.location.href =
+                "hotels.html?location=" +
+                encodeURIComponent(location) +
+                "&checkin=" +
+                encodeURIComponent(checkin) +
+                "&checkout=" +
+                encodeURIComponent(checkout) +
+                "&guests=" +
+                encodeURIComponent(guests);
 
-    }, 700);
+        }, 1000);
+
+    });
 
 });
     </script>
