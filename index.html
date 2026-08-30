@@ -3603,71 +3603,129 @@
                     >
 
                 </div>
+<!-- HOTEL SEARCH -->
 
-            </div>
+<form
+    class="search-form"
+    id="hotelSearchForm"
+    action="hotels.html"
+    method="GET"
+>
 
+    <!-- LOCATION -->
 
-            <!-- CHECK OUT -->
+    <div class="search-group">
 
-            <div class="search-group">
+        <i class="fa-solid fa-location-dot"></i>
 
-                <i class="fa-solid fa-calendar-xmark"></i>
+        <div class="search-input-wrap">
 
-                <div class="search-input-wrap">
+            <label>
+                Location
+            </label>
 
-                    <label>
-                        Check Out
-                    </label>
+            <input
+                type="text"
+                name="location"
+                id="hotelLocation"
+                placeholder="Varanasi, Ayodhya"
+                required
+            >
 
-                    <input
-                        type="date"
-                        name="checkout"
-                        required
-                    >
+        </div>
 
-                </div>
-
-            </div>
-
-
-            <!-- GUESTS -->
-
-            <div class="search-group">
-
-                <i class="fa-solid fa-user-group"></i>
-
-                <div class="search-input-wrap">
-
-                    <label>
-                        Guests
-                    </label>
-
-                    <input
-                        type="number"
-                        name="guests"
-                        placeholder="2"
-                        min="1"
-                        required
-                    >
-
-                </div>
-
-            </div>
+    </div>
 
 
-            <!-- SEARCH BUTTON -->
+    <!-- CHECK IN -->
 
-            <button
-                type="submit"
-                class="btn btn-primary btn-search">
+    <div class="search-group">
 
-                <i class="fa-solid fa-magnifying-glass"></i>
+        <i class="fa-solid fa-calendar-check"></i>
 
-                Search Hotels
+        <div class="search-input-wrap">
 
-            </button>
+            <label>
+                Check In
+            </label>
 
-        </form>
+            <input
+                type="date"
+                name="checkin"
+                id="hotelCheckin"
+                required
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- CHECK OUT -->
+
+    <div class="search-group">
+
+        <i class="fa-solid fa-calendar-xmark"></i>
+
+        <div class="search-input-wrap">
+
+            <label>
+                Check Out
+            </label>
+
+            <input
+                type="date"
+                name="checkout"
+                id="hotelCheckout"
+                required
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- GUESTS -->
+
+    <div class="search-group">
+
+        <i class="fa-solid fa-user-group"></i>
+
+        <div class="search-input-wrap">
+
+            <label>
+                Guests
+            </label>
+
+            <input
+                type="number"
+                name="guests"
+                id="hotelGuests"
+                placeholder="2"
+                value="2"
+                min="1"
+                required
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- SEARCH BUTTON -->
+
+    <button
+        type="submit"
+        class="btn btn-primary btn-search"
+    >
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        Search Hotels
+
+    </button>
+
+</form>
 
     </div>
 
@@ -6135,5 +6193,79 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+
+    <script>
+document.getElementById("hotelSearchForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    // Get form values
+    const location =
+        document.getElementById("hotelLocation").value.trim();
+
+    const checkin =
+        document.getElementById("hotelCheckin").value;
+
+    const checkout =
+        document.getElementById("hotelCheckout").value;
+
+    const guests =
+        document.getElementById("hotelGuests").value;
+
+
+    // Your WhatsApp number
+    const whatsappNumber = "919774059230";
+
+
+    // WhatsApp message
+    const message =
+`🏨 *NEW HOTEL SEARCH - HotelReach*
+
+📍 *Location:* ${location}
+
+📅 *Check-in:* ${checkin}
+
+📅 *Check-out:* ${checkout}
+
+👥 *Guests:* ${guests}
+
+🌐 *Source:* HotelReach.in
+
+━━━━━━━━━━━━━━━━
+*HotelReach*
+Book Smart. Stay Better.
+━━━━━━━━━━━━━━━━`;
+
+
+    // WhatsApp URL
+    const whatsappURL =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+    // Open WhatsApp
+    window.open(whatsappURL, "_blank");
+
+
+    // Then go to hotels.html
+    setTimeout(function() {
+
+        window.location.href =
+            "hotels.html?location=" +
+            encodeURIComponent(location) +
+            "&checkin=" +
+            encodeURIComponent(checkin) +
+            "&checkout=" +
+            encodeURIComponent(checkout) +
+            "&guests=" +
+            encodeURIComponent(guests);
+
+    }, 700);
+
+});
+    </script>
+    
 </body>
 </html>
