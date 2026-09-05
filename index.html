@@ -4360,6 +4360,44 @@
 </style>
 
 
+
+
+<style>
+/* =========================================================
+   HOTELREACH DESTINATION SLIDER - COMPACT PREMIUM VERSION
+========================================================= */
+.hr-destination-slider{position:relative;display:flex;align-items:center;gap:14px;max-width:1180px;margin:0 auto}
+.hr-slider-window{overflow:hidden;width:100%;padding:6px 2px 20px}
+.hr-slider-track{display:flex;gap:18px;transition:transform .55s cubic-bezier(.22,.61,.36,1)}
+.hr-slide{flex:0 0 calc((100% - 36px)/3);min-width:0;background:#fff;border:1px solid #e7edf5;border-radius:20px;overflow:hidden;box-shadow:0 10px 28px rgba(15,23,42,.08)}
+.hr-slide-image{height:230px;background-size:cover;background-position:center;position:relative}
+.hr-slide-content{padding:18px 18px 20px}
+.hr-slide-content span{display:inline-flex;align-items:center;gap:6px;color:#2563eb;font-size:11px;font-weight:800;margin-bottom:8px}
+.hr-slide-content h3{margin:0 0 8px;color:#172033;font-size:1.45rem}
+.hr-slide-content p{margin:0 0 15px;color:#64748b;font-size:13px;line-height:1.55;min-height:61px}
+.hr-slide-content a{display:inline-flex;align-items:center;gap:8px;color:#fff;background:#0d6efd;padding:10px 15px;border-radius:10px;font-size:12px;font-weight:800}
+.hr-slide-content a:hover{background:#004bb5;color:#fff;transform:translateY(-1px)}
+.hr-slider-arrow{flex:0 0 44px;width:44px;height:44px;border:0;border-radius:50%;background:#fff;color:#172033;box-shadow:0 8px 22px rgba(15,23,42,.14);cursor:pointer;font-size:16px;z-index:2}
+.hr-slider-arrow:hover{background:#0d6efd;color:#fff}
+.hr-slider-dots{display:flex;justify-content:center;gap:7px;margin:2px 0 26px}
+.hr-slider-dot{width:8px;height:8px;border:0;border-radius:50%;background:#cbd5e1;padding:0;cursor:pointer;transition:.25s}
+.hr-slider-dot.active{width:24px;border-radius:20px;background:#0d6efd}
+@media(max-width:900px){.hr-slide{flex-basis:calc((100% - 18px)/2)}}
+@media(max-width:600px){.hr-destination-slider{gap:8px}.hr-slider-arrow{display:none}.hr-slider-window{overflow:visible}.hr-slider-track{overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:none}.hr-slider-track::-webkit-scrollbar{display:none}.hr-slide{flex:0 0 86%;scroll-snap-align:center}.hr-slide-image{height:210px}.hr-slide-content p{min-height:auto}}
+
+
+/* Destination Booking Experience */
+.hr-destination-booking{position:fixed;inset:0;z-index:200000;background:#f7f9fc;overflow-y:auto;opacity:0;visibility:hidden;transition:.3s ease;padding:24px}
+.hr-destination-booking.active{opacity:1;visibility:visible}
+.hr-booking-shell{max-width:1180px;margin:0 auto 40px;background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 25px 80px rgba(15,23,42,.18)}
+.hr-booking-top{min-height:340px;background-size:cover;background-position:center;position:relative;padding:28px;color:#fff;display:flex;flex-direction:column;justify-content:space-between}
+.hr-booking-top:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,17,31,.88),rgba(7,17,31,.35))}
+.hr-booking-top>*{position:relative;z-index:1}.hr-close-booking{align-self:flex-end;width:46px;height:46px;border:0;border-radius:50%;background:#fff;color:#172033;font-size:18px;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.hr-booking-hero h2{font-size:3rem;margin:0 0 8px}.hr-booking-hero p{max-width:620px;font-size:1rem;color:rgba(255,255,255,.92);margin:0}.hr-booking-hero span{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);backdrop-filter:blur(8px);padding:8px 13px;border-radius:20px;margin-bottom:16px;font-size:.82rem}
+.hr-booking-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:0}.hr-destination-info{padding:38px}.hr-destination-info h3{font-size:1.55rem;color:#172033;margin-bottom:12px}.hr-destination-info>p{color:#64748b;line-height:1.8}.hr-highlights{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:24px}.hr-highlight{border:1px solid #e2e8f0;border-radius:14px;padding:15px;background:#f8fafc}.hr-highlight i{color:#0d6efd;margin-right:8px}.hr-highlight strong{font-size:.9rem;color:#172033}
+.hr-inquiry-card{padding:38px;background:#f8fafc;border-left:1px solid #e2e8f0}.hr-inquiry-card h3{font-size:1.6rem;color:#172033;margin:0 0 6px}.hr-inquiry-card>p{color:#64748b;margin-bottom:22px;font-size:.9rem}.hr-inquiry-form{display:grid;gap:12px}.hr-inquiry-form .hr-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.hr-field{display:flex;flex-direction:column;gap:6px}.hr-field label{font-size:.78rem;font-weight:700;color:#475569}.hr-field input,.hr-field select,.hr-field textarea{width:100%;padding:12px 13px;border:1px solid #dbe3ee;border-radius:11px;background:#fff;font:inherit;color:#172033;outline:none}.hr-field textarea{min-height:86px;resize:vertical}.hr-field input:focus,.hr-field select:focus,.hr-field textarea:focus{border-color:#0d6efd;box-shadow:0 0 0 3px rgba(13,110,253,.08)}.hr-whatsapp-submit{border:0;border-radius:12px;padding:14px;background:#25d366;color:#fff;font-weight:800;font-size:.95rem;cursor:pointer;box-shadow:0 8px 20px rgba(37,211,102,.22)}.hr-whatsapp-submit:hover{transform:translateY(-1px);background:#1ebe5d}.hr-form-note{text-align:center;color:#64748b;font-size:.72rem;margin:0}
+@media(max-width:800px){.hr-destination-booking{padding:0}.hr-booking-shell{border-radius:0;margin:0;min-height:100vh}.hr-booking-top{min-height:300px;padding:18px}.hr-booking-hero h2{font-size:2.25rem}.hr-booking-grid{grid-template-columns:1fr}.hr-destination-info,.hr-inquiry-card{padding:24px}.hr-inquiry-card{border-left:0;border-top:1px solid #e2e8f0}.hr-highlights{grid-template-columns:1fr}.hr-inquiry-form .hr-row{grid-template-columns:1fr}}
+</style>
 <section class="hr-destinations" id="hotels">
 
     <!-- SECTION HEADING -->
@@ -4381,558 +4419,84 @@
     </div>
 
 
-    <!-- =====================================================
-         AYODHYA
-    ====================================================== -->
-
-    <div class="hr-destination-card reveal" id="ayodhya">
-
-        <!-- HERO IMAGE -->
-        <div class="hr-destination-hero hr-ayodhya-hero">
-
-            <div class="hr-hero-icon">
-                <i class="fa-solid fa-gopuram"></i>
-            </div>
-
-            <div class="hr-hero-content">
-
-                <div class="hr-location-badge">
-                    <i class="fa-solid fa-location-dot"></i>
-                    Ayodhya, Uttar Pradesh
-                </div>
-
-                <h3>
-                    AYODHYA
-                </h3>
-
-                <p>
-                    Stay close to Shree Ram Janmabhoomi Temple with
-                    verified hotels for every budget.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="hr-content">
-
-            <!-- LOCATION -->
-            <div class="hr-intro">
-
-                <div class="hr-intro-icon" style="color:#d97706;">
-                    <i class="fa-solid fa-location-dot"></i>
-                </div>
-
-                <div>
-
-                    <h4>
-                        Stay Near Shree Ram Janmabhoomi
-                    </h4>
-
-                    <p>
-                        Find convenient hotel options near
-                        Shree Ram Janmabhoomi Temple, Ayodhya.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- HOTEL TYPES -->
-            <div class="hr-price-grid">
-
-                <div class="hr-price-item">
-
-                    <i class="fa-solid fa-wallet" style="color:#16a34a;"></i>
-
-                    <strong>
-                        Budget
-                    </strong>
-
-                    <span>
-                        Affordable stays
-                    </span>
-
-                </div>
-
-                <div class="hr-price-item">
-
-                    <i class="fa-solid fa-hotel" style="color:#2563eb;"></i>
-
-                    <strong>
-                        Standard
-                    </strong>
-
-                    <span>
-                        Comfortable stays
-                    </span>
-
-                </div>
-
-                <div class="hr-price-item">
-
-                    <i class="fa-solid fa-star" style="color:#d97706;"></i>
-
-                    <strong>
-                        Premium
-                    </strong>
-
-                    <span>
-                        Better comfort
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <!-- BOOKING -->
-            <div class="hr-booking-panel">
-
-                <div class="hr-booking-title">
-
-                    <i style="background:#fff7ed; color:#d97706;">
-                        <i class="fa-solid fa-calendar-days"></i>
-                    </i>
-
-                    Book Your Stay
-
-                </div>
-
-
-                <form onsubmit="bookHotelWhatsApp(event, 'Ayodhya', 'ayodhya-in', 'ayodhya-out', 'ayodhya-guests')">
-
-                    <div class="hr-form-grid">
-
-                        <div class="hr-field">
-
-                            <label>
-                                CHECK-IN
-                            </label>
-
-                            <input
-                                type="date"
-                                id="ayodhya-in"
-                                required
-                            >
-
-                        </div>
-
-
-                        <div class="hr-field">
-
-                            <label>
-                                CHECK-OUT
-                            </label>
-
-                            <input
-                                type="date"
-                                id="ayodhya-out"
-                                required
-                            >
-
-                        </div>
-
-
-                        <div class="hr-field full">
-
-                            <label>
-                                NUMBER OF GUESTS
-                            </label>
-
-                            <select id="ayodhya-guests">
-
-                                <option value="1 Guest">
-                                    1 Guest
-                                </option>
-
-                                <option value="2 Guests" selected>
-                                    2 Guests
-                                </option>
-
-                                <option value="3 Guests">
-                                    3 Guests
-                                </option>
-
-                                <option value="4 Guests">
-                                    4 Guests
-                                </option>
-
-                                <option value="5 Guests">
-                                    5 Guests
-                                </option>
-
-                                <option value="6 Guests">
-                                    6 Guests
-                                </option>
-
-                                <option value="Family / Group">
-                                    Family / Group
-                                </option>
-
-                            </select>
-
-                        </div>
-
+    <!-- DESTINATIONS SLIDER -->
+    <div class="hr-destination-slider reveal">
+        <button class="hr-slider-arrow hr-prev" type="button" aria-label="Previous destination">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="hr-slider-window">
+            <div class="hr-slider-track">
+
+                <article class="hr-slide">
+                    <div class="hr-slide-image" style="background-image:linear-gradient(to top,rgba(0,0,0,.78),rgba(0,0,0,.08)),url('varanasi-banner.jpg')"></div>
+                    <div class="hr-slide-content">
+                        <span><i class="fa-solid fa-location-dot"></i> Uttar Pradesh</span>
+                        <h3>Varanasi</h3>
+                        <p>Experience spirituality, ghats, temples and comfortable stays in the ancient city of Kashi.</p>
+                        <a href="#destination-booking" class="hr-explore-btn" data-destination="Varanasi">Explore Varanasi <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
+                </article>
 
+                <article class="hr-slide">
+                    <div class="hr-slide-image" style="background-image:linear-gradient(to top,rgba(0,0,0,.78),rgba(0,0,0,.08)),url('ayodhya-banner.jpg')"></div>
+                    <div class="hr-slide-content">
+                        <span><i class="fa-solid fa-location-dot"></i> Uttar Pradesh</span>
+                        <h3>Ayodhya</h3>
+                        <p>Stay close to sacred temples and experience the spiritual heart of Lord Rama's birthplace.</p>
+                        <a href="#destination-booking" class="hr-explore-btn" data-destination="Ayodhya">Explore Ayodhya <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
 
-                    <button type="submit"
-                            class="hr-whatsapp-btn hr-ayodhya-btn">
+                <article class="hr-slide">
+                    <div class="hr-slide-image" style="background-image:linear-gradient(to top,rgba(0,0,0,.78),rgba(0,0,0,.08)),url('mathura-banner.jpg')"></div>
+                    <div class="hr-slide-content">
+                        <span><i class="fa-solid fa-location-dot"></i> Uttar Pradesh</span>
+                        <h3>Mathura</h3>
+                        <p>Discover the divine birthplace of Lord Krishna with trusted hotels and convenient local rides.</p>
+                        <a href="#destination-booking" class="hr-explore-btn" data-destination="Mathura">Explore Mathura <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
 
-                        <i class="fa-brands fa-whatsapp"></i>
+                <article class="hr-slide">
+                    <div class="hr-slide-image" style="background-image:linear-gradient(to top,rgba(0,0,0,.78),rgba(0,0,0,.08)),url('vrindavan-banner.jpg')"></div>
+                    <div class="hr-slide-content">
+                        <span><i class="fa-solid fa-location-dot"></i> Uttar Pradesh</span>
+                        <h3>Vrindavan</h3>
+                        <p>Explore beautiful temples, devotional culture and peaceful stays in Krishna's eternal city.</p>
+                        <a href="#destination-booking" class="hr-explore-btn" data-destination="Vrindavan">Explore Vrindavan <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
 
-                        Search Hotels on WhatsApp
+                <article class="hr-slide">
+                    <div class="hr-slide-image" style="background-image:linear-gradient(to top,rgba(0,0,0,.78),rgba(0,0,0,.08)),url('haridwar-banner.jpg')"></div>
+                    <div class="hr-slide-content">
+                        <span><i class="fa-solid fa-location-dot"></i> Uttarakhand</span>
+                        <h3>Haridwar</h3>
+                        <p>Find peace beside the holy Ganga with comfortable stays, transfers and local travel support.</p>
+                        <a href="#destination-booking" class="hr-explore-btn" data-destination="Haridwar">Explore Haridwar <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
 
-                    </button>
-
-                </form>
+                <article class="hr-slide">
+                    <div class="hr-slide-image" style="background-image:linear-gradient(to top,rgba(0,0,0,.78),rgba(0,0,0,.08)),url('puri-banner.jpg')"></div>
+                    <div class="hr-slide-content">
+                        <span><i class="fa-solid fa-location-dot"></i> Odisha</span>
+                        <h3>Puri</h3>
+                        <p>Visit the sacred Jagannath Temple and enjoy comfortable stays near Puri's spiritual landmarks.</p>
+                        <a href="#destination-booking" class="hr-explore-btn" data-destination="Puri">Explore Puri <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
 
             </div>
-
         </div>
 
-
-        <!-- TRUST -->
-        <div class="hr-trust-grid">
-
-            <div class="hr-trust-item">
-
-                <i class="fa-solid fa-indian-rupee-sign"
-                   style="color:#2563eb;"></i>
-
-                <div>
-                    <strong>Best Prices</strong>
-                    <span>Great Rates</span>
-                </div>
-
-            </div>
-
-
-            <div class="hr-trust-item">
-
-                <i class="fa-solid fa-shield-halved"
-                   style="color:#2563eb;"></i>
-
-                <div>
-                    <strong>Verified Hotels</strong>
-                    <span>Trusted Stays</span>
-                </div>
-
-            </div>
-
-
-            <div class="hr-trust-item">
-
-                <i class="fa-solid fa-headset"
-                   style="color:#2563eb;"></i>
-
-                <div>
-                    <strong>24/7 Support</strong>
-                    <span>Always Available</span>
-                </div>
-
-            </div>
-
-
-            <div class="hr-trust-item">
-
-                <i class="fa-brands fa-whatsapp"
-                   style="color:#25d366;"></i>
-
-                <div>
-                    <strong>Easy Booking</strong>
-                    <span>WhatsApp</span>
-                </div>
-
-            </div>
-
-        </div>
-
+        <button class="hr-slider-arrow hr-next" type="button" aria-label="Next destination">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
     </div>
 
-
-
-    <!-- =====================================================
-         VARANASI
-    ====================================================== -->
-
-    <div class="hr-destination-card reveal" id="varanasi">
-
-        <!-- HERO -->
-        <div class="hr-destination-hero hr-varanasi-hero">
-
-            <div class="hr-hero-icon">
-                <i class="fa-solid fa-om"></i>
-            </div>
-
-            <div class="hr-hero-content">
-
-                <div class="hr-location-badge">
-                    <i class="fa-solid fa-location-dot"></i>
-                    Varanasi, Uttar Pradesh
-                </div>
-
-                <h3>
-                    VARANASI
-                </h3>
-
-                <p>
-                    Discover comfortable stays near Kashi Vishwanath
-                    and the heart of the spiritual city.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="hr-content">
-
-            <div class="hr-intro">
-
-                <div class="hr-intro-icon" style="color:#2563eb;">
-                    <i class="fa-solid fa-location-dot"></i>
-                </div>
-
-                <div>
-
-                    <h4>
-                        Stay Near Kashi Vishwanath
-                    </h4>
-
-                    <p>
-                        Find verified hotel options near Kashi Vishwanath
-                        Temple and popular areas of Varanasi.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- HOTEL TYPES -->
-            <div class="hr-price-grid">
-
-                <div class="hr-price-item">
-
-                    <i class="fa-solid fa-wallet" style="color:#16a34a;"></i>
-
-                    <strong>
-                        Budget
-                    </strong>
-
-                    <span>
-                        Affordable stays
-                    </span>
-
-                </div>
-
-
-                <div class="hr-price-item">
-
-                    <i class="fa-solid fa-hotel" style="color:#2563eb;"></i>
-
-                    <strong>
-                        Standard
-                    </strong>
-
-                    <span>
-                        Comfortable stays
-                    </span>
-
-                </div>
-
-
-                <div class="hr-price-item">
-
-                    <i class="fa-solid fa-star" style="color:#d97706;"></i>
-
-                    <strong>
-                        Premium
-                    </strong>
-
-                    <span>
-                        Better comfort
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <!-- BOOKING -->
-            <div class="hr-booking-panel">
-
-                <div class="hr-booking-title">
-
-                    <i style="background:#eff6ff; color:#2563eb;">
-                        <i class="fa-solid fa-calendar-days"></i>
-                    </i>
-
-                    Book Your Stay
-
-                </div>
-
-
-                <form onsubmit="bookHotelWhatsApp(event, 'Varanasi', 'varanasi-in', 'varanasi-out', 'varanasi-guests')">
-
-                    <div class="hr-form-grid">
-
-                        <div class="hr-field">
-
-                            <label>
-                                CHECK-IN
-                            </label>
-
-                            <input
-                                type="date"
-                                id="varanasi-in"
-                                required
-                            >
-
-                        </div>
-
-
-                        <div class="hr-field">
-
-                            <label>
-                                CHECK-OUT
-                            </label>
-
-                            <input
-                                type="date"
-                                id="varanasi-out"
-                                required
-                            >
-
-                        </div>
-
-
-                        <div class="hr-field full">
-
-                            <label>
-                                NUMBER OF GUESTS
-                            </label>
-
-                            <select id="varanasi-guests">
-
-                                <option value="1 Guest">
-                                    1 Guest
-                                </option>
-
-                                <option value="2 Guests" selected>
-                                    2 Guests
-                                </option>
-
-                                <option value="3 Guests">
-                                    3 Guests
-                                </option>
-
-                                <option value="4 Guests">
-                                    4 Guests
-                                </option>
-
-                                <option value="5 Guests">
-                                    5 Guests
-                                </option>
-
-                                <option value="6 Guests">
-                                    6 Guests
-                                </option>
-
-                                <option value="Family / Group">
-                                    Family / Group
-                                </option>
-
-                            </select>
-
-                        </div>
-
-                    </div>
-
-
-                    <button type="submit"
-                            class="hr-whatsapp-btn hr-varanasi-btn">
-
-                        <i class="fa-brands fa-whatsapp"></i>
-
-                        Search Hotels on WhatsApp
-
-                    </button>
-
-                </form>
-
-            </div>
-
-        </div>
-
-
-        <!-- TRUST -->
-        <div class="hr-trust-grid">
-
-            <div class="hr-trust-item">
-
-                <i class="fa-solid fa-indian-rupee-sign"
-                   style="color:#2563eb;"></i>
-
-                <div>
-                    <strong>Best Prices</strong>
-                    <span>Great Rates</span>
-                </div>
-
-            </div>
-
-
-            <div class="hr-trust-item">
-
-                <i class="fa-solid fa-shield-halved"
-                   style="color:#2563eb;"></i>
-
-                <div>
-                    <strong>Verified Hotels</strong>
-                    <span>Trusted Stays</span>
-                </div>
-
-            </div>
-
-
-            <div class="hr-trust-item">
-
-                <i class="fa-solid fa-headset"
-                   style="color:#2563eb;"></i>
-
-                <div>
-                    <strong>24/7 Support</strong>
-                    <span>Always Available</span>
-                </div>
-
-            </div>
-
-
-            <div class="hr-trust-item">
-
-                <i class="fa-brands fa-whatsapp"
-                   style="color:#25d366;"></i>
-
-                <div>
-                    <strong>Easy Booking</strong>
-                    <span>WhatsApp</span>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- =====================================================
-         CAB / RIDE SERVICE
-    ====================================================== -->
+    <div class="hr-slider-dots" aria-label="Destination slider navigation"></div>
 
     <div class="hr-destination-card reveal" id="cabs">
 
@@ -5163,6 +4727,50 @@
 
 <!-- WHATSAPP AUTOMATION SCRIPT -->
 <script>
+
+
+/* HOTELREACH DESTINATION SLIDER */
+document.addEventListener('DOMContentLoaded', function () {
+    const track = document.querySelector('.hr-slider-track');
+    const slides = document.querySelectorAll('.hr-slide');
+    const prev = document.querySelector('.hr-prev');
+    const next = document.querySelector('.hr-next');
+    const dotsWrap = document.querySelector('.hr-slider-dots');
+    if (!track || !slides.length || !dotsWrap) return;
+
+    let index = 0;
+    const visible = () => window.innerWidth <= 600 ? 1 : window.innerWidth <= 900 ? 2 : 3;
+    const maxIndex = () => Math.max(0, slides.length - visible());
+
+    slides.forEach((_, i) => {
+        if (i <= maxIndex()) {
+            const dot = document.createElement('button');
+            dot.className = 'hr-slider-dot';
+            dot.setAttribute('aria-label', 'Go to destination ' + (i + 1));
+            dot.addEventListener('click', () => { index = i; update(); });
+            dotsWrap.appendChild(dot);
+        }
+    });
+
+    function update() {
+        index = Math.min(index, maxIndex());
+        const slide = slides[0];
+        const gap = parseFloat(getComputedStyle(track).gap) || 0;
+        track.style.transform = window.innerWidth <= 600
+            ? 'none'
+            : `translateX(-${index * (slide.getBoundingClientRect().width + gap)}px)`;
+        [...dotsWrap.children].forEach((d, i) => d.classList.toggle('active', i === index));
+    }
+
+    prev && prev.addEventListener('click', () => { index = index <= 0 ? maxIndex() : index - 1; update(); });
+    next && next.addEventListener('click', () => { index = index >= maxIndex() ? 0 : index + 1; update(); });
+
+    let timer = setInterval(() => { if (window.innerWidth > 600) { index = index >= maxIndex() ? 0 : index + 1; update(); } }, 4500);
+    document.querySelector('.hr-destination-slider').addEventListener('mouseenter', () => clearInterval(timer));
+    window.addEventListener('resize', update);
+    update();
+});
+
 function bookHotelWhatsApp(event, destination, inId, outId, guestsId) {
     event.preventDefault();
     const checkIn = document.getElementById(inId).value;
@@ -6250,5 +5858,88 @@ Book Smart. Stay Better.`;
 });
     </script>
     
+
+<!-- DESTINATION DETAILS + WHATSAPP BOOKING -->
+<div class="hr-destination-booking" id="destinationBooking" aria-hidden="true">
+  <div class="hr-booking-shell">
+    <div class="hr-booking-top" id="bookingHero">
+      <button class="hr-close-booking" type="button" id="closeDestinationBooking" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <div class="hr-booking-hero">
+        <span id="bookingState"><i class="fa-solid fa-location-dot"></i> Spiritual Destination</span>
+        <h2 id="bookingCity">Ayodhya</h2>
+        <p id="bookingDescription"></p>
+      </div>
+    </div>
+    <div class="hr-booking-grid">
+      <div class="hr-destination-info">
+        <h3>Plan your perfect stay</h3>
+        <p id="bookingLongDescription"></p>
+        <div class="hr-highlights" id="bookingHighlights"></div>
+      </div>
+      <div class="hr-inquiry-card">
+        <h3>Booking Inquiry</h3>
+        <p>Share your travel details and continue directly on WhatsApp. Our team will help with hotels and cab options.</p>
+        <form class="hr-inquiry-form" id="destinationInquiryForm">
+          <input type="hidden" id="inquiryDestination">
+          <div class="hr-field"><label>Your Name</label><input id="inquiryName" type="text" placeholder="Enter your name" required></div>
+          <div class="hr-row">
+            <div class="hr-field"><label>Phone Number</label><input id="inquiryPhone" type="tel" placeholder="Your number" required></div>
+            <div class="hr-field"><label>Service Needed</label><select id="inquiryService"><option>Hotel Booking</option><option>Cab Booking</option><option>Hotel + Cab Package</option></select></div>
+          </div>
+          <div class="hr-row">
+            <div class="hr-field"><label>Check-in</label><input id="inquiryCheckin" type="date"></div>
+            <div class="hr-field"><label>Check-out</label><input id="inquiryCheckout" type="date"></div>
+          </div>
+          <div class="hr-row">
+            <div class="hr-field"><label>Guests</label><select id="inquiryGuests"><option>1 Guest</option><option selected>2 Guests</option><option>3 Guests</option><option>4 Guests</option><option>5+ Guests</option></select></div>
+            <div class="hr-field"><label>Rooms</label><select id="inquiryRooms"><option selected>1 Room</option><option>2 Rooms</option><option>3 Rooms</option><option>4+ Rooms</option></select></div>
+          </div>
+          <div class="hr-field"><label>Special Requirement (Optional)</label><textarea id="inquiryNote" placeholder="Temple visit, pickup, budget, preferred hotel area, etc."></textarea></div>
+          <button class="hr-whatsapp-submit" type="submit"><i class="fa-brands fa-whatsapp"></i> Send Inquiry on WhatsApp</button>
+          <p class="hr-form-note">No online payment required. You will directly connect with HotelReach on WhatsApp.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+ const destinations={
+  Varanasi:{state:'Uttar Pradesh',image:'varanasi-banner.jpg',desc:'Experience spirituality, ghats, temples and comfortable stays in the ancient city of Kashi.',long:'Plan your Varanasi journey with stays near major ghats and temples, plus reliable local sightseeing and airport or railway-station transfers.',highlights:['Ganga Ghats & Aarti','Kashi Vishwanath Area','Airport & Station Transfer','Local Sightseeing & Cabs']},
+  Ayodhya:{state:'Uttar Pradesh',image:'ayodhya-banner.jpg',desc:'Stay close to sacred temples and experience the spiritual heart of Lord Rama’s birthplace.',long:'Choose a comfortable stay for your Ayodhya pilgrimage with support for temple visits, Ram Mandir area stays, railway-station transfers and local travel.',highlights:['Ram Mandir Area Stays','Temple Visit Support','Railway & Airport Transfer','Local Cab & Sightseeing']},
+  Mathura:{state:'Uttar Pradesh',image:'mathura-banner.jpg',desc:'Discover the divine birthplace of Lord Krishna with trusted hotels and convenient local rides.',long:'Find suitable stays in Mathura and plan smooth travel for Krishna Janmabhoomi, temples and nearby spiritual attractions with hotel and cab assistance.',highlights:['Krishna Janmabhoomi Visits','Temple Area Hotels','Mathura Local Cabs','Mathura–Vrindavan Travel']},
+  Vrindavan:{state:'Uttar Pradesh',image:'vrindavan-banner.jpg',desc:'Explore beautiful temples, devotional culture and peaceful stays in Krishna’s eternal city.',long:'Plan a peaceful Vrindavan stay near famous temples with support for local travel, Mathura transfers and personalized hotel options for families and groups.',highlights:['Banke Bihari Area','Prem Mandir Visits','Family & Group Stays','Mathura Transfer Cabs']},
+  Haridwar:{state:'Uttarakhand',image:'haridwar-banner.jpg',desc:'Find peace beside the holy Ganga with comfortable stays, transfers and local travel support.',long:'Book a comfortable Haridwar stay near Har Ki Pauri and important temples, with reliable transfers and local cab arrangements for your spiritual journey.',highlights:['Har Ki Pauri Area','Ganga Aarti Visits','Station & Airport Transfer','Local & Outstation Cabs']},
+  Puri:{state:'Odisha',image:'puri-banner.jpg',desc:'Visit the sacred Jagannath Temple and enjoy comfortable stays near Puri’s spiritual landmarks.',long:'Plan your Puri pilgrimage with hotel options near Jagannath Temple and the beach area, along with local sightseeing and convenient transfer support.',highlights:['Jagannath Temple Area','Beachside Stay Options','Local Sightseeing','Station & Airport Transfer']}
+ };
+ const modal=document.getElementById('destinationBooking'), city=document.getElementById('bookingCity'), state=document.getElementById('bookingState'), hero=document.getElementById('bookingHero'), desc=document.getElementById('bookingDescription'), long=document.getElementById('bookingLongDescription'), highlights=document.getElementById('bookingHighlights'), hidden=document.getElementById('inquiryDestination');
+ function openDestination(name){const d=destinations[name]; if(!d)return; city.textContent=name; state.innerHTML='<i class="fa-solid fa-location-dot"></i> '+d.state; desc.textContent=d.desc; long.textContent=d.long; hidden.value=name; hero.style.backgroundImage="linear-gradient(90deg,rgba(7,17,31,.88),rgba(7,17,31,.28)),url('"+d.image+"')"; highlights.innerHTML=d.highlights.map(x=>'<div class="hr-highlight"><i class="fa-solid fa-circle-check"></i><strong>'+x+'</strong></div>').join(''); modal.classList.add('active'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; window.location.hash='destination-booking'; }
+ document.querySelectorAll('.hr-explore-btn').forEach(btn=>btn.addEventListener('click',e=>{e.preventDefault();openDestination(btn.dataset.destination)}));
+ function closeBooking(){modal.classList.remove('active');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';history.replaceState(null,'',window.location.pathname+window.location.search)}
+ document.getElementById('closeDestinationBooking').addEventListener('click',closeBooking); modal.addEventListener('click',e=>{if(e.target===modal)closeBooking()});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('active'))closeBooking()});
+ document.getElementById('destinationInquiryForm').addEventListener('submit',function(e){e.preventDefault(); const v=id=>document.getElementById(id).value.trim(); const msg=`Hello HotelReach 👋
+
+I want to make a booking inquiry.
+
+📍 *Destination:* ${v('inquiryDestination')}
+👤 *Name:* ${v('inquiryName')}
+📞 *Phone:* ${v('inquiryPhone')}
+🧳 *Service:* ${v('inquiryService')}
+📅 *Check-in:* ${v('inquiryCheckin')||'Not decided'}
+📅 *Check-out:* ${v('inquiryCheckout')||'Not decided'}
+👥 *Guests:* ${v('inquiryGuests')}
+🛏️ *Rooms:* ${v('inquiryRooms')}
+📝 *Requirement:* ${v('inquiryNote')||'None'}
+
+Please share the best available options and prices.
+
+Thank you,
+HotelReach`;
+ window.open('https://wa.me/918877239945?text='+encodeURIComponent(msg),'_blank'); });
+});
+</script>
+
 </body>
 </html>
