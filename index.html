@@ -4729,46 +4729,236 @@
 <script>
 
 
-/* HOTELREACH DESTINATION SLIDER */
+/* =========================================================
+   HOTELREACH DESTINATION SLIDER - FIXED DOT NAVIGATION
+========================================================= */
 document.addEventListener('DOMContentLoaded', function () {
+
     const track = document.querySelector('.hr-slider-track');
-    const slides = document.querySelectorAll('.hr-slide');
+    const slides = Array.from(document.querySelectorAll('.hr-slide'));
     const prev = document.querySelector('.hr-prev');
     const next = document.querySelector('.hr-next');
     const dotsWrap = document.querySelector('.hr-slider-dots');
+
     if (!track || !slides.length || !dotsWrap) return;
 
     let index = 0;
-    const visible = () => window.innerWidth <= 600 ? 1 : window.innerWidth <= 900 ? 2 : 3;
-    const maxIndex = () => Math.max(0, slides.length - visible());
+    let autoSlide;
 
-    slides.forEach((_, i) => {
-        if (i <= maxIndex()) {
-            const dot = document.createElement('button');
-            dot.className = 'hr-slider-dot';
-            dot.setAttribute('aria-label', 'Go to destination ' + (i + 1));
-            dot.addEventListener('click', () => { index = i; update(); });
-            dotsWrap.appendChild(dot);
-        }
-    });
-
-    function update() {
-        index = Math.min(index, maxIndex());
-        const slide = slides[0];
-        const gap = parseFloat(getComputedStyle(track).gap) || 0;
-        track.style.transform = window.innerWidth <= 600
-            ? 'none'
-            : `translateX(-${index * (slide.getBoundingClientRect().width + gap)}px)`;
-        [...dotsWrap.children].forEach((d, i) => d.classList.toggle('active', i === index));
+    function visibleSlides() {
+        if (window.innerWidth <= 600) return 1;
+        if (window.innerWidth <= 900) return 2;
+        return 3;
     }
 
-    prev && prev.addEventListener('click', () => { index = index <= 0 ? maxIndex() : index - 1; update(); });
-    next && next.addEventListener('click', () => { index = index >= maxIndex() ? 0 : index + 1; update(); });
+    function maxIndex() {
+        return Math.max(0, slides.length - visibleSlides());
+    }
 
-    let timer = setInterval(() => { if (window.innerWidth > 600) { index = index >= maxIndex() ? 0 : index + 1; update(); } }, 4500);
-    document.querySelector('.hr-destination-slider').addEventListener('mouseenter', () => clearInterval(timer));
-    window.addEventListener('resize', update);
-    update();
+    function getGap() {
+        return parseFloat(getComputedStyle(track).gap) || 0;
+    }
+
+    function getStep() {
+        return slides[0].getBoundingClientRect().width + getGap();
+    }
+
+
+    /* CREATE DOTS */
+    function createDots() {
+
+        dotsWrap.innerHTML = '';
+
+        const totalDots = maxIndex() + 1;
+
+        for (let i = 0; i < totalDots; i++) {
+
+            const dot = document.createElement('button');
+
+            dot.className = 'hr-slider-dot';
+
+            dot.setAttribute(
+                'aria-label',
+                'Go to destination ' + (i + 1)
+            );
+
+            dot.addEventListener('click', function () {
+
+                index = i;
+
+                updateSlider(true);
+            });
+
+            dotsWrap.appendChild(dot);
+        }
+
+        updateDots();
+    }
+
+
+    /* UPDATE ACTIVE DOT */
+    function updateDots() {
+
+        const dots = dotsWrap.querySelectorAll('.hr-slider-dot');
+
+        dots.forEach((dot, i) => {
+
+            dot.classList.toggle(
+                'active',
+                i === Math.min(index, maxIndex())
+            );
+
+        });
+    }
+
+
+    /* UPDATE SLIDER */
+    function updateSlider(smooth = true) {
+
+        index = Math.max(
+            0,
+            Math.min(index, maxIndex())
+        );
+
+        if (window.innerWidth <= 600) {
+
+            track.style.transform = 'none';
+
+            track.scrollTo({
+                left: index * getStep(),
+                behavior: smooth ? 'smooth' : 'auto'
+            });
+
+        } else {
+
+            track.style.transform =
+                `translateX(-${index * getStep()}px)`;
+
+        }
+
+        updateDots();
+    }
+
+
+    /* NEXT BUTTON */
+    if (next) {
+
+        next.addEventListener('click', function () {
+
+            if (index >= maxIndex()) {
+                index = 0;
+            } else {
+                index++;
+            }
+
+            updateSlider();
+        });
+
+    }
+
+
+    /* PREVIOUS BUTTON */
+    if (prev) {
+
+        prev.addEventListener('click', function () {
+
+            if (index <= 0) {
+                index = maxIndex();
+            } else {
+                index--;
+            }
+
+            updateSlider();
+        });
+
+    }
+
+
+    /* MOBILE SWIPE DOT FIX */
+    let scrollTimer;
+
+    track.addEventListener('scroll', function () {
+
+        if (window.innerWidth > 600) return;
+
+        clearTimeout(scrollTimer);
+
+        scrollTimer = setTimeout(function () {
+
+            const newIndex = Math.round(
+                track.scrollLeft / getStep()
+            );
+
+            index = Math.max(
+                0,
+                Math.min(newIndex, maxIndex())
+            );
+
+            updateDots();
+
+        }, 50);
+
+    });
+
+
+    /* AUTO SLIDE */
+    function startAutoSlide() {
+
+        clearInterval(autoSlide);
+
+        if (window.innerWidth <= 600) return;
+
+        autoSlide = setInterval(function () {
+
+            if (index >= maxIndex()) {
+                index = 0;
+            } else {
+                index++;
+            }
+
+            updateSlider();
+
+        }, 4500);
+    }
+
+
+    /* PAUSE ON HOVER */
+    const slider = document.querySelector('.hr-destination-slider');
+
+    if (slider) {
+
+        slider.addEventListener('mouseenter', function () {
+            clearInterval(autoSlide);
+        });
+
+        slider.addEventListener('mouseleave', function () {
+            startAutoSlide();
+        });
+
+    }
+
+
+    /* RESPONSIVE FIX */
+    window.addEventListener('resize', function () {
+
+        index = Math.min(index, maxIndex());
+
+        createDots();
+
+        updateSlider(false);
+
+        startAutoSlide();
+
+    });
+
+
+    /* INITIALIZE */
+    createDots();
+
+    updateSlider(false);
+
+    startAutoSlide();
+
 });
 
 function bookHotelWhatsApp(event, destination, inId, outId, guestsId) {
