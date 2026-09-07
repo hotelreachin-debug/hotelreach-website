@@ -79,21 +79,25 @@
         }
 
         .logo {
-            font-size: 1.6rem;
+            font-size: 2.05rem;
             font-weight: 800;
             text-decoration: none;
-            color: var(--primary-blue);
             display: flex;
             align-items: center;
-            gap: 8px;
+            letter-spacing: -1px;
+            line-height: 1;
         }
 
-        .logo span {
-            font-family: 'Playfair Display', serif;
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
+        .logo-hotel {
+            color: #1f5fc9;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 800;
+        }
+
+        .logo-reach {
+            color: #f2bf00;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 800;
         }
 
         .nav-links {
@@ -472,10 +476,12 @@
     <div class="ambient-bg"></div>
 
     <!-- Header -->
+     <!-- Header -->
     <header>
         <div class="nav-container">
-            <a href="index.html" class="logo">
-                <i class="fa-solid fa-hotel" style="color: var(--accent-gold);"></i> Hotel<span>Reach</span>
+            <a href="#home" class="logo" aria-label="HotelReach Home">
+               <img src="logo.png" alt="HotelReach Logo">
+                <span class="logo-hotel">Hotel</span><span class="logo-reach">Reach</span>
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -483,6 +489,7 @@
             </ul>
         </div>
     </header>
+
 
     <!-- Hero Banner -->
     <section class="hero-banner">
