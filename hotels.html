@@ -370,6 +370,101 @@
             .search-box { flex-direction: column; }
             .search-field { width: 100%; }
         }
+
+        /* ================= PREMIUM MOTION SYSTEM ================= */
+        html { scroll-behavior: smooth; }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -2;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(217,119,6,.09), transparent 28%),
+                radial-gradient(circle at 85% 70%, rgba(59,130,246,.07), transparent 30%);
+        }
+
+        header { animation: navDrop .8s cubic-bezier(.16,1,.3,1) both; }
+        @keyframes navDrop {
+            from { opacity: 0; transform: translateY(-24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-banner { min-height: 360px; display:flex; align-items:center; justify-content:center; }
+        .hero-banner::after {
+            content:"";
+            position:absolute;
+            width:500px;height:500px;border-radius:50%;
+            background: radial-gradient(circle, rgba(217,119,6,.18), transparent 65%);
+            left:-180px; bottom:-250px;
+            animation: heroOrb 9s ease-in-out infinite alternate;
+        }
+        @keyframes heroOrb {
+            to { transform: translate(120px,-40px) scale(1.18); }
+        }
+
+        .hero-content { animation: heroReveal 1s .15s cubic-bezier(.16,1,.3,1) both; }
+        @keyframes heroReveal {
+            from { opacity:0; transform:translateY(35px); filter:blur(8px); }
+            to { opacity:1; transform:translateY(0); filter:blur(0); }
+        }
+
+        .search-box { animation: searchLift .9s .35s cubic-bezier(.16,1,.3,1) both; }
+        @keyframes searchLift {
+            from { opacity:0; transform:translateY(40px) scale(.96); }
+            to { opacity:1; transform:translateY(0) scale(1); }
+        }
+
+        .search-field { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+        .search-field:focus-within {
+            transform: translateY(-2px);
+            border-color: rgba(217,119,6,.55);
+            box-shadow: 0 10px 25px rgba(217,119,6,.12);
+        }
+
+        .hotel-card {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity .65s ease, transform .65s cubic-bezier(.16,1,.3,1),
+                        box-shadow .4s ease;
+            will-change: transform, opacity;
+        }
+        .hotel-card.is-visible { opacity: 1; transform: translateY(0); }
+        .hotel-card:hover { transform: translateY(-12px) scale(1.01); }
+
+        .hotel-img-container::after {
+            content:"";
+            position:absolute; inset:0;
+            background: linear-gradient(120deg, transparent 25%, rgba(255,255,255,.28) 45%, transparent 65%);
+            transform: translateX(-120%);
+            transition: transform .8s ease;
+        }
+        .hotel-card:hover .hotel-img-container::after { transform: translateX(120%); }
+
+        .hotel-badge { animation: badgePulse 3s ease-in-out infinite; }
+        @keyframes badgePulse {
+            50% { box-shadow: 0 0 0 7px rgba(217,119,6,.06); }
+        }
+
+        .btn-book { position:relative; overflow:hidden; }
+        .btn-book::before {
+            content:""; position:absolute; inset:0;
+            background:linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
+            transform:translateX(-120%); transition:transform .6s ease;
+        }
+        .btn-book:hover::before { transform:translateX(120%); }
+
+        footer { position:relative; overflow:hidden; }
+        footer::before {
+            content:""; position:absolute; width:300px;height:300px;border-radius:50%;
+            background:rgba(217,119,6,.08); top:-180px; left:10%;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; transition-duration:.01ms !important; }
+        }
+
     </style>
 </head>
 <body>
@@ -408,7 +503,9 @@
                     <option value="all">All Cities</option>
                     <option value="varanasi" selected>Varanasi</option>
                     <option value="ayodhya">Ayodhya</option>
-                    <option value="ujjain">Vrindavan</option>
+                    <option value="vrindavan">Vrindavan</option>
+                    <option value="haridwar">Haridwar</option>
+                    <option value="kolkata">Kolkata</option>
                 </select>
             </div>
 
@@ -578,7 +675,7 @@
                             <span>Starting from</span>
                             <strong>₹1,599 <sub>/night</sub></strong>
                         </div>
-                        <a href="https://wa.me/919774059230?text=I%20want%20to%20book%20Aditya%20Paying%20Guest%20House%20in%20Varanasi%20at%20%E2%82%B91599"" target="_blank" class="btn-book">
+                        <a href="https://wa.me/919774059230?text=I%20want%20to%20book%20Aditya%20Paying%20Guest%20House%20in%20Varanasi%20at%20%E2%82%B91599" target="_blank" class="btn-book">
                             Book Now <i class="fa-brands fa-whatsapp"></i>
                         </a>
                     </div>
@@ -603,7 +700,7 @@
                             <span>Starting from</span>
                             <strong>₹1,499 <sub>/night</sub></strong>
                         </div>
-                        <a href="https://wa.me/919774059230?text=I%20want%20to%20book%20Riverview%20Guest%20House%20in%20Varanasi%20at%20%E2%82%B91499"" target="_blank" class="btn-book">
+                        <a href="https://wa.me/919774059230?text=I%20want%20to%20book%20Riverview%20Guest%20House%20in%20Varanasi%20at%20%E2%82%B91499" target="_blank" class="btn-book">
                             Book Now <i class="fa-brands fa-whatsapp"></i>
                         </a>
                     </div>
@@ -614,7 +711,7 @@
             <div class="hotel-card" data-city="varanasi" data-name="Hotel Rudra  Dashashwamedh Ghat Rd, Varanasi">
                 <div class="hotel-badge">Deluxe</div>
                 <div class="hotel-img-container">
-                    <img src="hotel7.jpg" alt="Hotel Rudra">" alt="Hotel Rudra">
+                    <img src="hotel7.jpg" alt="Hotel Rudra">
                 </div>
                 <div class="hotel-body">
                     <h3 class="hotel-title">Hotel Rudra</h3>
@@ -628,7 +725,7 @@
                             <span>Starting from</span>
                             <strong>₹1,599 <sub>/night</sub></strong>
                         </div>
-                        <a href="https://wa.me/919774059230?text=I%20want%20to%20book%20Hotel%20Rudra%20in%20Varanasi%20at%20%E2%82%B91599"" target="_blank" class="btn-book">
+                        <a href="https://wa.me/919774059230?text=I%20want%20to%20book%20Hotel%20Rudra%20in%20Varanasi%20at%20%E2%82%B91599" target="_blank" class="btn-book">
                             Book Now <i class="fa-brands fa-whatsapp"></i>
                         </a>
                     </div>
@@ -639,7 +736,7 @@
             <div class="hotel-card" data-city="varanasi" data-name="Shree murlidhar Residency luxa road">
                 <div class="hotel-badge luxury">Luxury</div>
                 <div class="hotel-img-container">
-                    <img src="hotel8.png" alt="Shree murlidhar Residency">" alt="Shree murlidhar Residency">
+                    <img src="hotel8.png" alt="Shree murlidhar Residency">
                 </div>
                 <div class="hotel-body">
                     <h3 class="hotel-title">Shree murlidhar Residency</h3>
@@ -653,23 +750,21 @@
                             <span>Starting from</span>
                             <strong>₹1,699 <sub>/night</sub></strong>
                         </div>
-                        <a href="https://wa.me/919774059230?text=I%20want%20to%20book%20Shree%20Murlidhar%20Residency%20in%20Varanasi%20at%20%E2%82%B91699"" target="_blank" class="btn-book">
+                        <a href="https://wa.me/919774059230?text=I%20want%20to%20book%20Shree%20Murlidhar%20Residency%20in%20Varanasi%20at%20%E2%82%B91699" target="_blank" class="btn-book">
                             Book Now <i class="fa-brands fa-whatsapp"></i>
                         </a>
                     </div>
                 </div>
             </div>
             <!-- Hotel 9 (Balaji Guest house) -->
-            <div class="hotel-card" data-city="varanasi" data-name="Balaji Guest house Kedar ghat, Bangali Tola
-Varanasi,">
+            <div class="hotel-card" data-city="varanasi" data-name="balaji guest house kedar ghat bangali tola varanasi">
                 <div class="hotel-badge luxury">Luxury</div>
                 <div class="hotel-img-container">
-                    <img src="hotel9.jpg" alt="Balaji Guest house">" alt="Balaji Guest house">  
+                    <img src="hotel9.jpg" alt="Balaji Guest house">  
                 </div>
                 <div class="hotel-body">
                     <h3 class="hotel-title">Balaji Guest house</h3>
-                    <div class="hotel-location"><i class="fa-solid fa-location-dot" style="color: var(--accent-gold);"></i> Kedar ghat, Bangali Tola, varanasi
-Varanasi,</div>
+                    <div class="hotel-location"><i class="fa-solid fa-location-dot" style="color: var(--accent-gold);"></i> Kedar Ghat, Bangali Tola, Varanasi</div>
                     <div class="hotel-rating">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         <span>(56 Reviews)</span>
@@ -679,7 +774,7 @@ Varanasi,</div>
                             <span>Starting from</span>
                             <strong>₹1,399 <sub>/night</sub></strong>
                         </div>
-                        <a href="https://wa.me/919774059230?text=I%20want%20to%20book%20Balaji%20Guest%20House%20in%20Varanasi%20at%20%E2%82%B91399"" target="_blank" class="btn-book">
+                        <a href="https://wa.me/919774059230?text=I%20want%20to%20book%20Balaji%20Guest%20House%20in%20Varanasi%20at%20%E2%82%B91399" target="_blank" class="btn-book">
                             Book Now <i class="fa-brands fa-whatsapp"></i>
                         </a>
                     </div>
@@ -690,7 +785,7 @@ Varanasi,</div>
             <div class="hotel-card" data-city="varanasi" data-name="Maa Laxmi Guest House Jagatganj, Near Kashi Vishwanath Temple, Varanasi">
                 <div class="hotel-badge luxury">Luxury</div>
                 <div class="hotel-img-container">
-                    <img src="hotel10.jpg" alt="Maa Laxmi Guest House">" alt="Maa Laxmi Guest House">          
+                    <img src="hotel10.jpg" alt="Maa Laxmi Guest House">          
                 </div>
                 <div class="hotel-body">
                     <h3 class="hotel-title">Maa Laxmi Guest House</h3>
@@ -704,14 +799,14 @@ Varanasi,</div>
                             <span>Starting from</span>
                             <strong>₹1,499 <sub>/night</sub></strong>
                         </div>
-                        <a href="https://wa.me/919774059230?text=I%20want%20to%20book%20Maa%20Laxmi%20Guest%20House%20in%20Varanasi%20at%20%E2%82%B91499"" target="_blank" class="btn-book">
+                        <a href="https://wa.me/919774059230?text=I%20want%20to%20book%20Maa%20Laxmi%20Guest%20House%20in%20Varanasi%20at%20%E2%82%B91499" target="_blank" class="btn-book">
                             Book Now <i class="fa-brands fa-whatsapp"></i>
                         </a>
                     </div>
                 </div>
             </div>
                    <!-- Hotel 11 (Hotel Shri Awadh Inn) -->
-<div class="hotel-card" data-city="ayodhya" data-name="Hotel Shri Awadh Inn 14, Kosi Parikrama Marg, Ayodhya">
+<div class="hotel-card" data-city="ayodhya" data-name="hotel geeta palace ram path ranopali ayodhya">
     <div class="hotel-badge luxury">Deluxe AC</div>
     <div class="hotel-img-container">
         <img src="hotel11.jpg" alt="Hotel Shri Awadh Inn">          
@@ -772,7 +867,7 @@ Varanasi,</div>
     </div>
 </div>
             <!-- Hotel 14 (The Ora Hotel) -->
-<div class="hotel-card" data-city="Vrindavan" data-name="The Ora Hotel, Opposite Shri Mata Vaishno Devi Mandir, Vrindavan Road, Chhatikara, Mathura">
+<div class="hotel-card" data-city="vrindavan" data-name="The Ora Hotel, Opposite Shri Mata Vaishno Devi Mandir, Vrindavan Road, Chhatikara, Mathura">
 
     <div class="hotel-badge luxury">AC Room</div>
 
@@ -847,7 +942,120 @@ Varanasi,</div>
 
 
 
-            <div id="no-results">
+            
+            <!-- Hotel 15: Hotel Ashutosh -->
+            <div class="hotel-card" data-city="haridwar" data-name="hotel ashutosh om vihar colony near veer dham haridwar uttarakhand ac">
+                <div class="hotel-badge">AC Room</div>
+                <div class="hotel-img-container">
+                    <img src="hotel15.jpg" alt="Hotel Ashutosh" loading="lazy"
+                         onerror="this.src='https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80'">
+                </div>
+                <div class="hotel-body">
+                    <h3 class="hotel-title">Hotel Ashutosh</h3>
+                    <div class="hotel-location">
+                        <i class="fa-solid fa-location-dot" style="color: var(--accent-gold);"></i>
+                        Om Vihar Colony, Near Veer Dham, Haridwar, Uttarakhand
+                    </div>
+                    <div class="hotel-rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <span>(14 Reviews)</span>
+                    </div>
+                    <div class="hotel-footer">
+                        <div class="hotel-price">
+                            <span>Starting from</span>
+                <strong>₹1199 <sub>/night</sub></strong>
+                        </div>
+                        <a href="https://wa.me/919774059230?text=Hi%20HotelReach!%20I%20want%20to%20check%20availability%20and%20book%20Hotel%20Ashutosh,%20Haridwar." target="_blank" class="btn-book">
+                            Book Now <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Hotel 17: Swagatam International -->
+<div class="hotel-card" 
+     data-city="kolkata" 
+     data-name="swagatam international kazi nazrul islam avenue vip road raghunathpur kolkata">
+
+    <div class="hotel-badge luxury">AC Room</div>
+
+    <div class="hotel-img-container">
+        <img src="hotel17.jpg" 
+             alt="Swagatam International"
+             loading="lazy"
+             onerror="this.src='https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80'">
+    </div>
+
+    <div class="hotel-body">
+
+        <h3 class="hotel-title">Swagatam International</h3>
+
+        <div class="hotel-location">
+            <i class="fa-solid fa-location-dot" 
+               style="color: var(--accent-gold);"></i>
+            8/2221, Kazi Nazrul Islam Avenue (V.I.P Road), 
+            Raghunathpur, Kolkata – 700059, West Bengal, India
+        </div>
+
+        <div class="hotel-rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <span>(345 Reviews)</span>
+        </div>
+
+        <div class="hotel-footer">
+
+            <div class="hotel-price">
+                <span>Starting from</span>
+                <strong>₹2,999 <sub>/night</sub></strong>
+            </div>
+
+            <a href="https://wa.me/919774059230?text=Hi%20HotelReach!%20I%20want%20to%20check%20availability%20and%20book%20Swagatam%20International,%20Kolkata."
+               target="_blank"
+               class="btn-book">
+
+                Book Now 
+                <i class="fa-brands fa-whatsapp"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+</div>
+
+            <!-- Hotel 16: Maa Ganga Haveli -->
+            <div class="hotel-card" data-city="haridwar" data-name="maa ganga haveli railway station jwalapur haridwar uttarakhand non ac 9 rooms">
+                <div class="hotel-badge luxury">9 Rooms</div>
+                <div class="hotel-img-container">
+                    <img src="hotel16.jpg" alt="Maa Ganga Haveli" loading="lazy"
+                         onerror="this.src='https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80'">
+                </div>
+                <div class="hotel-body">
+                    <h3 class="hotel-title">Maa Ganga Haveli</h3>
+                    <div class="hotel-location">
+                        <i class="fa-solid fa-location-dot" style="color: var(--accent-gold);"></i>
+                        In Front of Railway Station, Jwalapur, Haridwar, Uttarakhand
+                    </div>
+                    <div class="hotel-rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <span>(20 Reviews)</span>
+                    </div>
+                    <div class="hotel-footer">
+                        <div class="hotel-price">
+                             <span>Starting from</span>
+                <strong>₹899 <sub>/night</sub></strong>
+                        </div>
+                        <a href="https://wa.me/919774059230?text=Hi%20HotelReach!%20I%20want%20to%20check%20availability%20and%20book%20Maa%20Ganga%20Haveli,%20Haridwar." target="_blank" class="btn-book">
+                            Book Now <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+<div id="no-results">
                 <i class="fa-solid fa-hotel" style="font-size: 2.5rem; color: #cbd5e1; margin-bottom: 1rem; display: block;"></i>
                 No hotels found matching your search.
             </div>
@@ -859,7 +1067,7 @@ Varanasi,</div>
         <p>&copy; 2026 HotelReach. Expanding Luxury Stays Across India.</p>
     </footer>
 
-    <!-- Instant Search & City Filter JavaScript Script -->
+    <!-- Search, Filter & Premium Scroll Animation -->
     <script>
         function filterHotels() {
             const selectedCity = document.getElementById('citySelect').value.toLowerCase();
@@ -867,28 +1075,49 @@ Varanasi,</div>
             const hotelCards = document.querySelectorAll('.hotel-card');
             let hasResults = false;
 
-            hotelCards.forEach(card => {
-                const cardCity = card.getAttribute('data-city').toLowerCase();
-                const cardSearchText = card.getAttribute('data-name').toLowerCase();
-
-                const matchesCity = (selectedCity === 'all' || cardCity === selectedCity);
+            hotelCards.forEach((card, index) => {
+                const cardCity = (card.getAttribute('data-city') || '').toLowerCase();
+                const cardSearchText = (card.getAttribute('data-name') || '').toLowerCase();
+                const matchesCity = selectedCity === 'all' || cardCity === selectedCity;
                 const matchesKeyword = cardSearchText.includes(searchKeyword);
 
                 if (matchesCity && matchesKeyword) {
                     card.style.display = 'flex';
+                    card.classList.remove('is-visible');
+                    requestAnimationFrame(() => setTimeout(() => card.classList.add('is-visible'), Math.min(index * 70, 500)));
                     hasResults = true;
                 } else {
                     card.style.display = 'none';
                 }
             });
 
-            const noResultsMsg = document.getElementById('no-results');
-            if (hasResults) {
-                noResultsMsg.style.display = 'none';
-            } else {
-                noResultsMsg.style.display = 'block';
-            }
+            document.getElementById('no-results').style.display = hasResults ? 'none' : 'block';
         }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.hotel-card').forEach((card, index) => {
+            card.style.transitionDelay = `${Math.min(index * 45, 400)}ms`;
+            observer.observe(card);
+        });
+
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.hotel-card').forEach(card => {
+                const img = card.querySelector('img');
+                if (img) {
+                    img.addEventListener('error', () => {
+                        img.src = 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80';
+                    }, { once: true });
+                }
+            });
+        });
     </script>
 </body>
 </html>
