@@ -1835,25 +1835,6 @@
 
             .about-grid, .footer-grid { grid-template-columns: 1fr; }
 
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 250px;
-                height: 100vh;
-                background: var(--white);
-                flex-direction: column;
-                justify-content: center;
-                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-                transition: 0.4s ease;
-            }
-
-            .nav-links.active { right: 0; }
-            .nav-links li a { color: var(--text-main); font-size: 1.2rem; }
-
-            .hamburger { display: block; z-index: 1001; }
-            .hamburger.active { color: var(--text-main); }
-
             .floating-whatsapp { bottom: 20px; left: 20px; width: 50px; height: 50px; font-size: 25px; }
             .back-to-top { bottom: 20px; right: 20px; }
         }
@@ -5392,19 +5373,6 @@ function bookCabWhatsApp(event) {
 
     </div>
 </section>
-    <!-- Slider Controls -->
-    <button class="review-btn review-prev" id="reviewPrev" aria-label="Previous review">
-        <i class="fa-solid fa-chevron-left"></i>
-    </button>
-
-    <button class="review-btn review-next" id="reviewNext" aria-label="Next review">
-        <i class="fa-solid fa-chevron-right"></i>
-    </button>
-
-    <!-- Dots -->
-    <div class="review-dots" id="reviewDots"></div>
-</div>
-
     <!-- Partner Section -->
     <section class="partner-section" id="partner">
         <div class="container">
